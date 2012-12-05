@@ -25,9 +25,7 @@ sub message_public {
 sub message_private {
   my ($server, $msg, $nick, $address, $target) = @_;
 
-  if($msg =~ m/$me/i) {
-    Irssi::signal_emit('przl mention', 'irc msg', $nick, $msg);
-  }
+  Irssi::signal_emit('przl mention', $nick, $nick, $msg);
 }
 
 # subscribe
