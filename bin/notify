@@ -1,5 +1,4 @@
 #!/bin/sh
 
-cd ~/Dropbox/osx/terminal-notifier.app/Contents/MacOS/
 terminal-notifier "$@" > /dev/null
 
