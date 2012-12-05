@@ -1,0 +1,4 @@
+#!/bin/sh
+
+psg "$1" | grep -v './zap'  | pick | field 1 | xargs kill -9
+

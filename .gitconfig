@@ -1,0 +1,27 @@
+[push]
+  default = current
+[pull]
+  default = current
+[user]
+  name = Rany Keddo
+  email = rany@soundcloud.com
+[core]
+  excludesfile = /Users/purzelrakete/.gitignore
+  quotepath = false
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[diff]
+  rename = copy
+  color = auto
+[apply]
+  whitespace = strip
+[pager]
+  color = true
+[alias]
+  co = "checkout"
+  ci = "commit"
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[branch]
+  autosetuprebase = always

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+search=`echo $1 | sed 's/ /\+/g'`
+
+curl -sA Mozilla http://www.google.com/search?q="$search" | \
+  pcot ".med a" | \
+  awk -F\" '{ print $2 }' | \
+  sed -n '/^http/ p' | \
+  grep -v '\.google.com' | \
+  grep -v 'googleusercontent'
+

@@ -1,0 +1,5 @@
+set show-all-if-ambiguous on
+set visible-stats on
+set completion-ignore-case on
+set completion-prefix-display-length 2
+set completion-map-case on

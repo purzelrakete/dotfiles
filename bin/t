@@ -1,0 +1,20 @@
+#!/bin/sh
+
+sessions="$(tmux ls 2> /dev/null)"
+ret="$?"
+
+if test "$ret" -eq 0
+  then
+    if test $(echo $sessions | wc -l) -eq 1
+      then
+        tmux at
+      else
+        echo $sessions
+        echo pick a session to attach into
+        read count
+        tmux at -t$count
+    fi
+  else
+    tmux new
+fi
+

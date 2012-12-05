@@ -1,0 +1,119 @@
+default_color = "-1";
+info_eol = "false";
+replaces = { "[]<>=" = "%_%w$*%n%_"; };
+
+abstracts = {
+
+  ## general
+  ##
+
+  ban = "%R$*%n";
+  chanhost = "{nickhost $*}";
+  chanhost_hilight = "{nickhost $*}";
+  channel = "%_$*%_";
+  channelhilight = "%c$*%n";
+  channick = "$*";
+  channick_hilight = "%c$*%G";
+  comment = "($*)";
+  error = "%r$*%n";
+  hilight = "%_$*%_";
+  line_start = " %G-!- ";
+  mode = "{comment $*}";
+  nick = "%_$*%_";
+  nickhost = "<$*>";
+  reason = "{comment $*}";
+  server = "%_$*%_";
+  timestamp = "%C$*%n";
+
+  ## messages
+  ##
+
+  menick = "%m$*%n";
+  msgchannel = "%G:%c$*%n";
+  msgnick = "%_<%_$0$1-%_>%_ %|";
+  ownmsgnick = "{msgnick $0 $1-}%b";
+  ownnick = "%b$*%n";
+  ownprivmsg = "[%b$0%G<%B$1-%G>%n] ";
+  ownprivmsgnick = "{msgnick  $*}%b";
+  ownprivnick = "%b$*%n";
+  privmsg = "[%m$0%G<%n$1-%G>%n] ";
+  privmsgnick = "{msgnick  %m$*%n}%m";
+  pubmsghinick = "{msgnick $1 $0$2-%n}";
+  pubmsgmenick = "{msgnick $0 $1-}";
+  pubmsgnick = "{msgnick $0 $1-}";
+  pubnick = "%N%_$*%_%n";
+
+  ## actions
+  ##
+
+  action = "{action_core %_$*%n} ";
+  action_core = "%_*%n $*";
+  ownaction = "{action_core %b$*%n} ";
+  ownaction_target = "{action_core $0}%G:%b$1%n ";
+  pubaction = "{action $*}";
+  pvtaction = "%M (*) $*%n ";
+  pvtaction_query = "{action $*}";
+
+  ## whois
+  ##
+
+  whois = "%# $[8]0 : $1-";
+
+  ##  notices
+  ##
+
+  notice = "%G-%M$*%G-%n ";
+  ownnotice = "[%b$0%G(%b$1-%G)]%n ";
+  pubnotice_channel = "%G:%m$*";
+  pvtnotice_host = "%G(%m$*%G)";
+  servernotice = "%g!$*%n ";
+
+  ##  wallops
+  ##
+
+  wallop = "%c$*%n: ";
+  wallop_action = "%c * $*%n ";
+  wallop_nick = "%n$*";
+
+  ##  names
+  ##
+
+  names_prefix = "";
+  names_nick = "[%_$0%_$1-] ";
+  names_nick_op = "{names_nick $*}";
+  names_nick_halfop = "{names_nick $*}";
+  names_nick_voice = "{names_nick $*}";
+  names_users = "[%g$*%n]";
+  names_channel = "%c$*%n";
+
+  ## statusbar
+  ##
+
+  prompt = "%R$*: ";
+  sb = " $* %b●%n";
+  sb_default_bg = "%k%7";
+  sb_window_bg = "%G%7";
+  sb_background = "%k%6";
+  sb_topic_bg = "%W%9";
+};
+
+formats = {
+  "fe-common/core" = {
+    own_msg = "{ownmsgnick {ownnick $[-0]0$2}}$1";
+    own_msg_channel = "{ownmsgnick {ownnick $[-0]0$3}{msgchannel $1}}$2";
+    own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-0]2}}$1";
+    pubmsg_me = "{pubmsgmenick {menick $[-0]0}$2}$1";
+    pubmsg_me_channel = "{pubmsgmenick {menick $[-0]0$3}{msgchannel $1}}$2";
+    pubmsg_hilight = "{pubmsghinick $0 $0 $[-0]1$3%n}$2";
+    pubmsg_hilight_channel = "{pubmsghinick $0 $[-0]1$4{msgchannel $2}}$3";
+    pubmsg = "{pubmsgnick {pubnick %w$[-0]0}$2}$1";
+    pubmsg_channel = "{pubmsgnick {pubnick %w$[-0]0}$2}$1";
+    msg_private_query = "{privmsgnick $[-0]0}$2";
+  };
+  "fe-common/irc" = {
+    own_action = "{ownaction $[-0]0} $1";
+    action_private = "{pvtaction $[-0]0}$1";
+    action_private_query = "{pvtaction_query $[-0]0} $2";
+    action_public = "{pubaction $[-0]0}$1";
+  };
+};

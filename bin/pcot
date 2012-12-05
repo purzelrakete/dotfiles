@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby -rhpricot
+
+puts Hpricot(STDIN.read).search "#{ ARGV[0] } "
+

@@ -1,0 +1,63 @@
+#!/bin/sh
+
+articles_home=~/Dropbox/articles
+topic=$1
+
+display() {
+  if [[ -f $articles_home/$topic.pdf ]] || [[ -f $articles_home/$topic.html ]]
+    then
+      open $articles_home/$topic.*
+    else
+      echo 2>1 $topic not found.
+      exit 1
+  fi
+}
+
+dependencies() {
+  local topic=$1
+
+  grep http "$topic.html" | \
+    gsed 's/.*\"\(.*\)\".*/\1/g' | \
+    grep http | \
+    gsed -n '/jpg\|jpeg\|gif\|css\|js/ p' | \
+    sort | \
+    uniq | \
+    xargs -n1 md5 -s | \
+    awk '{ print $2, $NF }' | \
+    cut -c 3- | \
+    gsed 's/") / /g'
+}
+
+topics() {
+  ls $articles_home/*.{html,pdf} | \
+    gsed 's/\(.*\).\(html\|pdf\)/\1/g' | \
+    xargs -n1 basename | \
+    sort
+}
+
+capture() {
+  local topic=$1
+  local url=$2
+  local key="articles-topic=$topic"
+
+  (
+    cd $articles_home
+    wget -p "${url}#${key}"
+    mv "$articles_home/*$key" "$articles_home/$topic.html"
+  )
+}
+
+expr $# > /dev/null || { echo >&2 articles ls lists valid topics.; exit 1; }
+
+case $topic in
+  capture)
+    capture $2 $3
+    ;;
+  ls)
+    topics
+    ;;
+  *)
+    display
+    ;;
+esac
+

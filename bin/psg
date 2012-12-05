@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ps -ef | \
+  grep -i "$1" | \
+  psg.awk
+

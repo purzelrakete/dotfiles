@@ -1,0 +1,14 @@
+# no copyright
+startup_message off
+
+# scrollback
+defscrollback 50000
+
+# wooff off
+vbell off
+
+# utf-8
+defutf8 on
+
+# caption
+caption always '%{= r}sc:%H %= %{w}%-LW%{-} %{= b}%n:%t*%{-} %{w}%+LW%{-}%= %{w}%d.%m.%Y %{= K}%c'

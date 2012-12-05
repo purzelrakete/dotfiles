@@ -1,0 +1,3 @@
+#!/bin/bash
+
+egrep="alpha|beta|delta|epsilon|eta|theta|lambda|mu|omicron|pi|phi|omega" practice-greek

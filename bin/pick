@@ -1,0 +1,28 @@
+#!/bin/sh
+
+pic() {
+  read reponse
+  case "$reponse" in
+    y)
+      echo $line
+      ;;
+    q)
+      break
+      ;;
+  esac
+}
+
+case $# in
+  0)
+    while read line
+    do
+      /bin/echo -n $line?\  >/dev/tty
+      pic </dev/tty
+    done
+    ;;
+  *)
+    bar
+    ;;
+esac
+
+

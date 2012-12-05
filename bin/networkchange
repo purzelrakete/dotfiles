@@ -1,0 +1,16 @@
+#!/bin/bash
+
+PATH=$PATH:/System/Library/PrivateFrameworks
+PATH=$PATH/Apple80211.framework/Versions/A/Resources
+
+field() { awk "{ print \$$1 }"; }
+open()  { open /Applications/Tunnelblick.app; }
+seal()  { ps -ef | grep -i [t]unnelblick | field 2 | xargs kill -9; }
+ssid()  { airport -I | grep [^B]SSID | field NF; }
+
+sleep 5
+
+case $(ssid) in
+  purzelcave) seal ;;
+  SoundBase) open ;;
+esac

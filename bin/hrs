@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo hrs $(pmset -g ps | sed -n \$p | field 4)

@@ -1,0 +1,46 @@
+#!/bin/sh
+
+dev_home=~/Dropbox/bwiki/dev
+topic=$1
+arg=$2
+
+display() {
+  echo $topic | \
+    sed 's/$/Dev/g' | \
+    sed 's/-//g' | \
+    xargs find $dev_home -iname | \
+    sed 1q | \
+    xargs cat | \
+    sed 1,2d
+}
+
+scoreize() {
+  gsed 's/\([A-Z]\)/-\1/g' | \
+    gsed 's/^-//g' | \
+    tr [:upper:] [:lower:]
+}
+
+topics() {
+  ls $dev_home | \
+    grep -v HomePage | \
+    gsed 's/\(.*\)Dev/\1/g' | \
+    scoreize | \
+    sort
+}
+
+expr $# > /dev/null || { echo >&2 glossary ls lists valid topics.; exit 1; }
+
+case $topic in
+  ls)
+    topics
+    ;;
+  *)
+    if test -z $arg
+      then
+        display | less
+      else
+        display | sed -n '/^[a-zA-Z]/ p' | sort | uniq | more
+    fi
+    ;;
+esac
+

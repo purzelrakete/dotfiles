@@ -1,0 +1,73 @@
+#!/bin/sh
+
+# helpers
+
+theme() {
+  local color="$1"
+
+  if test "$color" = "dark"
+    then
+      export TMUX_BORDER=colour0
+      export TMUX_WINDOW_STATUS_FG=black
+      export VIM_THEME=dark
+    else # light
+      export TMUX_BORDER=colour7
+      export TMUX_WINDOW_STATUS_FG=colour251
+      export VIM_THEME=light
+  fi
+}
+
+usage() {
+  echo "solarized --theme <dark|light>"
+}
+
+configured() {
+  ! test -z "$TMUX_BORDER$TMUX_WINDOW_STATUS_FG$VIM_THEME"
+}
+
+# getopts
+
+skip=0
+args="$#"
+
+while test "$#" -gt 0
+do
+  case "$1" in
+    --theme|-t)
+      shift
+
+      case "$1" in
+        light|dark)
+          color="$1"
+          shift
+          ;;
+        *)
+          echo >&2 invalid theme name $1
+          exit 1
+          ;;
+      esac
+      ;;
+    --skip-if-configured|-s)
+      skip=1
+      shift
+      ;;
+    *)
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+# validations
+
+if test "$args" -eq 0
+  then
+    usage
+    exit 1
+fi
+
+if ! configured || test "$skip" -eq 0
+  then
+    theme "$color"
+fi
+

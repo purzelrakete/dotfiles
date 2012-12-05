@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo ${nodes:?} | xargs -n1 | xargs -P1 -I NODE ssh NODE -C "$@"

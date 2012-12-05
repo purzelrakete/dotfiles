@@ -1,0 +1,71 @@
+#!/bin/bash
+
+set -e
+set -u
+
+usage() {
+  echo bomb personalizes a remote account with dotfiles.
+  echo
+  echo usage:
+  echo
+  echo \ bomb --host host [--sourcedir sourcedir]
+  echo
+  echo defaults:
+  echo
+  echo \ sourcedir: $sourcedir
+  echo
+}
+
+r() { ssh "$host" "$1"; }
+
+#
+# Options
+#
+
+sourcedir=~/Dropbox/dot
+
+while test "$#" -gt 0
+do
+  case "$1" in
+    --help|-h)
+      usage
+      exit 0
+      ;;
+    --host|-H)
+      host="$2"
+      shift 2
+      ;;
+    --sourcedir|-s)
+      sourcedir="$2"
+      shift 2
+      ;;
+    -)
+      echo >&2 "unknown switch $1".
+      exit 1
+      ;;
+  esac
+done
+
+test "$host" && test "$sourcedir" || {
+  usage
+  exit 1
+}
+
+#
+# Install and pin dotfiles
+#
+
+r "mkdir -p ~/dotfiles ~/bin"
+cd "$sourcedir"
+tar -cvzf - --exclude .git . | r "tar xvfz - -C ~/dotfiles"
+r "cd ~/dotfiles && ./pin"
+
+#
+# Install sandboxed programs
+#
+
+binaries() {
+  r "dotfiles/.install/bash"
+  r "dotfiles/.install/command-t"
+}
+

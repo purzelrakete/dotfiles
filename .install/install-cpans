@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cpan install Crypt::Blowfish
+cpan install Crypt::DH
+cpan install Crypt::OpenSSL::Bignum
+cpan install Graph::Easy
+cpan install Math::BigInt
+cpan install Math::BigInt::FastCalc
+cpan install Math::BigInt::GMP
+cpan install IPC::System::Simple
+

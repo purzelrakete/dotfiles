@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+mkdir -p ~/bin
+ln -sfv $(pwd)/.[^.]* ~
+ln -sfv $(pwd)/bin/* ~/bin

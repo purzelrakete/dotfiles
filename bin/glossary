@@ -1,0 +1,50 @@
+#!/bin/sh
+
+glossary_home=~/Dropbox/bwiki/glossary
+topic="$1"
+arg="$2"
+
+display() {
+  echo "$topic" | \
+    sed 's/$/Glossary/g' | \
+    sed 's/-//g' | \
+    xargs find "$glossary_home" -iname | \
+    sed '1q' | \
+    xargs cat | \
+    sed '1,2d'
+}
+
+scoreize() {
+  gsed 's/\([A-Z]\)/-\1/g' | \
+    gsed 's/^-//g' | \
+    tr '[:upper:]' '[:lower:]'
+}
+
+topics() {
+  ls "$glossary_home" | \
+    grep -v HomePage | \
+    gsed 's/\(.*\)Glossary/\1/g' | \
+    scoreize | \
+    sort
+}
+
+expr $# > /dev/null || { echo >&2 glossary ls lists valid topics.; exit 1; }
+
+case "$topic" in
+  ls)
+    topics
+    ;;
+  *)
+    case "$arg" in
+      ls)
+        display | sed -n '/^[a-zA-Z]/ p' | sort | uniq | more
+        ;;
+      '')
+        display | less
+        ;;
+      *)
+        display | sed -n "/^$arg/,/^[a-zA-Z]/ p" | sed \$d | more
+        ;;
+    esac
+    ;;
+esac

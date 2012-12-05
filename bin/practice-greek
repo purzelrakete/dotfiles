@@ -1,0 +1,11 @@
+#!/bin/bash
+
+: ${egrep:?}
+
+while true
+do
+  clear
+  set -- $(moob greek | grep -v = | egrep -i "$egrep" | gshuf | head -n2)
+  printf "%s " $1 && read -n1
+  printf "%s" $2 && read -n1
+done

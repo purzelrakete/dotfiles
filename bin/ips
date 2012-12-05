@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ifconfig | awk '/^[^	]/ { device = $1 } /inet[^6]/ { print device, $2 }'

@@ -1,0 +1,41 @@
+#!/bin/sh
+
+moob_home=~/Dropbox/bwiki/moob
+topic=$1
+
+display() {
+  echo $topic | \
+    sed 's/$/Help/g' | \
+    sed 's/-//g' | \
+    xargs find $moob_home -iname | \
+    sed 1q | \
+    xargs cat | \
+    sed 1,2d | \
+    less
+}
+
+scoreize() {
+  gsed 's/\([A-Z]\)/-\1/g' | \
+    gsed 's/^-//g' | \
+    tr [:upper:] [:lower:]
+}
+
+topics() {
+  ls $moob_home | \
+    grep -v HomePage | \
+    gsed 's/\(.*\)Help/\1/g' | \
+    scoreize | \
+    sort
+}
+
+expr $# > /dev/null || { echo >&2 moob ls lists valid topics.; exit 1; }
+
+case $topic in
+  ls)
+    topics
+    ;;
+  *)
+    display
+    ;;
+esac
+
