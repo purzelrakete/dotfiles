@@ -1,4 +1,8 @@
 .DS_Store
 sasl.auth
 .irssi/config
+.irssi/away.log
+.irssi/saved_colors
+.netrwhist
+
 

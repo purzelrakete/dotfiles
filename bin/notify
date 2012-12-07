@@ -1,4 +1,0 @@
-#!/bin/sh
-
-terminal-notifier "$@" > /dev/null
-

@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/purzelrakete/Dropbox/dot/.install'
-let g:netrw_dirhist_2='/Users/purzelrakete/Dropbox/dot'
-let g:netrw_dirhist_3='/Users/purzelrakete/Dropbox/dot/.emacs.d'
