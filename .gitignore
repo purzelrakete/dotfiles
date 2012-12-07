@@ -4,5 +4,6 @@ sasl.auth
 .irssi/away.log
 .irssi/saved_colors
 .netrwhist
+.muttrc
 
 
