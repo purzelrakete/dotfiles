@@ -1,9 +1,10 @@
 .DS_Store
-sasl.auth
-.irssi/config
 .irssi/away.log
+.irssi/config
 .irssi/saved_colors
-.netrwhist
 .muttrc
-
+.netrwhist
+log
+sasl.auth
+supervise
 

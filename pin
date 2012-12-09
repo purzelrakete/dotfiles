@@ -2,6 +2,11 @@
 
 set -e
 
+ln -sfv $(echo $(pwd)/.[^.]* | xargs -n1 | grep -v '\.git$' | xargs) ~
+
 mkdir -p ~/bin
-ln -sfv $(pwd)/.[^.]* ~
 ln -sfv $(pwd)/bin/* ~/bin
+
+mkdir -p ~/service
+ln -sfv $(pwd)/service/* ~/service
+

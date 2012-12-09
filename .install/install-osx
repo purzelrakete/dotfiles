@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo setenv PATH /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin > /etc/launchd.conf

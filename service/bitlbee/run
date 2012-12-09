@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec /usr/local/sbin/bitlbee -D -n -p 6468
+

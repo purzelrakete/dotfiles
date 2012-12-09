@@ -35,6 +35,7 @@ alias pwdc="pwd | pbcopy"
 alias sd="source solarized --theme dark"
 alias sl="source solarized --theme light"
 alias v='vim .'
+alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 # base
 export PATH=$PATH:/usr/X13/bin
