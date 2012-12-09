@@ -1,6 +1,6 @@
 use strict;
 use Irssi;
-use IPC::System::Simple qw(systemx);
+use IPC::System::Simple qw(capturex);
 
 use vars qw($VERSION %IRSSI);
 
@@ -17,7 +17,7 @@ sub przl_mention {
   my ($channel, $nick, $msg) = @_;
 
   # untrusted content is escaped
-  systemx('terminal-notifier', ('-message', "\@$nick $msg", '-title', $channel));
+  capturex('terminal-notifier', ('-message', "\@$nick $msg", '-title', $channel));
 }
 
 Irssi::signal_add('przl mention', 'przl_mention');
