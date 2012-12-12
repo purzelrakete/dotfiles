@@ -9,9 +9,6 @@ compinit
 # case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# spelling correction
-setopt correct
-
 # 10k history across all open shells
 HISTFILE=~/.zhistory
 HISTSIZE=SAVEHIST=10000

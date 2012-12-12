@@ -17,6 +17,9 @@ export blu clr grn gry mag red
 if which gls > /dev/null; then alias ls=gls; fi
 if which gdircolors > /dev/null; then alias dircolors=gdircolors; fi
 
+# vim
+export vim_bin="/Applications/MacVim.app/Contents/MacOS/Vim"
+
 # aliases
 alias ....="cd ../../.."
 alias ...="cd ../.."
@@ -35,9 +38,10 @@ alias pwdc="pwd | pbcopy"
 alias sd="source solarized --theme dark"
 alias sl="source solarized --theme light"
 alias v='vim .'
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vim=$vim_bin
 
 # base
+export EDITOR=$vim_bin
 export PATH=$PATH:/usr/X13/bin
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin
 export PATH=$PATH:/usr/sbin:/sbin:/usr/local/sbin
@@ -65,7 +69,6 @@ export PATH=$PATH:$HADOOP_HOME/bin
 export PYTHONPATH=/Library/Python/2.7/site-packages
 
 # other
-export EDITOR="vim"
 export PATH=$PATH:/Applications/Octave.app/Contents/Resources/bin
 export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
 export PATH=$PATH:/opt/samiam

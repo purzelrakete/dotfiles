@@ -1,6 +1,6 @@
 ; solarized
 (add-to-list 'custom-theme-load-path "~/.emacs.d/solarized")
-(load-theme 'solarized-dark t)
+; (load-theme 'solarized-dark t)
 
 ; evil
 (load "~/.emacs.d/undo-tree/undo-tree.el")
