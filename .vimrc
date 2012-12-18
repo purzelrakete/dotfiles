@@ -116,8 +116,7 @@ noremap  <Right> ""
 
 " reload testing screen
 
-map <leader>t :!ssh dev "screen -x tests -p test -X stuff 'R'"<CR><CR>
-map <leader>u :!tmux send-keys -t 1 R<CR><CR>
+map <leader>u :!tmux send-keys -t 1 y<CR><CR>
 
 " persist marks, registers history and buffer list across restarts
 

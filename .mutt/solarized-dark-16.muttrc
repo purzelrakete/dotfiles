@@ -1,0 +1,108 @@
+# 16 bit solarized dark mutt theme.
+# -- use mutt with slang, not ncurses. mutt -v to check.
+
+# valid backgrounds in 16 color mode: base03, bg, black, any non-brights
+
+color attachment    white             default           # attachments
+color bold          black             default           # highlighting bold patterns in the body of messages
+color error         red               default           # error messages printed by mutt
+color indicator     brightblue        black             # arrow or bar used to indicate the current item in a menu
+color markers       red               white             # the ``+'' markers at the beginning of wrapped lines in the pager
+color message       cyan              default           # informational messages
+color normal        brightyellow      default           # everything else
+color quoted        blue              default           # text matching $quote_regexp in the body of a message
+color quoted1       cyan              default           # higher level of quoting
+color quoted2       yellow            default           # higher level of quoting
+color quoted3       red               default           # higher level of quoting
+color quoted4       brightred         default           # higher level of quoting
+color search        brightmagenta     default           # highlighting of words on the pager
+color signature     brightgreen       default           # message signatures
+color status        black             default           # mode lines used to display info about the mailbox or message
+color tilde         black             default           # the ``~'' used to pad blank lines in the pager
+color tree          yellow            default           # thread tree drawn in the message index and attachment menu
+color underline     black             default           # highlighting of underlined patterns in the body of messages
+
+# body
+
+color body          brightred         default           "(rany|purzelrakete|przl)"
+
+# body ­ emoticons
+
+color body          brightred         default           "[;:][-o][)/(|]"
+color body          brightred         default           "[;:][)(|]"
+color body          brightred         default           "[ ][*][^*]*[*][ ]?"
+color body          brightred         default           "[ ]?[*][^*]*[*][ ]"
+color body          brightred         default           "[*]?((N)?ACK|CU|LOL|SCNR|\
+                                                 |BRB|BTW|CWYL|FWIW|vbg|GD&R|\
+                                                 |HTH|HTHBE|IMHO|IMNSHO|IRL|\
+                                                 |RTFM|ROTFL|ROFL|YMMV)[*]?"
+
+## body ­ pgp
+
+color body          red               default           "(BAD signature)"
+color body          cyan              default           "(Good signature)"
+color body          brightblack       default           "^gpg: Good signature .*"
+color body          brightyellow      default           "^gpg: "
+color body          brightyellow      red               "^gpg: BAD signature from.*"
+
+# index
+
+color index         red               default           "~D(!~p|~p)"                 # deleted
+color index         black             default           ~F                           # flagged
+color index         brightred         default           ~=                           # duplicate messages
+color index         brightgreen       default           "~A!~N!~T!~p!~Q!~F!~D!~P"    # the rest
+color index         brightblue        default           "~A~N!~T!~p!~Q!~F!~D"        # the rest, new
+color index         red               default           "~A"                         # all messages
+color index         brightred         default           "~E"                         # expired messages
+color index         blue              default           "~N"                         # new messages
+color index         blue              default           "~O"                         # old messages
+color index         brightmagenta     default           "~Q"                         # messages that have been replied to
+color index         brightgreen       default           "~R"                         # read messages
+color index         blue              default           "~U"                         # unread messages
+color index         blue              default           "~U~$"                       # unread, unreferenced messages
+color index         brightyellow      default           "~v"                         # messages part of a collapsed thread
+color index         brightyellow      default           "~P"                         # messages from me
+color index         cyan              default           "~p!~F"                      # messages to me
+color index         cyan              default           "~N~p!~F"                    # new messages to me
+color index         cyan              default           "~U~p!~F"                    # unread messages to me
+color index         brightgreen       default           "~R~p!~F"                    # messages to me
+color index         red               default           "~F"                         # flagged messages
+color index         red               default           "~F~p"                       # flagged messages to me
+color index         red               default           "~N~F"                       # new flagged messages
+color index         red               default           "~N~F~p"                     # new flagged messages to me
+color index         red               default           "~U~F~p"                     # new flagged messages to me
+color index         black             red               "~D"                         # deleted messages
+color index         brightcyan        default           "~v~(!~N)"                   # collapsed thread with no unread
+color index         yellow            default           "~v~(~N)"                    # collapsed thread with some unread
+color index         green             default           "~N~v~(~N)"                  # collapsed thread with unread parent
+color index         red               default           "~v~(~F)!~N"                 # collapsed thread with flagged, no unread
+color index         yellow            default           "~v~(~F~N)"                  # collapsed thread with some unread & flagged
+color index         green             default           "~N~v~(~F~N)"                # collapsed thread with unread parent & flagged
+color index         green             default           "~N~v~(~F)"                  # collapsed thread with unread parent, no unread inside, but some flagged
+color index         cyan              default           "~v~(~p)"                    # collapsed thread with unread parent, no unread inside, some to me directly
+color index         yellow            red               "~v~(~D)"                    # thread with deleted (doesn't differentiate between all or partial)
+color index         yellow            default           "~(~N)"                      # messages in threads with some unread
+color index         green             default           "~S"                         # superseded messages
+color index         red               default           "~T"                         # tagged messages
+color index         brightred         red               "~="                         # duplicated messages
+
+# index - highlights messages which mention name in the body
+
+color index         blue              default           "~b \"(rany|purzelrakete|przl)\" !~N !~T !~F !~p !~P"
+color index         blue              brightwhite       "~b \"(rany|purzelrakete|przl)\" ~N !~T !~F !~p !~P"
+color index         blue              cyan              "~b \"(rany|purzelrakete|przl)\" ~T !~F !~p !~P"
+color index         blue              magenta           "~b \"(rany|purzelrakete|przl)\" ~F !~p !~P"
+
+# index - messages which are in reference to my mails
+
+color index         magenta           default           "~x \"playtype\\.net\" !~N !~T !~F !~p !~P"
+color index         magenta           brightwhite       "~x \"playtype\\.net\" ~N !~T !~F !~p !~P"
+color index         magenta           cyan              "~x \"playtype\\.net\" ~T !~F !~p !~P"
+color index         magenta           red               "~x \"playtype\\.net\" ~F !~p !~P"
+
+# headers
+
+color hdrdefault    brightgreen       default           # default
+color header        green             default           "^(From)"                    # from
+color header        green             default           "^(Subject)"                 # subject
+

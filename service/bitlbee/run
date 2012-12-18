@@ -1,4 +1,4 @@
 #!/bin/sh
 
-exec /usr/local/sbin/bitlbee -D -n -p 6468
+exec /usr/local/sbin/bitlbee -D -n -p 6468 2>&1
 

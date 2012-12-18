@@ -16,6 +16,7 @@ brew install camlp5
 brew install casperjs
 brew install cassandra
 brew install cmake
+brew install contacts
 brew install coq
 brew install coreutils
 brew install ctags
@@ -102,8 +103,9 @@ brew install mercurial
 brew install metis
 brew install mit-scheme
 brew install mobile-shell
+brew install msmtp
 brew install mtr
-brew install mutt
+brew install mutt --sidebar-patch --with-slang
 brew install mysql
 brew install neo4j
 brew install netcat
@@ -111,6 +113,7 @@ brew install nettle
 brew install nginx
 brew install nmap
 brew install node
+brew install notmuch
 brew install objective-caml
 brew install octave
 brew install opencore-amr

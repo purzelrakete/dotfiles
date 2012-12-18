@@ -1,0 +1,148 @@
+source ~/.mutt/solarized-dark-16.muttrc
+
+# Paths
+
+set alias_file            = ~/.mutt/alias
+set certificate_file      = ~/.mutt/certificates
+set folder                = ~/.mail
+set header_cache          = ~/.mutt-scratch/headers
+set mailcap_path          = ~/.mutt/mailcap
+set message_cachedir      = ~/.mutt-scratch/bodies
+set signature             = ~/.mutt/sig
+set tmpdir                = ~/.mutt-scratch/temp
+
+# Basics
+
+set editor                = "mvim -v"
+set mail_check            = 0
+set mbox_type             = Maildir
+set timeout               = 3
+set wait_key              = no
+set help                  = no
+set wrap                  = 80
+
+set delete                # don't ask
+set pipe_decode           # strip headers and eval mimes when piping
+set quit                  # don't ask
+set thorough_search       # strip headers and eval mimes before searching
+
+unset confirmappend       # don't ask
+unset mark_old            # read/new is good enough for me
+unset move                # gmail does that
+
+# Headers
+
+ignore *
+unignore from: subject: to: cc: date:
+unhdr_order *
+hdr_order from: subject: to: cc: date:
+
+# Index
+
+set date_format           = "%m/%d"
+set index_format          = "[%Z]  %D  %-20.20F  %s"
+set reply_regexp          = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set sort                  = threads
+set sort_aux              = reverse-last-date-received
+
+set uncollapse_jump       # don't collapse on an unread message
+set sort_re               # thread based on regex
+
+# Index bindings
+
+bind index <space>        collapse-thread
+bind index <tab>          sync-mailbox
+bind index G              last-entry
+bind index N              search-opposite
+bind index gg             first-entry
+bind index p              recall-message
+
+# Index saner copy and move dialogs
+
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Pager
+
+set pager_context         = 3
+set pager_index_lines     = 10
+set quote_regexp          = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+set menu_scroll           # scroll in menus
+set pager_stop            # don't go to next message automatically
+set tilde                 # show tildes like in vim
+unset markers             # no ugly plus signs
+
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+
+# Pager bindings
+
+bind attach <return>      view-mailcap
+bind pager G              bottom
+bind pager N              search-opposite
+bind pager gg             top
+bind pager j              next-line
+bind pager k              previous-line
+
+# Compose
+
+set attribution           = "On %d, %n wrote:"
+set forward_format        = "Fwd: %s"
+set realname              = "Rany Keddo"
+
+set askcc                 # ask for CC:
+set edit_headers          # show headers when composing
+set envelope_from         # which from?
+set fast_reply            # skip to compose when replying
+set fcc_attach            # save attachments with the body
+set forward_decode        # decode when forwarding
+set forward_quote         # include message in forwards
+set include               # include message in replies
+set reply_to              # reply to Reply to: field
+set reverse_name          # reply as whomever it was to
+set sig_dashes            # dashes before sig
+unset mime_forward        # forward attachments as part of body
+
+bind compose p            postpone-message
+
+# SMTP client
+
+set from                  = "purzelrakete@gmail.com"
+set sendmail              = "/usr/local/bin/msmtp -a purzelrakete"
+set sendmail_wait         = 0
+unset record
+
+# Contacts
+
+bind editor <Tab>         complete-query
+bind editor ^T            complete
+
+set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+
+# Accounts
+
+set spoolfile = "+purzelrakete/INBOX"
+
+# Sidebar
+
+mailboxes +purzelrakete/INBOX \
+          +purzelrakete/all \
+          +purzelrakete/drafts \
+          +purzelrakete/sent \
+          +temporary/search \
+
+# Special
+
+set mbox      = "+purzelrakete/all"
+set postponed = "+purzelrakete/drafts"
+
+# Status Bar
+
+set status_chars  = " *%A"
+
+# Search
+
+macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch<enter><change-folder-readonly>+temporary/search<enter>" \
+  "search mail (using notmuch)"
+

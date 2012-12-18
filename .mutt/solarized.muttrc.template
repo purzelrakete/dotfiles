@@ -1,0 +1,108 @@
+# 16 bit solarized dark mutt theme.
+# -- use mutt with slang, not ncurses. mutt -v to check.
+
+# valid backgrounds in 16 color mode: base03, bg, black, any non-brights
+
+color attachment    J_base2         J_bg                                       # attachments
+color bold          J_base02        J_bg                                       # highlighting bold patterns in the body of messages
+color error         J_red           J_bg                                       # error messages printed by mutt
+color indicator     J_base0         J_base02                                   # arrow or bar used to indicate the current item in a menu
+color markers       J_red           J_base2                                    # the ``+'' markers at the beginning of wrapped lines in the pager
+color message       J_cyan          J_bg                                       # informational messages
+color normal        J_fg            J_bg                                       # everything else
+color quoted        J_blue          J_bg                                       # text matching $quote_regexp in the body of a message
+color quoted1       J_cyan          J_bg                                       # higher level of quoting
+color quoted2       J_yellow        J_bg                                       # higher level of quoting
+color quoted3       J_red           J_bg                                       # higher level of quoting
+color quoted4       J_orange        J_bg                                       # higher level of quoting
+color search        J_violet        J_bg                                       # highlighting of words on the pager
+color signature     J_base01        J_bg                                       # message signatures
+color status        J_statusfg      J_statusbg                                 # mode lines used to display info about the mailbox or message
+color tilde         J_base02        J_bg                                       # the ``~'' used to pad blank lines in the pager
+color tree          J_yellow        J_bg                                       # thread tree drawn in the message index and attachment menu
+color underline     J_base02        J_bg                                       # highlighting of underlined patterns in the body of messages
+
+# body
+
+color body          J_orange        J_bg         "(rany|purzelrakete|przl)"
+
+# body ­ emoticons
+
+color body          J_orange        J_bg         "[;:][-o][)/(|]"
+color body          J_orange        J_bg         "[;:][)(|]"
+color body          J_orange        J_bg         "[ ][*][^*]*[*][ ]?"
+color body          J_orange        J_bg         "[ ]?[*][^*]*[*][ ]"
+color body          J_orange        J_bg         "[*]?((N)?ACK|CU|LOL|SCNR|\
+                                                 |BRB|BTW|CWYL|FWIW|vbg|GD&R|\
+                                                 |HTH|HTHBE|IMHO|IMNSHO|IRL|\
+                                                 |RTFM|ROTFL|ROFL|YMMV)[*]?"
+
+## body ­ pgp
+
+color body          J_red           J_bg          "(BAD signature)"
+color body          J_cyan          J_bg          "(Good signature)"
+color body          J_base03        J_bg          "^gpg: Good signature .*"
+color body          J_base00        J_bg          "^gpg: "
+color body          J_base00        J_red         "^gpg: BAD signature from.*"
+
+# index
+
+color index         J_red           J_bg          "~D(!~p|~p)"                 # deleted
+color index         J_base02        J_bg          ~F                           # flagged
+color index         J_orange        J_bg          ~=                           # duplicate messages
+color index         J_base01        J_bg          "~A!~N!~T!~p!~Q!~F!~D!~P"    # the rest
+color index         J_base0         J_bg          "~A~N!~T!~p!~Q!~F!~D"        # the rest, new
+color index         J_red           J_bg          "~A"                         # all messages
+color index         J_orange        J_bg          "~E"                         # expired messages
+color index         J_blue          J_bg          "~N"                         # new messages
+color index         J_blue          J_bg          "~O"                         # old messages
+color index         J_violet        J_bg          "~Q"                         # messages that have been replied to
+color index         J_base01        J_bg          "~R"                         # read messages
+color index         J_blue          J_bg          "~U"                         # unread messages
+color index         J_blue          J_bg          "~U~$"                       # unread, unreferenced messages
+color index         J_base00        J_bg          "~v"                         # messages part of a collapsed thread
+color index         J_base00        J_bg          "~P"                         # messages from me
+color index         J_cyan          J_bg          "~p!~F"                      # messages to me
+color index         J_cyan          J_bg          "~N~p!~F"                    # new messages to me
+color index         J_cyan          J_bg          "~U~p!~F"                    # unread messages to me
+color index         J_base01        J_bg          "~R~p!~F"                    # messages to me
+color index         J_red           J_bg          "~F"                         # flagged messages
+color index         J_red           J_bg          "~F~p"                       # flagged messages to me
+color index         J_red           J_bg          "~N~F"                       # new flagged messages
+color index         J_red           J_bg          "~N~F~p"                     # new flagged messages to me
+color index         J_red           J_bg          "~U~F~p"                     # new flagged messages to me
+color index         J_base02        J_red         "~D"                         # deleted messages
+color index         J_base1         J_bg          "~v~(!~N)"                   # collapsed thread with no unread
+color index         J_yellow        J_bg          "~v~(~N)"                    # collapsed thread with some unread
+color index         J_green         J_bg          "~N~v~(~N)"                  # collapsed thread with unread parent
+color index         J_red           J_statusbg    "~v~(~F)!~N"                 # collapsed thread with flagged, no unread
+color index         J_yellow        J_statusbg    "~v~(~F~N)"                  # collapsed thread with some unread & flagged
+color index         J_green         J_statusbg    "~N~v~(~F~N)"                # collapsed thread with unread parent & flagged
+color index         J_green         J_statusbg    "~N~v~(~F)"                  # collapsed thread with unread parent, no unread inside, but some flagged
+color index         J_cyan          J_statusbg    "~v~(~p)"                    # collapsed thread with unread parent, no unread inside, some to me directly
+color index         J_yellow        J_red         "~v~(~D)"                    # thread with deleted (doesn't differentiate between all or partial)
+color index         J_yellow        J_bg          "~(~N)"                      # messages in threads with some unread
+color index         J_green         J_bg          "~S"                         # superseded messages
+color index         J_red           J_bg          "~T"                         # tagged messages
+color index         J_orange        J_red         "~="                         # duplicated messages
+
+# index - highlights messages which mention name in the body
+
+color index         J_blue          J_bg          "~b \"(rany|purzelrakete|przl)\" !~N !~T !~F !~p !~P"
+color index         J_blue          J_base3       "~b \"(rany|purzelrakete|przl)\" ~N !~T !~F !~p !~P"
+color index         J_blue          J_cyan        "~b \"(rany|purzelrakete|przl)\" ~T !~F !~p !~P"
+color index         J_blue          J_magenta     "~b \"(rany|purzelrakete|przl)\" ~F !~p !~P"
+
+# index - messages which are in reference to my mails
+
+color index         J_magenta       J_bg          "~x \"playtype\\.net\" !~N !~T !~F !~p !~P"
+color index         J_magenta       J_base3       "~x \"playtype\\.net\" ~N !~T !~F !~p !~P"
+color index         J_magenta       J_cyan        "~x \"playtype\\.net\" ~T !~F !~p !~P"
+color index         J_magenta       J_red         "~x \"playtype\\.net\" ~F !~p !~P"
+
+# headers
+
+color hdrdefault    J_base01        J_bg                                       # default
+color header        J_green         J_bg          "^(From)"                    # from
+color header        J_green         J_bg          "^(Subject)"                 # subject
+

@@ -2,11 +2,17 @@
 
 set -e
 
+# link dotfiles
 ln -sfv $(echo $(pwd)/.[^.]* | xargs -n1 | grep -v '\.git$' | xargs) ~
 
+# link remaining cfgs
+ln -sfv $(pwd)/keyringrc.cfg ~
+
+# link binaries
 mkdir -p ~/bin
 ln -sfv $(pwd)/bin/* ~/bin
 
+# link services
 mkdir -p ~/service
 ln -sfv $(pwd)/service/* ~/service
 

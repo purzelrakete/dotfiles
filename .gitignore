@@ -1,10 +1,13 @@
+*.pyc
 .DS_Store
 .irssi/away.log
 .irssi/config
 .irssi/saved_colors
-.muttrc
+.mail/
 .netrwhist
-log
+.offlineimap/Account*
+.offlineimap/Repository*
+.offlineimap/pid
 sasl.auth
+service/*/log/main/
 supervise
-

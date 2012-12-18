@@ -1,0 +1,27 @@
+[general]
+accounts = purzelrakete
+fsync = False
+pythonfile=~/.offlineimap/offlineimap.py
+
+[Account purzelrakete]
+localrepository = purzelrakete-Local
+remoterepository = purzelrakete-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository purzelrakete-Local]
+localfolders = ~/.mail/purzelrakete
+nametrans = trans_local_gmail
+type = Maildir
+
+[Repository purzelrakete-Remote]
+cert_fingerprint = 6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+folderfilter = filter_remote_gmail
+maxconnections = 1
+nametrans = trans_remote_gmail
+realdelete = no
+remotepasseval = keychain("imap.gmail.com", "purzelrakete@gmail.com")
+remoteuser = purzelrakete@gmail.com
+ssl = yes
+type = Gmail
+

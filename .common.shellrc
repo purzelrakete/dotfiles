@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# charset
+# base
 export LC_CTYPE=en_US.UTF-8
+export EDITOR="mvim -v"
+export SVDIR=~/service
 
 # colours
 blu=$(printf "\033\\[1;34m")
@@ -17,9 +19,6 @@ export blu clr grn gry mag red
 if which gls > /dev/null; then alias ls=gls; fi
 if which gdircolors > /dev/null; then alias dircolors=gdircolors; fi
 
-# vim
-export vim_bin="/Applications/MacVim.app/Contents/MacOS/Vim"
-
 # aliases
 alias ....="cd ../../.."
 alias ...="cd ../.."
@@ -32,16 +31,15 @@ alias gst='git status'
 alias gti='git'
 alias l='ls --color -alFh'
 alias ll='ls --color -bF'
-alias mutt='auth mutt'
+alias m='mutt'
 alias psmem='ps -o vsz= -p'
 alias pwdc="pwd | pbcopy"
 alias sd="source solarized --theme dark"
 alias sl="source solarized --theme light"
 alias v='vim .'
-alias vim=$vim_bin
+alias vim='mvim -v'
 
 # base
-export EDITOR=$vim_bin
 export PATH=$PATH:/usr/X13/bin
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin
 export PATH=$PATH:/usr/sbin:/sbin:/usr/local/sbin
@@ -52,10 +50,6 @@ export JAVA=$JAVA_HOME/bin/java
 export JAVA_HOME=/Library/Java/Home
 export JAVA_JARS=~/.jvm/jars
 export MYSQL_CONNECTOR_JAR=$JAVA_JARS/mysql-connector-java-5.1.14-bin.jar
-
-# julia
-export JULIA_HOME=~/Projects/third-party/julia
-export PATH=$PATH:$JULIA_HOME
 
 # node
 export PATH=$PATH:/usr/local/share/npm/bin

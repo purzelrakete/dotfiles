@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/usr/local/bin/offlineimap 2>&1; sleep 1500
+
