@@ -5,6 +5,7 @@
 .irssi/saved_colors
 .mail/
 .netrwhist
+.offlineimap/*.lock
 .offlineimap/Account*
 .offlineimap/Repository*
 .offlineimap/pid

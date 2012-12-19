@@ -19,7 +19,7 @@ set mbox_type             = Maildir
 set timeout               = 3
 set wait_key              = no
 set help                  = no
-set wrap                  = 80
+set wrap                  = 110
 
 set delete                # don't ask
 set pipe_decode           # strip headers and eval mimes when piping

@@ -24,7 +24,7 @@ color underline     J_base02        J_bg                                       #
 
 # body
 
-color body          J_orange        J_bg         "(rany|purzelrakete|przl)"
+color body          J_orange        J_bg         "(rany|purzelrakete|przl|keddo)"
 
 # body ­ emoticons
 
@@ -88,10 +88,10 @@ color index         J_orange        J_red         "~="                         #
 
 # index - highlights messages which mention name in the body
 
-color index         J_blue          J_bg          "~b \"(rany|purzelrakete|przl)\" !~N !~T !~F !~p !~P"
-color index         J_blue          J_base3       "~b \"(rany|purzelrakete|przl)\" ~N !~T !~F !~p !~P"
-color index         J_blue          J_cyan        "~b \"(rany|purzelrakete|przl)\" ~T !~F !~p !~P"
-color index         J_blue          J_magenta     "~b \"(rany|purzelrakete|przl)\" ~F !~p !~P"
+color index         J_blue          J_bg          "~b \"(rany|purzelrakete|przl|keddo)\" !~N !~T !~F !~p !~P"
+color index         J_blue          J_base3       "~b \"(rany|purzelrakete|przl|keddo)\" ~N !~T !~F !~p !~P"
+color index         J_blue          J_cyan        "~b \"(rany|purzelrakete|przl|keddo)\" ~T !~F !~p !~P"
+color index         J_blue          J_magenta     "~b \"(rany|purzelrakete|przl|keddo)\" ~F !~p !~P"
 
 # index - messages which are in reference to my mails
 

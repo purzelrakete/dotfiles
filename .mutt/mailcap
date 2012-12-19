@@ -6,7 +6,7 @@ image/png; open %s
 image/gif; open %s
 
 # PDFs
-application/pdf; open %s
+application/pdf; open %s; nametemplate=%s.pdf
 
 # HTML
 text/html; w3m -dump %s; copiousoutput; nametemplate=%s.html
