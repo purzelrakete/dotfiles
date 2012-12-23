@@ -1,16 +1,13 @@
 # Images
-image/jpg; open %s
-image/jpeg; open %s
-image/pjpeg; open %s
-image/png; open %s
-image/gif; open %s
+image/jpg; feh %s
+image/jpeg; feh %s
+image/png; feh %s
+image/gif; feh %s
 
 # PDFs
 application/pdf; open %s; nametemplate=%s.pdf
 
 # HTML
+text/html; mutt-open %s; nametemplate=%s.html; test=psg Chrome;
 text/html; w3m -dump %s; copiousoutput; nametemplate=%s.html
-
-# Unidentified files
-application/octet-stream; open %s
 

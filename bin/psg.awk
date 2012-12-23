@@ -1,7 +1,15 @@
 #!/usr/bin/awk -f
 
 !/grep |psg/ {
-  printf("%5d %5d ", $2, $3); print $8 $9 $10
+  results += 1
+  printf("%5d %5d ", $2, $3)
+  print $8 $9 $10
+}
+
+END {
+  if(results == 0) {
+    exit(1)
+  }
 }
 
 # user defined functions

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+render() {
+  while read remaining
+  do
+    echo $remaining seconds. | figlet
+    sleep 1
+    command clear
+  done
+}
+
+finally() {
+  reason="$1"
+  echo $started $(now) $reason $task >> $plogfile
+  terminal-notifier -title po -message done. >/dev/null
+  say done.
+  exit 1
+}
+
+now()   { echo $(date "+%H:%M:%S"); }
+today() { echo $(date "+%Y-%m-%d"); }
+
+test "$#" -gt 1 && { echo 2>&1 terser.; exit 2; }
+
+plogdir=${plogdir:-~/Dropbox/plog}
+plogfile=$plogdir/pomodoro-$(today)
+seconds=${seconds:-1500}
+started="$(today) $(now)"
+task="${1:-pomodoro}"
+
+trap "finally aborted!" SIGINT SIGTERM
+
+say go.
+ruby -e "(1..$seconds).to_a.reverse.each { |i| puts i }" | render
+finally done.
+
