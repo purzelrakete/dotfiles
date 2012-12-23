@@ -32,10 +32,7 @@ color body          J_orange        J_bg         "[;:][-o][)/(|]"
 color body          J_orange        J_bg         "[;:][)(|]"
 color body          J_orange        J_bg         "[ ][*][^*]*[*][ ]?"
 color body          J_orange        J_bg         "[ ]?[*][^*]*[*][ ]"
-color body          J_orange        J_bg         "[*]?((N)?ACK|CU|LOL|SCNR|\
-                                                 |BRB|BTW|CWYL|FWIW|vbg|GD&R|\
-                                                 |HTH|HTHBE|IMHO|IMNSHO|IRL|\
-                                                 |RTFM|ROTFL|ROFL|YMMV)[*]?"
+color body          J_orange        J_bg         "[*]?((N)?ACK|LOL|BTW|IMHO)[*]?"
 
 ## body ­ pgp
 
@@ -71,7 +68,7 @@ color index         J_red           J_bg          "~F~p"                       #
 color index         J_red           J_bg          "~N~F"                       # new flagged messages
 color index         J_red           J_bg          "~N~F~p"                     # new flagged messages to me
 color index         J_red           J_bg          "~U~F~p"                     # new flagged messages to me
-color index         J_base02        J_red         "~D"                         # deleted messages
+color index         J_red           J_bg          "~D"                         # deleted messages
 color index         J_base1         J_bg          "~v~(!~N)"                   # collapsed thread with no unread
 color index         J_yellow        J_bg          "~v~(~N)"                    # collapsed thread with some unread
 color index         J_green         J_bg          "~N~v~(~N)"                  # collapsed thread with unread parent
@@ -89,14 +86,14 @@ color index         J_orange        J_red         "~="                         #
 # index - highlights messages which mention name in the body
 
 color index         J_blue          J_bg          "~b \"(rany|purzelrakete|przl|keddo)\" !~N !~T !~F !~p !~P"
-color index         J_blue          J_base3       "~b \"(rany|purzelrakete|przl|keddo)\" ~N !~T !~F !~p !~P"
+color index         J_blue          J_bg          "~b \"(rany|purzelrakete|przl|keddo)\" ~N !~T !~F !~p !~P"
 color index         J_blue          J_cyan        "~b \"(rany|purzelrakete|przl|keddo)\" ~T !~F !~p !~P"
 color index         J_blue          J_magenta     "~b \"(rany|purzelrakete|przl|keddo)\" ~F !~p !~P"
 
 # index - messages which are in reference to my mails
 
 color index         J_magenta       J_bg          "~x \"playtype\\.net\" !~N !~T !~F !~p !~P"
-color index         J_magenta       J_base3       "~x \"playtype\\.net\" ~N !~T !~F !~p !~P"
+color index         J_magenta       J_bg          "~x \"playtype\\.net\" ~N !~T !~F !~p !~P"
 color index         J_magenta       J_cyan        "~x \"playtype\\.net\" ~T !~F !~p !~P"
 color index         J_magenta       J_red         "~x \"playtype\\.net\" ~F !~p !~P"
 

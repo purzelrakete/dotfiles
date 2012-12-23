@@ -27,6 +27,7 @@ brew install emacs
 brew install erlang
 brew install exiftool
 brew install faac
+brew install feh
 brew install ffmpeg
 brew install fftw
 brew install fltk

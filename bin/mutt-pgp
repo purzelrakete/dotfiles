@@ -1,0 +1,46 @@
+#!/bin/sh
+
+id=${gpgid:-"0x12345678"}
+
+while test "$#" -gt 0
+do
+  case "$1" in
+    --clearsign)
+      gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign "$2" "$3" "$4"
+      ;;
+    --decode)
+      gpg shift --passphrase-fd 0? --no-verbose --batch --output - "$2"
+      ;;
+    --decrypt)
+      gpg --passphrase-fd 0 --no-verbose --batch --output - "$2"
+      ;;
+    --encrypt-only)
+      pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to $id -- -r "$2" -- "$3"
+      ;;
+    --encrypt-sign)
+      pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign "$2" "$3" --armor --always-trust --encrypt-to $id -- -r "$4" -- "$5"
+      ;;
+    --export)
+      gpg --no-verbose --export --armor "$2"
+      ;;
+    --import)
+      gpg --no-verbose --import -v "$2"
+      ;;
+    --list-pubring)
+      gpg --no-verbose --batch --with-colons --list-keys "$2"
+      ;;
+    --list-secring)
+      gpg --no-verbose --batch --with-colons --list-secret-keys "$2"
+      ;;
+    --sign)
+      gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode "$2" "$3" "$4"
+      ;;
+    --verify)
+      gpg --no-verbose --batch --output - --verify "$2" "$3"
+      ;;
+    --verify-key)
+      gpg --no-verbose --batch --fingerprint --check-sigs "$2"
+      ;;
+  esac
+done
+

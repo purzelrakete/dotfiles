@@ -1,9 +1,12 @@
 *.pyc
 .DS_Store
+.gnupg/*.gpg
+.gnupg/random_seed
 .irssi/away.log
 .irssi/config
 .irssi/saved_colors
 .mail/
+.mutt/solarized*.muttrc
 .netrwhist
 .offlineimap/*.lock
 .offlineimap/Account*
