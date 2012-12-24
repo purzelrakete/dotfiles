@@ -104,6 +104,7 @@ set sig_dashes            # dashes before sig
 unset mime_forward        # forward attachments as part of body
 
 bind compose p            postpone-message
+bind compose P            pgp-menu
 
 # SMTP client
 
@@ -134,30 +135,32 @@ mailboxes +purzelrakete/INBOX \
 
 # encryption
 
-set pgp_sign_as = 0x12345678        # uid when encrypting/signing
+set pgp_sign_as = 0x89C91595        # uid when encrypting/signing
 set pgp_timeout = 60                # seconds to keep the passpharse in memory
 
-set pgp_clearsign_command           = "mutt-gpg --clearsign %?a?-u %a? %f"
-set pgp_decode_command              = "mutt-gpg --decode %?p? %f"
-set pgp_decrypt_command             = "mutt-gpg --decrypt %f"
-set pgp_encrypt_only_command        = "mutt-gpg --encrypt-only %r %f"
-set pgp_encrypt_sign_command        = "mutt-gpg --encrypt-sign %?a?-u %a? %r %f"
-set pgp_export_command              = "mutt-gpg --export %r"
-set pgp_import_command              = "mutt-gpg --import %f"
-set pgp_list_pubring_command        = "mutt-gpg --list-pubring %r"
-set pgp_list_secring_command        = "mutt-gpg --list-secring %r"
-set pgp_sign_command                = "mutt-gpg --sign %?a?-u %a? %f"
-set pgp_verify_command              = "mutt-gpg --verify %s %f"
-set pgp_verify_key_command          = "mutt-gpg --verify-key %r"
 
+set pgp_clearsign_command           = "mutt-pgp --clearsign %?a?-u %a? %f"
+set pgp_decode_command              = "mutt-pgp --decode %?p? %f"
+set pgp_decrypt_command             = "mutt-pgp --decrypt %f"
+set pgp_encrypt_only_command        = "mutt-pgp --encrypt-only %r %f"
+set pgp_encrypt_sign_command        = "mutt-pgp --encrypt-sign %?a?-u %a? %r %f"
+set pgp_export_command              = "mutt-pgp --export %r"
+set pgp_import_command              = "mutt-pgp --import %f"
+set pgp_list_pubring_command        = "mutt-pgp --list-pubring %r"
+set pgp_list_secring_command        = "mutt-pgp --list-secring %r"
+set pgp_mime_signature_description  = "Digital signature"
+set pgp_mime_signature_filename     = "signature.asc"
+set pgp_sign_command                = "mutt-pgp --sign %?a?-u %a? %f"
+set pgp_verify_command              = "mutt-pgp --verify %s %f"
+set pgp_verify_key_command          = "mutt-pgp --verify-key %r"
 set pgp_good_sign                   = "^gpg: Good signature from"
 
 set crypt_autoencrypt = no          # automatically encrypt outgoing messages
-# set crypt_autosign                  # automatically sign all outgoing messages
+set crypt_autosign                  # automatically sign all outgoing messages
 set crypt_replyencrypt = yes        # encrypt only replies to signed messages
 set crypt_replysign                 # sign only replies to signed messages
 set crypt_replysignencrypted = yes  # encrypt and sign replies to encrypted
-set crypt_verify_sig=yes            # verify the sign of a message when opened
+set crypt_verify_sig = yes          # verify the sign of a message when opened
 
 # Search
 

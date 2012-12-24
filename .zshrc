@@ -44,3 +44,4 @@ bindkey "[B" history-beginning-search-forward
 
 # highlighting
 source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+

@@ -106,7 +106,7 @@ brew install mit-scheme
 brew install mobile-shell
 brew install msmtp
 brew install mtr
-brew install mutt --sidebar-patch --with-slang
+brew install mutt --pgp-verbose-mime-patch --with-slang
 brew install mysql
 brew install neo4j
 brew install netcat
@@ -139,6 +139,7 @@ brew install qt
 brew install r
 brew install rabbitmq
 brew install readline
+brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
 brew install redis
 brew install rtmpdump
 brew install runit

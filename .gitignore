@@ -1,6 +1,8 @@
 *.pyc
 .DS_Store
+.gnupg/*.asc
 .gnupg/*.gpg
+.gnupg/*.gpg~
 .gnupg/random_seed
 .irssi/away.log
 .irssi/config

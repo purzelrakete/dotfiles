@@ -1,9 +1,9 @@
 #!/bin/sh
 
-id=${gpgid:-"0x12345678"}
+id=${gpgid:-"0x89C91595"}
 
-while test "$#" -gt 0
-do
+if test "$#" -gt 0
+then
   case "$1" in
     --clearsign)
       gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign "$2" "$3" "$4"
@@ -41,6 +41,13 @@ do
     --verify-key)
       gpg --no-verbose --batch --fingerprint --check-sigs "$2"
       ;;
+    *)
+      echo 2>&1 unknown command "$1"
+      exit 1
+      ;;
   esac
-done
+else
+    echo 2>&1 missing command long-arg.
+    exit 2
+fi
 

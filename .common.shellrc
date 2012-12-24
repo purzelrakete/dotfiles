@@ -37,23 +37,17 @@ alias pwdc="pwd | pbcopy"
 alias sd="source solarized --theme dark"
 alias sl="source solarized --theme light"
 alias v='vim .'
-alias vim='mvim -v'
+alias vim='reattach-to-user-namespace mvim -v'
 
 # base
-export PATH=$PATH:/usr/X13/bin
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin
-export PATH=$PATH:/usr/sbin:/sbin:/usr/local/sbin
-export PATH=$PATH:.:~/bin
+export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=$PATH:/usr/X11/bin
 
 # java
 export JAVA=$JAVA_HOME/bin/java
 export JAVA_HOME=/Library/Java/Home
 export JAVA_JARS=~/.jvm/jars
 export MYSQL_CONNECTOR_JAR=$JAVA_JARS/mysql-connector-java-5.1.14-bin.jar
-
-# node
-export PATH=$PATH:/usr/local/share/npm/bin
-export PATH=$PATH:~/.node_libraries/bin
 
 # hadoop
 export HADOOP_HOME=/opt/hadoop
@@ -81,7 +75,4 @@ source solarized --theme light --skip-if-configured
 
 # python
 source virtualenvwrapper.sh
-
-# blank tmux window title
-printf "\033k$title\033\\"
 
