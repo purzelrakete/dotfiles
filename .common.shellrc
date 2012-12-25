@@ -32,10 +32,12 @@ alias gti='git'
 alias l='ls --color -alFh'
 alias ll='ls --color -bF'
 alias m='mutt'
+alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 alias psmem='ps -o vsz= -p'
 alias pwdc="pwd | pbcopy"
 alias sd="source solarized --theme dark"
 alias sl="source solarized --theme light"
+alias soy='reattach-to-user-namespace soywiki'
 alias v='vim .'
 alias vim='reattach-to-user-namespace mvim -v'
 
@@ -61,6 +63,7 @@ export PATH=$PATH:/Applications/Octave.app/Contents/Resources/bin
 export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
 export PATH=$PATH:/opt/samiam
 export PATH=$PATH:/usr/local/mysql/bin
+export SOYWIKI_VIM="mvim -v"
 
 # rubygems
 gdir() { echo $(gem which $1 | sed 's/\/lib.*//g'); }

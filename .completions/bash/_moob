@@ -1,0 +1,11 @@
+#!/bin/bash
+
+_moob() {
+  local opts=`moob ls`
+  local cur=${COMP_WORDS[COMP_CWORD]}
+
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+}
+
+complete -F _moob moob
+

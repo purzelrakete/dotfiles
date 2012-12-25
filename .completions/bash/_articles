@@ -1,0 +1,11 @@
+#!/bin/bash
+
+_articles() {
+  local opts=`articles ls`
+  local cur=${COMP_WORDS[COMP_CWORD]}
+
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+}
+
+complete -F _articles articles
+

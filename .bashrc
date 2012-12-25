@@ -1,3 +1,7 @@
+source ~/.bash_prompt
+source ~/.common.shellrc
+for c in ~/.completions/bash/_*; do source $c; done
+
 # global
 
 export CDPATH=.:~/Projects:~/Dropbox:~/Dropbox/code
@@ -7,54 +11,6 @@ shopt -s globstar # bash 4.0 globs
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-
-# global completions
-
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-
-# moob completion
-
-_moob() {
-  local opts=`moob ls`
-  local cur=${COMP_WORDS[COMP_CWORD]}
-
-  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-}
-
-complete -F _moob moob
-
-# articles completion
-
-_articles() {
-  local opts=`articles ls`
-  local cur=${COMP_WORDS[COMP_CWORD]}
-
-  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-}
-
-complete -F _articles articles
-
-# glossary completion
-
-_glossary() {
-  local opts=`glossary ls`
-  local cur=${COMP_WORDS[COMP_CWORD]}
-
-  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-}
-
-complete -F _glossary glossary
-
-# dev completion
-
-_dev() {
-  local opts=`dev ls`
-  local cur=${COMP_WORDS[COMP_CWORD]}
-
-  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-}
-
-complete -F _dev dev
 
 # history
 
@@ -70,18 +26,6 @@ if tty 1>/dev/null
     bind '"\e[A"':history-search-backward
     bind '"\e[B"':history-search-forward
 fi
-
-# includes
-
-source ~/.bash_prompt
-source ~/.common.shellrc
-
-# projects
-
-test -f ~/.soundcloud/.scrc && source ~/.soundcloud/.scrc
-
-# nhn
-alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 
 :
 

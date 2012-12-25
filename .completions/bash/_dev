@@ -1,0 +1,11 @@
+#!/bin/bash
+
+_dev() {
+  local opts=`dev ls`
+  local cur=${COMP_WORDS[COMP_CWORD]}
+
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+}
+
+complete -F _dev dev
+
