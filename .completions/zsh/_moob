@@ -1,0 +1,4 @@
+#compdef moob
+
+_arguments "1:Topics:($(moob ls | xargs))"
+

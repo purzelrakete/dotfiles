@@ -10,11 +10,10 @@ render() {
 }
 
 finally() {
-  reason="$1"
-  echo $started $(now) $reason $task >> $plogfile
-  terminal-notifier -title po -message done. >/dev/null
-  say done.
-  exit 1
+  local reason="$1"
+  echo $started $(now) "$(printf '%-8s' $reason)" $task >> $plogfile
+  terminal-notifier -title po -message $reason >/dev/null
+  say $reason
 }
 
 now()   { echo $(date "+%H:%M:%S"); }
@@ -28,7 +27,7 @@ seconds=${seconds:-1500}
 started="$(today) $(now)"
 task="${1:-pomodoro}"
 
-trap "finally aborted!" SIGINT SIGTERM
+trap "finally aborted!; exit 1" SIGINT SIGTERM
 
 say go.
 ruby -e "(1..$seconds).to_a.reverse.each { |i| puts i }" | render

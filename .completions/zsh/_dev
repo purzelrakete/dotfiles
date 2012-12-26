@@ -1,0 +1,4 @@
+#compdef dev
+
+_arguments "1:Dev:($(dev ls | xargs))"
+

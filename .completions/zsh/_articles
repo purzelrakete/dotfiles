@@ -1,0 +1,4 @@
+#compdef articles
+
+_arguments "1:Articles:($(articles ls | xargs))"
+

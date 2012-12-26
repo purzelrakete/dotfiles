@@ -42,7 +42,7 @@ alias v='vim .'
 alias vim='reattach-to-user-namespace mvim -v'
 
 # base
-export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=.:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export PATH=$PATH:/usr/X11/bin
 
 # java

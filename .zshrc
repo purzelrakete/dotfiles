@@ -1,8 +1,9 @@
 source ~/.zsh/.prompt
 source ~/.common.shellrc
-source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # completions
+fpath=(~/.completions/zsh $fpath)
+autoload -U ~/.completions/zsh(:t)
 autoload -U compinit
 compinit
 
@@ -35,4 +36,7 @@ bindkey -e # emacs mode
 bindkey " " magic-space
 bindkey "[A" history-beginning-search-backward
 bindkey "[B" history-beginning-search-forward
+
+# needs to be at the bottom, or completion will break highlighting.
+source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 

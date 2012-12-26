@@ -56,6 +56,8 @@ bind index G              last-entry
 bind index N              search-opposite
 bind index gg             first-entry
 bind index p              recall-message
+bind index \Cd            next-page
+bind index \Cu            previous-page
 
 # Index saner copy and move dialogs
 
