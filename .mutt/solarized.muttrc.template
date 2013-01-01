@@ -3,7 +3,7 @@
 
 # valid backgrounds in 16 color mode: base03, bg, black, any non-brights
 
-color attachment    J_base2         J_bg                                       # attachments
+color attachment    J_violet        J_bg                                       # attachments
 color bold          J_base02        J_bg                                       # highlighting bold patterns in the body of messages
 color error         J_red           J_bg                                       # error messages printed by mutt
 color indicator     J_base0         J_base02                                   # arrow or bar used to indicate the current item in a menu
@@ -34,13 +34,20 @@ color body          J_orange        J_bg         "[ ][*][^*]*[*][ ]?"
 color body          J_orange        J_bg         "[ ]?[*][^*]*[*][ ]"
 color body          J_orange        J_bg         "[*]?((N)?ACK|LOL|BTW|IMHO)[*]?"
 
-## body ­ pgp
+# body ­ pgp
 
 color body          J_red           J_bg          "(BAD signature)"
 color body          J_cyan          J_bg          "(Good signature)"
 color body          J_base03        J_bg          "^gpg: Good signature .*"
 color body          J_base00        J_bg          "^gpg: "
 color body          J_base00        J_red         "^gpg: BAD signature from.*"
+
+# body - linky things
+
+color body          J_base01        J_bg          (https?|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9=&\;+]+
+color body          J_base01        J_bg          "[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"
+color body          J_base01        J_bg          '#[0-9a-z]+'
+color body          J_orange        J_bg          '@[0-9a-z]+'
 
 # index
 

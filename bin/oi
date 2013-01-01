@@ -1,5 +1,5 @@
 #!/bin/sh
 
 sv restart offlineimap
-tail -f ~/service/offlineimap/log/main/current
+tail -fn0 ~/service/offlineimap/log/main/current
 

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# brew install terminal-notifier figlet
+
 render() {
   while read remaining
   do
@@ -11,8 +13,8 @@ render() {
 
 finally() {
   local reason="$1"
-  echo $started $(now) "$(printf '%-8s' $reason)" $task >> $plogfile
-  terminal-notifier -title po -message $reason >/dev/null
+  echo $started $(now) "$(printf '%-8s' $reason)" $task >> "$plogfile"
+  terminal-notifier -title po -message "$reason" >/dev/null
   say $reason
 }
 
@@ -22,8 +24,8 @@ today() { echo $(date "+%Y-%m-%d"); }
 test "$#" -gt 1 && { echo 2>&1 terser.; exit 2; }
 
 plogdir=${plogdir:-~/Dropbox/plog}
-plogfile=$plogdir/pomodoro-$(today)
-seconds=${seconds:-1500}
+plogfile="$plogdir/pomodoro-$(today)"
+seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="${1:-pomodoro}"
 

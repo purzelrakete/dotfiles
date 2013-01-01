@@ -3,9 +3,10 @@ image/jpg; feh %s;
 image/jpeg; feh %s;
 image/png; feh %s;
 image/gif; feh %s;
+image/bmp; feh %s;
 
 # PDFs
-application/pdf; open %s; nametemplate=%s.pdf
+application/pdf; open -a Preview %s; nametemplate=%s.pdf
 
 # HTML
 text/html; mutt-open %s; nametemplate=%s.html; test=psg Chrome > /dev/null;

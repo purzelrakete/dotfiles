@@ -31,13 +31,13 @@ alias gst='git status'
 alias gti='git'
 alias l='ls --color -alFh'
 alias ll='ls --color -bF'
-alias m='mutt'
+alias m='reattach-to-user-namespace mutt'
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 alias psmem='ps -o vsz= -p'
 alias pwdc="pwd | pbcopy"
+alias s='reattach-to-user-namespace soywiki'
 alias sd="source solarized --theme dark"
 alias sl="source solarized --theme light"
-alias soy='reattach-to-user-namespace soywiki'
 alias v='vim .'
 alias vim='reattach-to-user-namespace mvim -v'
 
