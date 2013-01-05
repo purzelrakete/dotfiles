@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd ~
+while true
+do
+  xsetroot -name "`date +"%Y-%m-%d %H:%M"`"
+  sleep 5
+done &
+exec /usr/local/bin/dwm
