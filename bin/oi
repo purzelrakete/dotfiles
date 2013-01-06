@@ -1,5 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-sv restart offlineimap
+set -o pipefail
+
+pstree $(psg offlineimap | field 1) | \
+  grep sleep | \
+  sed -E 's/.* ([0-9]+) .*/\1/' | \
+  xargs kill
+
 tail -fn0 ~/service/offlineimap/log/main/current
 
