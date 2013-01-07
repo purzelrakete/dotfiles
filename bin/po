@@ -28,10 +28,11 @@ plogfile="$plogdir/pomodoro-$(today)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="${1:-pomodoro}"
+completed=$(grep done "$plogfile" | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
-say go.
+say $completed
 ruby -e "(1..$seconds).to_a.reverse.each { |i| puts i }" | render
 finally done.
 
