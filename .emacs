@@ -1,26 +1,34 @@
 ; vim - evil
 (add-to-list 'load-path "~/.emacs.d/evil/")
-(setq evil-want-C-i-jump nil) ; org mode conflict on TAB
+(setq evil-want-C-i-jump nil) ; org mode conflicts on TAB
 (require 'evil)
 (evil-mode 1)
 
 ; vim - remap to \C-k
-(define-key evil-insert-state-map "\C-k" 'evil-normal-state)
-(define-key evil-normal-state-map "\C-k" 'evil-force-normal-state)
+(define-key evil-insert-state-map  "\C-k" 'evil-normal-state)
+(define-key evil-normal-state-map  "\C-k" 'evil-force-normal-state)
 (define-key evil-replace-state-map "\C-k" 'evil-normal-state)
-(define-key evil-visual-state-map "\C-k" 'evil-exit-visual-state)
+(define-key evil-visual-state-map  "\C-k" 'evil-exit-visual-state)
 
 ; vim - buffers
 (define-key evil-normal-state-map "\C-n" 'evil-next-buffer)
 (define-key evil-normal-state-map "\C-p" 'evil-prev-buffer)
 
-; vim - leader
-(load "~/.emacs.d/evil-leader/evil-leader.el")
-(setq evil-leader/leader "," evil-leader/in-all-states t)
-(evil-leader/set-key
-  "d" 'evil-destroy-buffer
-  "q" 'exit
-  "s" 'save-buffer)
+; leaders
+(define-key evil-normal-state-map " d" 'evil-destroy-buffer)
+(define-key evil-normal-state-map " q" 'save-buffers-kill-terminal)
+(define-key evil-normal-state-map " s" 'save-buffer)
+(define-key evil-normal-state-map " a" 'org-agenda)
+
+; vim - evil leaders
+; (load "~/.emacs.d/evil-leader/evil-leader.el")
+; (require 'evil-leader)
+; (setq evil-leader/in-all-states t)
+; (evil-leader/set-key "d" 'evil-destroy-buffer)
+; (evil-leader/set-key "q" 'save-buffers-kill-terminal)
+; (evil-leader/set-key "s" 'save-buffer)
+; (evil-leader/set-key "a" 'org-agenda)
+; (define-key evil-normal-state-map " " evil-leader/map)
 
 ; lisp - slime
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
@@ -28,7 +36,7 @@
 (require 'slime)
 (slime-setup)
 
-; org - bindings
+; org - globals
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
