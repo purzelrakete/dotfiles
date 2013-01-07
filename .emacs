@@ -1,5 +1,4 @@
 ; vim - evil
-(load "~/.emacs.d/undo-tree/undo-tree.el")
 (add-to-list 'load-path "~/.emacs.d/evil/")
 (setq evil-want-C-i-jump nil) ; org mode conflict on TAB
 (require 'evil)
@@ -36,10 +35,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ; org - config
-(setq org-agenda-files (list "~/Dropbox/blog/**/*.org"))
-(setq org-startup-indented 't)
-(switch-to-buffer (get-buffer-create (generate-new-buffer-name "*org*")))
-(org-mode)
+(setq org-agenda-files (file-expand-wildcards "~/Dropbox/blog/org/*.org"))
+(setq org-log-done t)
 
 ; basics - numbers
 (setq linum-format " %d ")
