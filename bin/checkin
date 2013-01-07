@@ -6,15 +6,10 @@ mkdir $today 2> /dev/null
 rm today 2> /dev/null
 ln -s $today today
 
-cat <<PERSPECTIVE >> today/tasks
+cat <<PERSPECTIVE >> today/tasks.org
 HEY!
 
 You get the work you do. If you want to do something else start doing it.
-
-Also:
-
-- No one cares about what you think, unless you do what you think.
-- No one cares what you do, unless you think about what you do.
 
 PERSPECTIVE
 
