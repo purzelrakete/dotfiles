@@ -29,20 +29,14 @@
 (require 'slime)
 (slime-setup)
 
-; org - deft
-(add-to-list 'load-path "~/.emacs.d/deft/")
-(require 'deft)
-(setq deft-directory "~/Dropbox/blog")
-(setq deft-extension "org")
-(setq deft-text-mode 'org-mode)
-
 ; org - bindings
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-; org - startup
+; org - config
+(setq org-agenda-files (list "~/Dropbox/blog/**/*.org"))
 (setq org-startup-indented 't)
 (switch-to-buffer (get-buffer-create (generate-new-buffer-name "*org*")))
 (org-mode)
