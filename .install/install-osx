@@ -1,3 +1,8 @@
 #!/bin/sh
 
+# paths
 echo setenv PATH /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin > /etc/launchd.conf
+
+# default shell is zsh
+chsh -s /bin/zsh
+
