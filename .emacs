@@ -32,6 +32,14 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+; org - minimum for agenda
+(add-hook 'org-agenda-mode-hook
+  (lambda ()
+    (define-key org-agenda-mode-map "h" 'evil-backward-char)
+    (define-key org-agenda-mode-map "j" 'evil-next-line)
+    (define-key org-agenda-mode-map "k" 'evil-previous-line)
+    (define-key org-agenda-mode-map "l" 'evil-forward-char)))
+
 ; org - config
 (setq org-agenda-files (file-expand-wildcards "~/Dropbox/blog/org/*.org"))
 (setq org-log-done t)
