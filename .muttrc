@@ -140,8 +140,7 @@ mailboxes +purzelrakete/INBOX \
 # encryption
 
 set pgp_sign_as = 0x89C91595        # uid when encrypting/signing
-set pgp_timeout = 60                # seconds to keep the passpharse in memory
-
+set pgp_timeout = 28800             # seconds to keep the passpharse in memory
 
 set pgp_clearsign_command           = "mutt-pgp --clearsign %?a?-u %a? %f"
 set pgp_decode_command              = "mutt-pgp --decode %?p? %f"
