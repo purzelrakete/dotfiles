@@ -20,16 +20,6 @@
 (define-key evil-normal-state-map " s" 'save-buffer)
 (define-key evil-normal-state-map " a" 'org-agenda)
 
-; vim - evil leaders
-; (load "~/.emacs.d/evil-leader/evil-leader.el")
-; (require 'evil-leader)
-; (setq evil-leader/in-all-states t)
-; (evil-leader/set-key "d" 'evil-destroy-buffer)
-; (evil-leader/set-key "q" 'save-buffers-kill-terminal)
-; (evil-leader/set-key "s" 'save-buffer)
-; (evil-leader/set-key "a" 'org-agenda)
-; (define-key evil-normal-state-map " " evil-leader/map)
-
 ; lisp - slime
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 (add-to-list 'load-path "~/.emacs.d/slime/")
