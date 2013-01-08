@@ -28,7 +28,7 @@ plogfile="$plogdir/pomodoro-$(today)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="${1:-pomodoro}"
-completed=$(grep done "$plogfile" | wc -l | xargs expr 1 +)
+completed=$(grep done "$plogfile" 2>/dev/null | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
