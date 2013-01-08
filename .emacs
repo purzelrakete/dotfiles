@@ -1,3 +1,7 @@
+; undo
+(add-to-list 'load-path "~/.emacs.d/undo-tree/")
+(require 'undo-tree)
+
 ; vim - evil
 (add-to-list 'load-path "~/.emacs.d/evil/")
 (setq evil-want-C-i-jump nil) ; org mode conflicts on TAB
