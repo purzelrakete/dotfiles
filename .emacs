@@ -14,11 +14,13 @@
 (define-key evil-normal-state-map "\C-n" 'evil-next-buffer)
 (define-key evil-normal-state-map "\C-p" 'evil-prev-buffer)
 
-; leaders
-(define-key evil-normal-state-map " d" 'evil-destroy-buffer)
+; vim - leaders
+(define-key evil-normal-state-map " d" 'kill-buffer)
 (define-key evil-normal-state-map " q" 'save-buffers-kill-terminal)
 (define-key evil-normal-state-map " s" 'save-buffer)
 (define-key evil-normal-state-map " a" 'org-agenda)
+(define-key evil-normal-state-map " w" 'whitespace-cleanup)
+(define-key evil-normal-state-map " p" 'helm-for-files)
 
 ; lisp - slime
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
@@ -35,6 +37,8 @@
 ; org - minimum for agenda
 (add-hook 'org-agenda-mode-hook
   (lambda ()
+    (define-key org-agenda-mode-map "w" 'evil-forward-word-begin)
+    (define-key org-agenda-mode-map "b" 'evil-backward-word-begin)
     (define-key org-agenda-mode-map "h" 'evil-backward-char)
     (define-key org-agenda-mode-map "j" 'evil-next-line)
     (define-key org-agenda-mode-map "k" 'evil-previous-line)
@@ -43,6 +47,13 @@
 ; org - config
 (setq org-agenda-files (file-expand-wildcards "~/Dropbox/blog/org/*.org"))
 (setq org-log-done t)
+
+; helm -config
+(add-to-list 'load-path "~/.emacs.d/helm/")
+(require 'helm-files)
+(setq helm-idle-delay 0.1)
+(setq helm-input-idle-delay 0.1)
+(setq helm-c-locate-command "mdfind %.0s %s")
 
 ; basics - numbers
 (setq linum-format " %d ")
@@ -55,4 +66,12 @@
 ; basics - theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
 (load-theme 'solarized-dark t)
+
+; basics - whitespace
+(setq-default show-trailing-whitespace t)
+(set-face-foreground 'trailing-whitespace "black")
+
+; basics - backups
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 
