@@ -1,0 +1,148 @@
+#!/usr/bin/env bash
+
+VERSION="0.1.0"
+GOOGL=~/.googl
+
+#
+# Output usage information
+#
+
+usage() {
+  cat <<EOF
+
+  Usage: googl [options] [url]
+
+  Commands:
+
+    # shorten url
+    $ googl http://github.com
+
+    # open the first shortened url matching <query>
+    $ googl open <query>
+
+    # search the shortened urls via full-text <query>
+    $ googl search <query>
+
+    # list shortened urls
+    $ googl ls
+    $ googl
+
+    # clear history
+    $ googl clear
+
+  Options:
+
+    -V, --version   output googl version
+    -h, --help      output this help information
+
+EOF
+}
+
+#
+# Open first matching <query>
+#
+
+open() {
+  cat $GOOGL \
+    | grep $1 \
+    | cut -d '|' -f 2 \
+    | xargs open
+}
+
+#
+# List urls
+#
+
+urls() {
+  echo
+  cat $GOOGL \
+    | awk '
+    BEGIN { FS = "|" }
+    {
+      printf "  \033[36m%s\033[0m\n", $1
+      printf "  \033[33m%s\033[0m\n", $2
+    }' \
+    | sed 's/http:\/\///'
+  echo
+}
+
+#
+# Save long and shortened urls
+#
+
+save() {
+  if [ $(grep -c $2 $GOOGL) -eq 0 ]; then
+    echo "$1|$2" >> $GOOGL
+  fi
+}
+
+#
+# Search all shortened urls with <query>
+#
+
+search() {
+  echo
+  cat $GOOGL \
+    | grep $1 \
+    | awk '
+    BEGIN { FS = "|" }
+    {
+      printf "  \033[36m%s\033[0m\n", $1
+      printf "  \033[33m%s\033[0m\n", $2
+    }' \
+    | sed 's/http:\/\///'
+  echo
+}
+
+#
+# Remove history of shortened urls
+#
+
+clear() {
+  rm $GOOGL
+}
+
+#
+# Shortener
+#
+
+shorten() {
+  local longUrl=$1
+  local response=`curl -s https://www.googleapis.com/urlshortener/v1/url \
+    -H "Content-Type: application/json" \
+    -d "{'longUrl': '$longUrl'}" \
+    -X POST`
+
+  local shortened=`echo $response | grep --color=never -Eo http://goo.gl/\[^\"\]+`
+
+  if [ -z $shortened ]; then
+    echo "Error: Something went wrong."
+  else
+    save $longUrl $shortened
+    echo $shortened | pbcopy && echo $shortened
+  fi
+}
+
+touch $GOOGL
+
+# no args
+
+if [ $# -eq 0 ]; then
+  urls
+  exit
+fi
+
+# parse args
+
+while test $# -ne 0; do
+  arg=$1; shift
+  case $arg in
+    -V|--version) echo $VERSION; exit ;;
+    -h|--help) usage; exit ;;
+    ls) urls; exit ;;
+    open) open "$@"; exit ;;
+    search) search "$@"; exit ;;
+    clear) clear; exit ;;
+    *) shorten $arg; exit ;;
+  esac
+done
