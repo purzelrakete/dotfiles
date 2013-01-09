@@ -36,7 +36,7 @@ set number                  " numbers on the left
 set relativenumber
 set scrolloff=1             " breathing room for zt
 set laststatus=2
-" set term=screen-256color
+set term=screen-256color
 
 " folds
 
@@ -123,7 +123,6 @@ map <leader>u :!tmux send-keys -t 1 y<CR><CR>
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " restore cursor to saved position
-
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " solarized
