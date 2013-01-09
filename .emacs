@@ -2,6 +2,11 @@
 (add-to-list 'load-path "~/.emacs.d/undo-tree/")
 (require 'undo-tree)
 
+; columns
+(add-to-list 'load-path "~/.emacs.d/column-marker/")
+(require 'column-marker)
+(column-marker-1 80)
+
 ; vim - evil
 (add-to-list 'load-path "~/.emacs.d/evil/")
 (setq evil-want-C-i-jump nil) ; org mode conflicts on TAB
@@ -75,12 +80,13 @@
 (setq inhibit-splash-screen t)
 
 ; basics - theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
-(load-theme 'solarized-dark t)
+(add-to-list 'load-path "~/.emacs.d/solarized")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/solarized")
+(load-theme  'solarized 't)
 
 ; basics - whitespace
 (setq-default show-trailing-whitespace t)
-(set-face-foreground 'trailing-whitespace "black")
+(set-face-background 'trailing-whitespace "black")
 
 ; basics - backups
 (setq make-backup-files nil)

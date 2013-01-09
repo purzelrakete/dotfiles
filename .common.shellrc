@@ -26,7 +26,7 @@ alias ...="cd ../.."
 alias ..="cd .."
 alias b='bundle exec'
 alias clear="echo use CTRL-L instead."
-alias e='TERM=xterm-16color emacs'
+alias e='reattach-to-user-namespace emacs'
 alias gist='gist -p'
 alias gst='git status'
 alias gti='git'
