@@ -2,11 +2,6 @@
 (add-to-list 'load-path "~/.emacs.d/undo-tree/")
 (require 'undo-tree)
 
-; columns
-(add-to-list 'load-path "~/.emacs.d/column-marker/")
-(require 'column-marker)
-(column-marker-1 80)
-
 ; vim - evil
 (add-to-list 'load-path "~/.emacs.d/evil/")
 (setq evil-want-C-i-jump nil) ; org mode conflicts on TAB
