@@ -13,7 +13,7 @@ set tmpdir                = ~/.mutt-scratch/temp
 
 # Basics
 
-set editor                = "mvim -v +/^$"
+set editor                = "mvim -v +/^$ -c 'set tw=74'"
 set help                  = no
 set mail_check            = 0
 set mbox_type             = Maildir
