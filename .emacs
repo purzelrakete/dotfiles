@@ -48,6 +48,10 @@
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
+; autocomplete
+(define-key ac-mode-map (kbd "C-j") 'ac-next)
+(define-key ac-mode-map (kbd "C-l") 'ac-previous)
+
 ; org - globals
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
@@ -58,16 +62,16 @@
 ; TODO extract bindings into `minivim` for reuse
 (add-hook 'org-agenda-mode-hook
   (lambda ()
-    (define-key org-agenda-mode-map "n" 'evil-forward-word-begin)
-    (define-key org-agenda-mode-map "p" 'evil-forward-word-begin)
-    (define-key org-agenda-mode-map "w" 'evil-forward-word-begin)
+    (define-key org-agenda-mode-map "\C-n" 'evil-next-buffer)
+    (define-key org-agenda-mode-map "\C-p" 'evil-prev-buffer)
     (define-key org-agenda-mode-map "b" 'evil-backward-word-begin)
     (define-key org-agenda-mode-map "h" 'evil-backward-char)
     (define-key org-agenda-mode-map "j" 'evil-next-line)
     (define-key org-agenda-mode-map "k" 'evil-previous-line)
-    (define-key org-agenda-mode-map "\C-n" 'evil-next-buffer)
-    (define-key org-agenda-mode-map "\C-p" 'evil-prev-buffer)
-    (define-key org-agenda-mode-map "l" 'evil-forward-char)))
+    (define-key org-agenda-mode-map "l" 'evil-forward-char)
+    (define-key org-agenda-mode-map "n" 'evil-forward-word-begin)
+    (define-key org-agenda-mode-map "p" 'evil-forward-word-begin)
+    (define-key org-agenda-mode-map "w" 'evil-forward-word-begin)))
 
 ; org - config
 (setq org-agenda-files (file-expand-wildcards "~/Dropbox/blog/org/*.org"))
@@ -100,3 +104,4 @@
 ; basics - unclutter
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
+
