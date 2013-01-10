@@ -47,16 +47,17 @@
     (content-em (if (eq variant 'dark) base00 base0))
     (fmt-revbb `(:weight bold :slant normal :underline nil :inverse-video t)))
 
+    ;; faces
     `(
       ;; basic
-      (default ((,t (:foreground ,content-em :background ,silent ))))
-      (cursor  ((,t (:foreground ,content-em :background ,content :inverse-video t ))))
+      (default ((,t (:foreground ,content-em :background ,silent))))
+      (cursor  ((,t (:foreground ,content-em :background ,content :inverse-video t))))
       (linum   ((,t (:foreground ,content    :background ,silent-em))))
 
       ;; correctness
-      (warning ((,t (:foreground ,yellow ))))
-      (error   ((,t (:foreground ,orange ))))
-      (success ((,t (:foreground ,green ))))
+      (warning ((,t (:foreground ,yellow))))
+      (error   ((,t (:foreground ,orange))))
+      (success ((,t (:foreground ,green))))
 
       ;; mode line
       (mode-line ((,t (:foreground ,silent-em :background ,silent ,@fmt-revbb :box nil))))
@@ -74,14 +75,14 @@
       (org-checkbox ((,t (:background ,silent-em :foreground ,content-em :box (:line-width 1 :style released-button)))))
       (org-code ((,t (:foreground ,content))))
       (org-date ((,t (:foreground ,blue :underline t))))
-      (org-done ((,t (:weight bold :foreground ,green))))
+      (org-done ((,t (:weight bold :foreground ,green :weight normal))))
       (org-ellipsis ((,t (:foreground ,content))))
       (org-formula ((,t (:foreground ,yellow))))
       (org-headline-done ((,t (:foreground ,green))))
       (org-hide ((,t (:foreground ,silent))))
       (org-level-1 ((,t (:foreground ,blue))))
       (org-level-2 ((,t (:foreground ,yellow))))
-      (org-level-3 ((,t (:foreground ,green))))
+      (org-level-3 ((,t (:foreground ,cyan))))
       (org-level-4 ((,t (:foreground ,orange))))
       (org-level-5 ((,t (:foreground ,cyan))))
       (org-level-6 ((,t (:foreground ,green))))
@@ -96,7 +97,7 @@
       (org-table ((,t (:foreground ,green))))
       (org-tag ((,t (:foreground ,content-em :background ,silent-em :weight bold))))
       (org-time-grid ((,t (:foreground ,cyan))))
-      (org-todo ((,t (:foreground ,red :weight bold))))
+      (org-todo ((,t (:foreground ,red :weight normal))))
       (org-upcoming-deadline ((,t (:foreground ,yellow ))))
       (org-warning ((,t (:foreground ,orange :weight bold :underline t))))
       (org-habit-clear-face ((,t (:background ,blue :foreground ,blue))))
