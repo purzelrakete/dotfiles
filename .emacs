@@ -20,12 +20,17 @@
 (define-key evil-normal-state-map "\C-p" 'evil-prev-buffer)
 
 ; vim - leaders
-(define-key evil-normal-state-map " d" 'kill-buffer)
+(define-key evil-normal-state-map " d" 'kill-this-buffer)
 (define-key evil-normal-state-map " q" 'save-buffers-kill-terminal)
 (define-key evil-normal-state-map " s" 'save-buffer)
 (define-key evil-normal-state-map " a" 'org-agenda)
 (define-key evil-normal-state-map " w" 'whitespace-cleanup)
 (define-key evil-normal-state-map " p" 'helm-for-files)
+
+; vim - dired
+(defun dired-current () (interactive) (dired-at-point "."))
+(define-key evil-normal-state-map " o" 'dired-current)
+(evil-define-key 'normal dired-mode-map " d" 'kill-this-buffer)
 
 ; vim - error prevention
 (define-key evil-normal-state-map "\M-u" 'undo)
