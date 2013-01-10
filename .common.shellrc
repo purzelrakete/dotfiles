@@ -80,3 +80,5 @@ source solarized --theme light --skip-if-configured
 # python
 source virtualenvwrapper.sh
 
+welcome
+
