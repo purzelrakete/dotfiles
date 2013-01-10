@@ -49,8 +49,9 @@
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ; autocomplete
-(define-key ac-mode-map (kbd "C-j") 'ac-next)
-(define-key ac-mode-map (kbd "C-l") 'ac-previous)
+(setq ac-use-menu-map t)
+(define-key ac-menu-map "\C-j" 'ac-next)
+(define-key ac-menu-map "\C-k" 'ac-previous)
 
 ; org - globals
 (global-set-key "\C-cl" 'org-store-link)
