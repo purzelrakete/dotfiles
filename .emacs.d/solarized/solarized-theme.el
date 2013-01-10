@@ -63,6 +63,22 @@
       (mode-line ((,t (:foreground ,silent-em :background ,silent ,@fmt-revbb :box nil))))
       (mode-line-inactive ((,t (:foreground ,silent-em :background ,silent ,@fmt-revbb :box nil))))
 
+      ;; font lock
+      (font-lock-builtin-face ((,t (:foreground ,blue :slant italic))))
+      (font-lock-comment-delimiter-face ((,t (:foreground ,content))))
+      (font-lock-comment-face ((,t (:foreground ,content))))
+      (font-lock-constant-face ((,t (:foreground ,blue :weight bold))))
+      (font-lock-doc-face ((,t (:foreground ,cyan :slant italic))))
+      (font-lock-doc-string-face ((,t (:foreground ,blue))))
+      (font-lock-function-name-face ((,t (:foreground ,blue))))
+      (font-lock-keyword-face ((,t (:foreground ,green :weight bold))))
+      (font-lock-negation-char-face ((,t (:foreground ,content-em))))
+      (font-lock-preprocessor-face ((,t (:foreground ,blue))))
+      (font-lock-string-face ((,t (:foreground ,cyan))))
+      (font-lock-type-face ((,t (:foreground ,yellow))))
+      (font-lock-variable-name-face ((,t (:foreground ,blue))))
+      (font-lock-warning-face ((,t (:foreground ,orange :weight bold :underline t))))
+
       ;; org mode
       (org-agenda-structure ((,t (:inherit font-lock-comment-face :foreground ,magenta))))
       (org-agenda-date ((,t (:foreground ,content :background ,silent :weight bold :box (:line-width 4 :color ,silent-em) ))) t)
@@ -90,9 +106,9 @@
       (org-level-8 ((,t (:foreground ,blue))))
       (org-link ((,t (:foreground ,yellow :underline t))))
       (org-sexp-date ((,t (:foreground ,violet))))
-      (org-scheduled ((,t (:foreground ,green))))
-      (org-scheduled-previously ((,t (:foreground ,yellow))))
-      (org-scheduled-today ((,t (:foreground ,blue :weight bold))))
+      (org-scheduled ((,t (:foreground ,magenta :weight normal))))
+      (org-scheduled-previously ((,t (:foreground ,magenta :weight normal))))
+      (org-scheduled-today ((,t (:foreground ,blue :weight normal))))
       (org-special-keyword ((,t (:foreground ,content :weight bold))))
       (org-table ((,t (:foreground ,green))))
       (org-tag ((,t (:foreground ,content-em :background ,silent-em :weight bold))))
@@ -165,8 +181,28 @@
       (helm-source-header ((,t (:background ,silent :foreground ,orange :underline nil))))
       (helm-time-zone-current ((,t (:foreground ,green))))
       (helm-time-zone-home ((,t (:foreground ,red))))
-      (helm-visible-mark ((,t (:background ,silent :foreground ,magenta :bold t)))))
-))
+      (helm-visible-mark ((,t (:background ,silent :foreground ,magenta :bold t))))
+
+      ;; autocompletion
+      (ac-candidate-face ((,t (:background ,silent-em :foreground ,content-em))))
+      (ac-selection-face ((,t (:background ,blue :foreground ,silent))))
+      (ac-candidate-mouse-face ((,t (:background ,content-em :foreground ,content-em))))
+      (ac-completion-face ((,t (:foreground ,content-em :underline t))))
+      (ac-gtags-candidate-face ((,t (:background ,silent-em :foreground ,content-em))))
+      (ac-gtags-selection-face ((,t (:background ,content-em :foreground ,content-em))))
+      (ac-yasnippet-candidate-face ((,t (:background ,silent-em :foreground ,yellow))))
+      (ac-yasnippet-selection-face ((,t (:background ,yellow :foreground ,yellow))))
+
+      ;; popup
+      (popup-face ((,t (:background ,silent-em :foreground ,content-em))))
+      (popup-isearch-match ((,t (:background ,yellow :foreground ,silent))))
+      (popup-menu-face ((,t (:background ,silent-em :foreground ,content-em))))
+      (popup-menu-mouse-face ((,t (:background ,blue :foreground ,content-em))))
+      (popup-menu-selection-face ((,t (:background ,magenta :foreground ,silent))))
+      (popup-scroll-bar-background-face ((,t (:background ,silent-em))))
+      (popup-scroll-bar-foreground-face ((,t (:background ,violet))))
+      (popup-tip-face ((,t (:background ,silent :foreground ,content-em))))
+      )))
 
 (apply #'custom-theme-set-faces 'solarized (solarized-faces 'dark))
 

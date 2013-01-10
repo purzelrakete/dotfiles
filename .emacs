@@ -84,10 +84,6 @@
 (setq linum-format " %d ")
 (global-linum-mode t)
 
-; basics - unclutter
-(menu-bar-mode -1)
-(setq inhibit-splash-screen t)
-
 ; basics - theme
 (add-to-list 'load-path "~/.emacs.d/solarized")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/solarized")
@@ -101,3 +97,6 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
+; basics - unclutter
+(menu-bar-mode -1)
+(setq inhibit-splash-screen t)
