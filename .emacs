@@ -5,6 +5,7 @@
 ; vim - evil
 (add-to-list 'load-path "~/.emacs.d/evil/")
 (setq evil-want-C-i-jump nil) ; org mode conflicts on TAB
+(setq evil-want-C-u-scroll 't)
 (require 'evil)
 (evil-mode 1)
 
@@ -26,6 +27,9 @@
 (define-key evil-normal-state-map " w" 'whitespace-cleanup)
 (define-key evil-normal-state-map " p" 'helm-for-files)
 
+; vim - error prevention
+(define-key evil-normal-state-map "\M-u" 'undo)
+
 ; lisp - slime
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
 (add-to-list 'load-path "~/.emacs.d/slime/")
@@ -46,13 +50,18 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ; org - minimum for agenda
+; TODO extract bindings into `minivim` for reuse
 (add-hook 'org-agenda-mode-hook
   (lambda ()
+    (define-key org-agenda-mode-map "n" 'evil-forward-word-begin)
+    (define-key org-agenda-mode-map "p" 'evil-forward-word-begin)
     (define-key org-agenda-mode-map "w" 'evil-forward-word-begin)
     (define-key org-agenda-mode-map "b" 'evil-backward-word-begin)
     (define-key org-agenda-mode-map "h" 'evil-backward-char)
     (define-key org-agenda-mode-map "j" 'evil-next-line)
     (define-key org-agenda-mode-map "k" 'evil-previous-line)
+    (define-key org-agenda-mode-map "\C-n" 'evil-next-buffer)
+    (define-key org-agenda-mode-map "\C-p" 'evil-prev-buffer)
     (define-key org-agenda-mode-map "l" 'evil-forward-char)))
 
 ; org - config
