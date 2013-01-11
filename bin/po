@@ -5,7 +5,7 @@
 render() {
   while read remaining
   do
-    echo $remaining seconds. | figlet
+    echo $remaining seconds. | figlet | sed '$d'
     sleep 1
     command clear
   done
