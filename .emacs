@@ -1,9 +1,11 @@
+; paths
+(progn (cd "~/.emacs.d")
+  (normal-top-level-add-subdirs-to-load-path))
+
 ; undo
-(add-to-list 'load-path "~/.emacs.d/undo-tree/")
 (require 'undo-tree)
 
 ; vim - evil
-(add-to-list 'load-path "~/.emacs.d/evil/")
 (setq evil-want-C-i-jump nil) ; org mode conflicts on TAB
 (setq evil-want-C-u-scroll 't)
 (require 'evil)
@@ -37,13 +39,10 @@
 
 ; lisp - slime
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
-(add-to-list 'load-path "~/.emacs.d/slime/")
 (require 'slime)
 (slime-setup)
 
 ; scala - ensime
-(add-to-list 'load-path "~/.emacs.d/scala-mode")
-(add-to-list 'load-path "~/.emacs.d/ensime/elisp")
 (require 'scala-mode-auto)
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
@@ -84,7 +83,6 @@
 (setq org-log-done t)
 
 ; helm -config
-(add-to-list 'load-path "~/.emacs.d/helm/")
 (require 'helm-files)
 (setq helm-idle-delay 0.1)
 (setq helm-input-idle-delay 0.1)
@@ -95,7 +93,6 @@
 (global-linum-mode t)
 
 ; basics - theme
-(add-to-list 'load-path "~/.emacs.d/solarized")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/solarized")
 (load-theme  'solarized 't)
 
@@ -104,7 +101,6 @@
 (set-face-background 'trailing-whitespace "black")
 
 ; basics - print margin
-(add-to-list 'load-path "~/.emacs.d/print-margin")
 (require 'fill-column-indicator)
 (setq fci-rule-column 78)
 (setq fci-rule-color "black")
