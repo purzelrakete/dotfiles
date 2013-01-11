@@ -98,6 +98,13 @@
 (setq-default show-trailing-whitespace t)
 (set-face-background 'trailing-whitespace "black")
 
+; basics - print margin
+(add-to-list 'load-path "~/.emacs.d/print-margin")
+(require 'fill-column-indicator)
+(setq fci-rule-column 78)
+(setq fci-rule-color "black")
+(fci-mode)
+
 ; basics - backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
