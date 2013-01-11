@@ -59,10 +59,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ; org - focus
-(add-hook 'org-mode-hook
-  (lambda ()
-    (local-set-key " n" 'org-narrow-to-subtree)
-    (local-set-key " m" 'widen)))
+(evil-define-key 'normal outline-mode-map " n" 'org-narrow-to-subtree)
+(evil-define-key 'normal outline-mode-map " W" 'widen)
 
 ; org - minimum for agenda
 (add-hook 'org-agenda-mode-hook
