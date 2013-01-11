@@ -50,6 +50,7 @@ export PATH=$PATH:/usr/X11/bin
 export JAVA=$JAVA_HOME/bin/java
 export JAVA_HOME=/Library/Java/Home
 export JAVA_JARS=~/.jvm/jars
+export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'
 export MYSQL_CONNECTOR_JAR=$JAVA_JARS/mysql-connector-java-5.1.14-bin.jar
 
 # hadoop
