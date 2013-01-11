@@ -59,8 +59,13 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+; org - focus
+(add-hook 'org-mode-hook
+  (lambda ()
+    (local-set-key " n" 'org-narrow-to-subtree)
+    (local-set-key " m" 'widen)))
+
 ; org - minimum for agenda
-; TODO extract bindings into `minivim` for reuse
 (add-hook 'org-agenda-mode-hook
   (lambda ()
     (define-key org-agenda-mode-map "\C-n" 'evil-next-buffer)
