@@ -65,18 +65,18 @@
 
       ;; font lock
       (font-lock-builtin-face ((,t (:foreground ,blue :slant italic))))
-      (font-lock-comment-delimiter-face ((,t (:foreground ,content))))
-      (font-lock-comment-face ((,t (:foreground ,content))))
-      (font-lock-constant-face ((,t (:foreground ,blue :weight bold))))
+      (font-lock-comment-delimiter-face ((,t (:foreground ,content-em))))
+      (font-lock-comment-face ((,t (:foreground ,content-em))))
+      (font-lock-constant-face ((,t (:foreground ,blue))))
       (font-lock-doc-face ((,t (:foreground ,cyan :slant italic))))
       (font-lock-doc-string-face ((,t (:foreground ,blue))))
       (font-lock-function-name-face ((,t (:foreground ,blue))))
-      (font-lock-keyword-face ((,t (:foreground ,green :weight bold))))
+      (font-lock-keyword-face ((,t (:foreground ,green))))
       (font-lock-negation-char-face ((,t (:foreground ,content-em))))
       (font-lock-preprocessor-face ((,t (:foreground ,blue))))
       (font-lock-string-face ((,t (:foreground ,cyan))))
       (font-lock-type-face ((,t (:foreground ,yellow))))
-      (font-lock-variable-name-face ((,t (:foreground ,blue))))
+      (font-lock-variable-name-face ((,t (:foreground ,yellow))))
       (font-lock-warning-face ((,t (:foreground ,orange :weight bold :underline t))))
 
       ;; org mode
