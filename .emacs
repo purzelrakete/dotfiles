@@ -91,6 +91,17 @@
 ; calendar
 (require 'calfw)
 (require 'calfw-org)
+(setq calendar-week-start-day 1)
+
+; calendar - grid
+(setq cfw:fchar-junction ?╋
+      cfw:fchar-vertical-line ?┃
+      cfw:fchar-horizontal-line ?━
+      cfw:fchar-left-junction ?┣
+      cfw:fchar-right-junction ?┫
+      cfw:fchar-top-junction ?┯
+      cfw:fchar-top-left-corner ?┏
+      cfw:fchar-top-right-corner ?┓)
 
 ; basics - numbers
 (setq linum-format " %d ")
