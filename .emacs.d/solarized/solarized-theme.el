@@ -144,6 +144,26 @@
       (undo-tree-visualizer-active-branch-face ((,t (:foreground ,content-em :background ,silent :weight bold))))
       (undo-tree-visualizer-register-face ((,t (:foreground ,yellow))))
 
+      ;; calfw
+      (cfw:face-day-title ((,t (:background ,silent-em))))
+      (cfw:face-annotation ((,t (:inherit cfw:face-day-title :foreground ,yellow))))
+      (cfw:face-default-content ((,t (:foreground ,green))))
+      (cfw:face-default-day ((,t (:inherit cfw:face-day-title))))
+      (cfw:face-disable ((,t (:inherit cfw:face-day-title :foreground ,content))))
+      (cfw:face-grid ((,t (:foreground ,silent-em))))
+      (cfw:face-header ((,t (:foreground ,violet))))
+      (cfw:face-holiday ((,t (:foreground ,red))))
+      (cfw:face-periods ((,t (:foreground ,magenta))))
+      (cfw:face-select ((,t (:background nil :foreground nil))))
+      (cfw:face-saturday ((,t (:foreground ,cyan))))
+      (cfw:face-sunday ((,t (:foreground ,red))))
+      (cfw:face-title ((,t (:inherit variable-pitch :foreground ,yellow :height 2.0))))
+      (cfw:face-today ((,t (:background ,silent-em :foreground nil))))
+      (cfw:face-today-title ((,t (:background ,blue))))
+      (cfw:face-toolbar ((,t (:background ,silent-em :foreground ,content-em))))
+      (cfw:face-toolbar-button-off ((,t (:foreground ,content))))
+      (cfw:face-toolbar-button-on ((,t (:foreground ,yellow))))
+
       ;; helm
       (helm-apt-deinstalled ((,t (:foreground ,content))))
       (helm-apt-installed ((,t (:foreground ,green))))

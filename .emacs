@@ -22,8 +22,9 @@
 (define-key evil-normal-state-map "\C-p" 'evil-prev-buffer)
 
 ; vim - leaders
+(define-key evil-normal-state-map " #" 'calc)
 (define-key evil-normal-state-map " a" 'org-agenda)
-(define-key evil-normal-state-map " c" 'calc)
+(define-key evil-normal-state-map " c" 'cfw:open-org-calendar)
 (define-key evil-normal-state-map " d" 'kill-this-buffer)
 (define-key evil-normal-state-map " p" 'helm-for-files)
 (define-key evil-normal-state-map " q" 'save-buffers-kill-terminal)
@@ -86,6 +87,10 @@
 (setq helm-idle-delay 0.1)
 (setq helm-input-idle-delay 0.1)
 (setq helm-c-locate-command "mdfind %.0s %s")
+
+; calendar
+(require 'calfw)
+(require 'calfw-org)
 
 ; basics - numbers
 (setq linum-format " %d ")
