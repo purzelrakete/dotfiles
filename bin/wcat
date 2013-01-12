@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+set -u
+
+cmd=$1 # force exit due to -e if $1 is unse
+file=$(which $cmd)
+file $file | grep "shell script" # force exit if not editable
+
+cat $file
+
