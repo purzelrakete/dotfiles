@@ -22,12 +22,13 @@
 (define-key evil-normal-state-map "\C-p" 'evil-prev-buffer)
 
 ; vim - leaders
+(define-key evil-normal-state-map " a" 'org-agenda)
+(define-key evil-normal-state-map " c" 'calc)
 (define-key evil-normal-state-map " d" 'kill-this-buffer)
+(define-key evil-normal-state-map " p" 'helm-for-files)
 (define-key evil-normal-state-map " q" 'save-buffers-kill-terminal)
 (define-key evil-normal-state-map " s" 'save-buffer)
-(define-key evil-normal-state-map " a" 'org-agenda)
 (define-key evil-normal-state-map " w" 'whitespace-cleanup)
-(define-key evil-normal-state-map " p" 'helm-for-files)
 
 ; vim - dired
 (defun dired-current () (interactive) (dired-at-point "."))
@@ -43,7 +44,7 @@
 (slime-setup)
 
 ; scala - ensime
-(require 'scala-mode-auto)
+(require 'scala-mode2)
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
