@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo $(pmset -b -g ps | sed -n 2p | field 4 )
+echo $(pmset -b -g ps | sed -n 2p | field 4 | grep -v no)
 
