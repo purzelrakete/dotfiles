@@ -1,15 +1,5 @@
 #!/bin/sh
 
-set -e
-set -u
-
-fetch() {
-  local key="$1"
-  local account="$2"
-
-  kc -s calendar.google.com -a $account | xargs curl -s > ~/.calendar/$key.ics
-}
-
-fetch home purzelrakete@gmail.com
+PATH=$PATH:~/bin 2>&1 gcalsync home purzelrakete@gmail.com
 sleep 1500
 

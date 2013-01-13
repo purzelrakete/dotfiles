@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+set -u
+set -o pipefail
+
+key="$1"
+account="$2"
+
+kc -s calendar.google.com -a $account | xargs curl -s > ~/.calendar/$key.ics
+
