@@ -1,14 +1,10 @@
-# Images
-image/jpg; feh %s;
-image/jpeg; feh %s;
-image/png; feh %s;
-image/gif; feh %s;
-image/bmp; feh %s;
+# pdf
+application/pdf; open -a Preview %s && read; nametemplate=%s.pdf;
 
-# PDFs
-application/pdf; open -a Preview %s && read; nametemplate=%s.pdf
-
-# HTML
+# html
 text/html; mutt-open %s; nametemplate=%s.html; test=psg Chrome > /dev/null;
-text/html; w3m -dump %s; copiousoutput; nametemplate=%s.html
+text/html; w3m -dump %s; copiousoutput; nametemplate=%s.html;
+
+# images
+image/*; open -a Preview %s && read; nametempalte=%s;
 
