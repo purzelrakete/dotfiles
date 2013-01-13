@@ -24,7 +24,7 @@
 ; vim - leaders
 (define-key evil-normal-state-map " #" 'calc)
 (define-key evil-normal-state-map " a" 'org-agenda)
-(define-key evil-normal-state-map " c" 'cfw:open-org-calendar)
+(define-key evil-normal-state-map " c" 'open-calendar)
 (define-key evil-normal-state-map " d" 'kill-this-buffer)
 (define-key evil-normal-state-map " p" 'helm-for-files)
 (define-key evil-normal-state-map " q" 'save-buffers-kill-terminal)
@@ -91,7 +91,17 @@
 ; calendar
 (require 'calfw)
 (require 'calfw-org)
+(require 'calfw-ical)
 (setq calendar-week-start-day 1)
+
+; calendar - open
+(defun open-calendar ()
+  (interactive)
+  (cfw:open-calendar-buffer
+    :contents-sources
+    (list
+      (cfw:org-create-source "Green")
+      (cfw:ical-create-source "Home" "~/.calendar/home.ics" "Blue"))))
 
 ; calendar - grid
 (setq cfw:fchar-junction ?╋
@@ -116,12 +126,11 @@
 (set-face-background 'trailing-whitespace "black")
 
 ; basics - print margin
-(require 'fill-column-indicator)
 (setq fci-rule-column 78)
 (setq fci-rule-color "black")
-(fci-mode)
+(require 'fill-column-indicator)
 
-; basics - backups
+; basics - backup
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 

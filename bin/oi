@@ -1,11 +1,15 @@
 #!/bin/bash
 
 set -o pipefail
+set -e
+set -u
 
-pstree $(psg offlineimap | field 1) | \
+service=${service:-offlineimap}
+
+pstree $(psg $service | field 1) | \
   grep sleep | \
   sed -E 's/.* ([0-9]+) .*/\1/' | \
   xargs kill
 
-tail -fn0 ~/service/offlineimap/log/main/current
+tail -fn0 ~/service/$service/log/main/current
 

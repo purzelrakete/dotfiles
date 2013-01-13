@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+
+import keyring
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-s', '--service', required=True)
+parser.add_argument('-a', '--account', required=True)
+args = parser.parse_args()
+
+secret = keyring.get_password(args.service, args.account)
+
+if secret:
+  print secret
+else:
+  exit(1)
+

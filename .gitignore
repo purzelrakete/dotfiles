@@ -1,5 +1,6 @@
 *.pyc
 .DS_Store
+.calendar/
 .emacs.d/auto-save-list/
 .gnupg/*.asc
 .gnupg/*.gpg
