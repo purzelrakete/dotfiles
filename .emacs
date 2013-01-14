@@ -78,8 +78,14 @@
     (define-key org-agenda-mode-map "p" 'evil-forward-word-begin)
     (define-key org-agenda-mode-map "w" 'evil-forward-word-begin)))
 
+; org - focus
+(defun org-files ()
+  (setq focus-env (getenv "FOCUS"))
+  (setq focus (if focus-env focus-env "b"))
+  (file-expand-wildcards (concat "~/Dropbox/" focus "log/org/*.org")))
+
 ; org - config
-(setq org-agenda-files (file-expand-wildcards "~/Dropbox/blog/org/*.org"))
+(setq org-agenda-files (org-files))
 (setq org-log-done t)
 
 ; helm -config
