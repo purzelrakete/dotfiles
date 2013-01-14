@@ -1,4 +1,4 @@
 #!/bin/sh
 
-gecho -n -e "\e[00;34m$(load) $(hrs) — you get the work you do\n"
+gecho -n -e "\e[00;34m$(load) \e[00;91m$(hrs) \e[00;34myou get the work you do\n"
 
