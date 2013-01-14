@@ -1,5 +1,5 @@
 [general]
-accounts = purzelrakete, playtype
+accounts = soundcloud, purzelrakete, playtype
 fsync = False
 pythonfile=~/.offlineimap/offlineimap.py
 
@@ -44,6 +44,27 @@ nametrans = trans_remote_gmail
 realdelete = no
 remotepasseval = keychain("imap.gmail.com", "rany@playtype.net")
 remoteuser = rany@playtype.net
+ssl = yes
+type = Gmail
+
+[Account soundcloud]
+localrepository = soundcloud-Local
+remoterepository = soundcloud-Remote
+status_backend = sqlite
+
+[Repository soundcloud-Local]
+localfolders = ~/.mail/soundcloud
+nametrans = trans_local_gmail
+type = Maildir
+
+[Repository soundcloud-Remote]
+cert_fingerprint = 6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+folderfilter = filter_remote_gmail
+maxconnections = 1
+nametrans = trans_remote_gmail
+realdelete = no
+remotepasseval = keychain("imap.gmail.com", "rany@soundcloud.com")
+remoteuser = rany@soundcloud.com
 ssl = yes
 type = Gmail
 

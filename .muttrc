@@ -1,4 +1,4 @@
-source ~/.mutt/solarized-dark-16.muttrc
+source ~/.mutt/solarized-$SOLARIZED_MODE-16.muttrc
 
 # Paths
 
@@ -96,7 +96,7 @@ set forward_format        = "Fwd: %s"
 set realname              = "Rany Keddo"
 
 set edit_headers          # show headers when composing
-set envelope_from         # which from?
+set envelope_from
 set fast_reply            # skip to compose when replying
 set fcc_attach            # save attachments with the body
 set forward_decode        # decode when forwarding
@@ -105,6 +105,7 @@ set include               # include message in replies
 set reply_to              # reply to Reply to: field
 set reverse_name          # reply as whomever it was to
 set sig_dashes            # dashes before sig
+set use_from
 unset mime_forward        # forward attachments as part of body
 
 bind compose p            postpone-message
@@ -116,6 +117,12 @@ set from                  = "purzelrakete@gmail.com"
 set sendmail              = "/usr/local/bin/msmtp -a purzelrakete"
 set sendmail_wait         = 0
 unset record
+
+# SMTP select sender
+
+macro generic "<esc>1" ":set from=purzelrakete@gmail.com"
+macro generic "<esc>2" ":set from=rany@playtype.net"
+macro generic "<esc>3" ":set from=rany@soundcloud.com"
 
 # Contacts
 
@@ -135,7 +142,8 @@ set mbox                  = "+purzelrakete/all"
 set postponed             = "+purzelrakete/drafts"
 
 mailboxes +purzelrakete/INBOX \
-          +playtype/INBOX
+          +playtype/INBOX \
+          +soundcloud/INBOX
 
 # encryption
 
