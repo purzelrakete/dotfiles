@@ -224,7 +224,7 @@
       (popup-tip-face ((,t (:background ,silent :foreground ,content-em))))
       )))
 
-(apply #'custom-theme-set-faces 'solarized (solarized-faces 'dark))
+(apply #'custom-theme-set-faces 'solarized (solarized-faces solarized-mode))
 
 (provide-theme 'solarized)
 

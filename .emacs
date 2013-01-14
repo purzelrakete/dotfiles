@@ -124,6 +124,7 @@
 (global-linum-mode t)
 
 ; basics - theme
+(setq solarized-mode 'light)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/solarized")
 (load-theme  'solarized 't)
 
