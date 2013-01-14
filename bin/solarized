@@ -7,13 +7,15 @@ theme() {
 
   if test "$color" = "dark"
     then
+      export SOLARIZED_MODE=dark
       export TMUX_BORDER=colour0
       export TMUX_WINDOW_STATUS_FG=black
-      export VIM_THEME=dark
+      export VIM_THEME=$SOLARIZED_MODE
     else # light
+      export SOLARIZED_MODE=light
       export TMUX_BORDER=colour7
       export TMUX_WINDOW_STATUS_FG=colour251
-      export VIM_THEME=light
+      export VIM_THEME=$SOLARIZED_MODE
   fi
 }
 
