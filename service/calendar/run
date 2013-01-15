@@ -1,5 +1,5 @@
 #!/bin/sh
 
 PATH=$PATH:~/bin 2>&1 gcalsync home purzelrakete@gmail.com
+PATH=$PATH:~/bin 2>&1 gcalsync work rany@soundcloud.com
 sleep 1500
-

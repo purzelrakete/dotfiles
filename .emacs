@@ -107,7 +107,8 @@
     :contents-sources
     (list
       (cfw:org-create-source "Green")
-      (cfw:ical-create-source "Home" "~/.calendar/home.ics" "Blue"))))
+      (cfw:ical-create-source "Home" "~/.calendar/home.ics" "Blue")
+      (cfw:ical-create-source "Work" "~/.calendar/work.ics" "Yellow"))))
 
 ; calendar - grid
 (setq cfw:fchar-junction ?╋

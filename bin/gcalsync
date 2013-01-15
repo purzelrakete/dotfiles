@@ -6,6 +6,12 @@ set -o pipefail
 
 key="$1"
 account="$2"
+url="$(kc -s calendar.google.com -a $account)"
 
-kc -s calendar.google.com -a $account | xargs curl -s > ~/.calendar/$key.ics
+if curl -sI "$url" >/dev/null
+  then
+    curl -s "$url" > ~/.calendar/$key.ics
+  else
+    exit 1
+fi
 
