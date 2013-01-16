@@ -1,3 +1,6 @@
+; solarized
+(setq solarized-mode 'light)
+
 ; paths
 (progn (cd "~/.emacs.d")
   (normal-top-level-add-subdirs-to-load-path))
@@ -125,13 +128,13 @@
 (global-linum-mode t)
 
 ; basics - theme
-(setq solarized-mode 'light)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/solarized")
 (load-theme  'solarized 't)
 
 ; basics - whitespace
 (setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "black")
+(setq trailing-color (if (eq 'light solarized-mode) "white" "black"))
+(set-face-background 'trailing-whitespace trailing-color)
 
 ; basics - print margin
 (setq fci-rule-column 78)
