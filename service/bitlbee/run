@@ -1,4 +1,4 @@
 #!/bin/sh
 
-exec /usr/local/sbin/bitlbee -D -n -p 6468 2>&1
+exec /usr/local/sbin/bitlbee -D -n -p 6468 -i 127.0.0.1 2>&1
 
