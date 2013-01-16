@@ -47,7 +47,7 @@ export PATH=.:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export PATH=$PATH:/usr/X11/bin
 
 # work mode
-export FOCUS=s # soundcloud
+export FOCUS=${FOCUS:-s} # soundcloud
 
 # java
 export JAVA=$JAVA_HOME/bin/java

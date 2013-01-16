@@ -1,6 +1,3 @@
-; solarized
-(setq solarized-mode 'light)
-
 ; paths
 (progn (cd "~/.emacs.d")
   (normal-top-level-add-subdirs-to-load-path))
@@ -111,6 +108,7 @@
     (list
       (cfw:org-create-source "Green")
       (cfw:ical-create-source "Home" "~/.calendar/home.ics" "Blue")
+      (cfw:ical-create-source "Both" "~/.calendar/both.ics" "Blue")
       (cfw:ical-create-source "Work" "~/.calendar/work.ics" "Yellow"))))
 
 ; calendar - grid
@@ -127,7 +125,11 @@
 (setq linum-format " %d ")
 (global-linum-mode t)
 
-; basics - theme
+; solarized - mode
+(setq solarized-env (getenv "SOLARIZED_MODE"))
+(setq solarized-mode (intern (if solarized-env solarized-env "light")))
+
+; solarized - load
 (add-to-list 'custom-theme-load-path "~/.emacs.d/solarized")
 (load-theme  'solarized 't)
 
