@@ -159,7 +159,7 @@
       (cfw:face-sunday ((,t (:foreground ,cyan :weight normal :background nil))))
       (cfw:face-title ((,t (:inherit variable-pitch :foreground ,yellow :height 2.0))))
       (cfw:face-today ((,t (:background ,silent-em :foreground nil))))
-      (cfw:face-today-title ((,t (:background ,blue))))
+      (cfw:face-today-title ((,t (:foreground ,content-em :background ,silent-em))))
       (cfw:face-toolbar ((,t (:background ,silent-em :foreground ,content-em))))
       (cfw:face-toolbar-button-off ((,t (:foreground ,content))))
       (cfw:face-toolbar-button-on ((,t (:foreground ,yellow))))
