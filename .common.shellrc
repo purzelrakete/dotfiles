@@ -46,8 +46,10 @@ alias vim='reattach-to-user-namespace mvim -v'
 export PATH=.:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 export PATH=$PATH:/usr/X11/bin
 
-# work mode
-export FOCUS=${FOCUS:-s} # soundcloud
+# mode
+export FOCUS=${FOCUS:-s}
+alias work='sl && FOCUS=s t'
+alias play='sd && FOCUS=b t'
 
 # java
 export JAVA=$JAVA_HOME/bin/java

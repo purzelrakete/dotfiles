@@ -2,6 +2,11 @@
 
 # brew install terminal-notifier figlet
 
+announce() {
+  local msg="$1"
+  say "$msg"
+}
+
 render() {
   while read remaining
   do
@@ -15,7 +20,7 @@ finally() {
   local reason="$1"
   echo $started $(now) "$(printf '%-8s' $reason)" $task >> "$plogfile"
   terminal-notifier -title po -message "$reason" >/dev/null
-  say $reason
+  announce "$reason"
 }
 
 now()   { echo $(date "+%H:%M:%S"); }
@@ -32,7 +37,7 @@ completed=$(grep done "$plogfile" 2>/dev/null | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
-say $completed
+announce $completed
 ruby -e "(1..$seconds).to_a.reverse.each { |i| puts i }" | render
 finally done.
 
