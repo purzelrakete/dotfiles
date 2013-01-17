@@ -1,6 +1,6 @@
 default_color = "-1";
 info_eol = "false";
-replaces = { "[]<>=" = "%_%k$*%n%_"; };
+replaces = { "[]<>=" = "%_%w$*%n%_"; };
 
 abstracts = {
 
@@ -17,21 +17,20 @@ abstracts = {
   comment = "($*)";
   error = "%r$*%n";
   hilight = "%_$*%_";
-  line_start = " %k● %G";
+  line_start = " %G-!- ";
   mode = "{comment $*}";
   nick = "%_$*%_";
   nickhost = "<$*>";
   reason = "{comment $*}";
   server = "%_$*%_";
-  timestamp = "%k$*%n";
-  trackbar_style = "%k";
+  timestamp = "%C$*%n";
 
   ## messages
   ##
 
   menick = "%m$*%n";
   msgchannel = "%G:%c$*%n";
-  msgnick = "%_%_$0$1-%_%_ %|";
+  msgnick = "%_<%_$0$1-%_>%_ %|";
   ownmsgnick = "{msgnick $0 $1-}%b";
   ownnick = "%b$*%n";
   ownprivmsg = "[%b$0%G<%B$1-%G>%n] ";
@@ -90,12 +89,16 @@ abstracts = {
   ## statusbar
   ##
 
-  prompt = "%g$*: ";
+  prompt = "%R$*: ";
   sb = " $* %b●%n";
-  sb_default_bg = "%k%0";
-  sb_window_bg = "%G%0";
+  sb_default_bg = "%k%7";
+  sb_window_bg = "%G%7";
   sb_background = "%k%6";
   sb_topic_bg = "%W%9";
+};
+
+"perl/core/scripts" = {
+  trackbar_style = "%w";
 };
 
 formats = {

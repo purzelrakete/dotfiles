@@ -7,8 +7,9 @@
 .gnupg/*.gpg~
 .gnupg/random_seed
 .irssi/away.log
-.irssi/config
+.irssi/config.autosave
 .irssi/saved_colors
+.irssi/startup
 .mail/
 .mutt/solarized*.muttrc
 .netrwhist

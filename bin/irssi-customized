@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -e
+set -u
+
+theme=${SOLARIZED_MODE:-dark}
+focus=${FOCUS:-b}
+work="$(kc -a purzelrakete -s irc.work.com)"
+bitlbee="$(kc -a purzelrakete -s irc.playtype.net)"
+
+case "$theme" in
+ light) trackbar=w ;;
+ *) trackbar=k ;;
+esac
+
+# bitlbee
+cat <<-CFG > ~/.irssi/startup
+/set theme $theme
+/connect Bitlbee
+/^msg -bitlbee &bitlbee identify $bitlbee
+/connect Freenode
+CFG
+
+# work
+if [[ $focus == "s" ]]; then
+cat <<-CFG >> ~/.irssi/startup
+/connect Work $work
+CFG
+fi
+
+irssi
+

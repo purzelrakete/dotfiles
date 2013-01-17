@@ -1,0 +1,114 @@
+servers = (
+  {
+    address = "irc.freenode.net";
+    chatnet = "Freenode";
+    port = "6697";
+    autoconnect = "no";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+  },
+  {
+    address = "irc.work.com";
+    chatnet = "Work";
+    port = "6697";
+    autoconnect = "no";
+    use_ssl = "yes";
+    ssl_verify = "no";
+  },
+  {
+    address = "127.0.0.1";
+    chatnet = "Bitlbee";
+    port = "6468";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
+  }
+);
+
+chatnets = {
+  Freenode = {
+    type = "IRC";
+    max_kicks = "4";
+    max_msgs = "5";
+    max_whois = "4";
+    max_query_chans = "5";
+  };
+  Work = {
+    type = "IRC";
+    max_kicks = "4";
+    max_msgs = "5";
+    max_whois = "4";
+    max_query_chans = "5";
+  };
+  Bitlbee = { type = "IRC"; };
+};
+
+aliases = {
+  J = "join";
+  LEAVE = "part";
+  DATE = "time";
+  HOST = "userhost";
+  LAST = "lastlog";
+  SAY = "msg *";
+  W = "who";
+  M = "msg";
+  SB = "scrollback";
+  WC = "window close";
+  SBAR = "STATUSBAR";
+};
+
+statusbar = {
+  default = {
+    window = {
+      placement = "bottom";
+      position = "1";
+      type = "window";
+      visible = "active";
+
+      items = {
+        barend = { priority = "100"; alignment = "right"; };
+        barstart = { priority = "100"; };
+        user = { };
+        window = { };
+      };
+    };
+    topic = { disabled = "yes"; };
+    window_inact = { disabled = "yes"; };
+  };
+};
+
+settings = {
+  core = { real_name = "prz lrkt"; user_name = "przlrkt"; nick = "przl"; };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = { theme = "dark"; hilight_color = "= %R"; };
+  "perl/core/scripts" = { trackbar_style = "%k"; };
+};
+
+hilights = ( 
+  { text = "przl"; color = "%M"; nick = "yes"; word = "yes"; }
+);
+
+ignores = (
+  { mask = "CommitBot"; level = "ALL"; },
+  {
+    level = "CRAP JOINS PARTS QUITS KICKS MODES TOPICS NICKS CLIENTCRAP";
+  }
+);
+
+windows = {
+  1 = { name = "mentions"; sticky = "yes"; };
+  2 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+};
+
+mainwindows = {
+  1 = { first_line = "0"; lines = "4"; };
+  2 = { first_line = "4"; lines = "33"; };
+};
+
+keyboard = ( { key = "meta-b"; id = "command"; data = "bust"; } );
+
+channels = (
+  { name = "#lisp"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#emacs"; chatnet = "Freenode"; autojoin = "yes"; }
+);
+
