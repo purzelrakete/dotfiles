@@ -24,7 +24,8 @@ CFG
 # work
 if [[ $focus == "s" ]]; then
 cat <<-CFG >> ~/.irssi/startup
-/connect Work $work
+/connect Work
+/quote PASS $work
 CFG
 fi
 
