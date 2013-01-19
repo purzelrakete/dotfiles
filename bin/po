@@ -10,7 +10,7 @@ announce() {
 render() {
   while read remaining
   do
-    echo $remaining seconds. | figlet | sed '$d'
+    echo "  $remaining seconds." | figlet | sed '$d'
     sleep 1
     command clear
   done
@@ -33,11 +33,11 @@ plogfile="$plogdir/pomodoro-$(today)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="${1:-pomodoro}"
-completed=$(grep done "$plogfile" 2>/dev/null | wc -l | xargs expr 1 +)
+next=$(plog | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
-announce $completed
+announce $next
 ruby -e "(1..$seconds).to_a.reverse.each { |i| puts i }" | render
 finally done.
 
