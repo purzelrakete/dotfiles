@@ -110,5 +110,6 @@ keyboard = ( { key = "meta-b"; id = "command"; data = "bust"; } );
 channels = (
   { name = "#lisp"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#emacs"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#julia"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 

@@ -1,0 +1,30 @@
+[submodule "METADATA"]
+	path = METADATA
+	url = git://github.com/JuliaLang/METADATA.jl.git
+[submodule "Calculus"]
+	path = Calculus
+	url = git://github.com/johnmyleswhite/Calculus.jl.git
+[submodule "Clustering"]
+	path = Clustering
+	url = git://github.com/johnmyleswhite/Clustering.jl.git
+[submodule "DataFrames"]
+	path = DataFrames
+	url = git://github.com/HarlanH/DataFrames.jl.git
+[submodule "Distributions"]
+	path = Distributions
+	url = git://github.com/JuliaStats/Distributions.jl.git
+[submodule "MCMC"]
+	path = MCMC
+	url = git://github.com/doobwa/MCMC.jl.git
+[submodule "NHST"]
+	path = NHST
+	url = git://github.com/johnmyleswhite/NHST.jl.git
+[submodule "Optim"]
+	path = Optim
+	url = git://github.com/johnmyleswhite/Optim.jl.git
+[submodule "Options"]
+	path = Options
+	url = git://github.com/JuliaLang/Options.jl.git
+[submodule "RDatasets"]
+	path = RDatasets
+	url = git://github.com/johnmyleswhite/RDatasets.jl.git

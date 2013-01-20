@@ -58,6 +58,9 @@ export JAVA_JARS=~/.jvm/jars
 export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'
 export MYSQL_CONNECTOR_JAR=$JAVA_JARS/mysql-connector-java-5.1.14-bin.jar
 
+# julia
+export PATH=$PATH:~/Projects/third-party/julia
+
 # hadoop
 export HADOOP_HOME=/opt/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
