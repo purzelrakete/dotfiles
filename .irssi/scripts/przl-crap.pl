@@ -4,7 +4,7 @@ use Irssi::TextUI;
 
 use vars qw($VERSION %IRSSI);
 
-$VERSION = '0.0.1';
+$VERSION = '0.1.0';
 
 %IRSSI = (
   authors     => 'Purzel Rakete',
@@ -17,7 +17,8 @@ my @types = qw/JOINS PARTS QUITS NICKS CLIENTCRAP CRAP MODE TOPICS KICKS/;
 my %remove = map { Irssi::level2bits($_) => 1 } @types;
 
 sub bust {
-  my $view = Irssi::active_win() -> view;
+  my $window = $_[0];
+  my $view =  $window -> view;
   my @reap = ();
 
   # remove_line sets line -> next to nil. collect and reap instead.
@@ -34,12 +35,18 @@ sub bust {
   $view -> redraw();
 }
 
-sub bustall {
-  my $cmd = "^ignore * @types";
-  print("running $cmd");
-  Irssi::command($cmd);
+sub bust_current {
+  bust(Irssi::active_win());
 }
 
-Irssi::command_bind('bust', 'bust');
-Irssi::command_bind('bustall', 'bustall');
+sub bust_all {
+  my @windows = Irssi::windows();
+
+  foreach (@windows) {
+    bust($_);
+  }
+}
+
+Irssi::command_bind('bust', 'bust_current');
+Irssi::command_bind('bust_all', 'bust_all');
 

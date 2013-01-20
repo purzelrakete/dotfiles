@@ -84,7 +84,7 @@ settings = {
   "perl/core/scripts" = { trackbar_style = "%k"; };
 };
 
-hilights = ( 
+hilights = (
   { text = "przl"; color = "%M"; nick = "yes"; word = "yes"; }
 );
 
@@ -105,11 +105,13 @@ mainwindows = {
   2 = { first_line = "4"; lines = "33"; };
 };
 
-keyboard = ( { key = "meta-b"; id = "command"; data = "bust"; } );
+keyboard = ( { key = "meta-b"; id = "command"; data = "bust_all"; } );
 
 channels = (
-  { name = "#lisp"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#emacs"; chatnet = "Freenode"; autojoin = "yes"; }
-  { name = "#julia"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#lisp";    chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#emacs";   chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#julia";   chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#clojure"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#scala";   chatnet = "Freenode"; autojoin = "yes"; }
 );
 
