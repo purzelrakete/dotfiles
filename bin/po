@@ -28,12 +28,11 @@ today() { echo $(date "+%Y-%m-%d"); }
 
 test "$#" -gt 1 && { echo 2>&1 terser.; exit 2; }
 
-plogdir=${plogdir:-~/Dropbox/${FOCUS:?}log}
-plogfile="$plogdir/po/$(today)"
+plogfile="$(plog)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="${1:-pomodoro}"
-next=$(plog | wc -l | xargs expr 1 +)
+next=$(cat $plogfile | grep done | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
