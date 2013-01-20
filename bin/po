@@ -29,7 +29,7 @@ today() { echo $(date "+%Y-%m-%d"); }
 test "$#" -gt 1 && { echo 2>&1 terser.; exit 2; }
 
 plogdir=${plogdir:-~/Dropbox/${FOCUS:?}log}
-plogfile="$plogdir/pomodoro-$(today)"
+plogfile="$plogdir/po/$(today)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="${1:-pomodoro}"
