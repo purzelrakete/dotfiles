@@ -16,6 +16,7 @@ esac
 # bitlbee
 cat <<-CFG > ~/.irssi/startup
 /set theme $theme
+/set trackbar_style %$theme
 /connect Bitlbee
 /^msg -bitlbee &bitlbee identify $bitlbee
 /connect Freenode

@@ -80,11 +80,11 @@ statusbar = {
 settings = {
   core = { real_name = "prz lrkt"; user_name = "przlrkt"; nick = "przl"; };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "dark"; hilight_color = "= %R"; };
+  "fe-common/core" = { theme = "light"; hilight_color = "= %R"; };
   "perl/core/scripts" = { trackbar_style = "%k"; };
 };
 
-hilights = (
+hilights = ( 
   { text = "przl"; color = "%M"; nick = "yes"; word = "yes"; }
 );
 
@@ -108,10 +108,11 @@ mainwindows = {
 keyboard = ( { key = "meta-b"; id = "command"; data = "bust_all"; } );
 
 channels = (
-  { name = "#lisp";    chatnet = "Freenode"; autojoin = "yes"; }
-  { name = "#emacs";   chatnet = "Freenode"; autojoin = "yes"; }
-  { name = "#julia";   chatnet = "Freenode"; autojoin = "yes"; }
-  { name = "#clojure"; chatnet = "Freenode"; autojoin = "yes"; }
-  { name = "#scala";   chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#clojure"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#emacs"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#julia"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#lisp"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#scala"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#scheme"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 
