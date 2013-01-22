@@ -1,5 +1,5 @@
 ; paths
-(progn (cd "~/.emacs.d")
+(let ((default-directory "~/.emacs.d"))
   (normal-top-level-add-subdirs-to-load-path))
 
 ; undo
