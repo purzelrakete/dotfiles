@@ -1,0 +1,5 @@
+#!/bin/sh
+
+alias mds_disable="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist"
+alias mds_enable="sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist"
+
