@@ -47,7 +47,7 @@ abstracts = {
   ##
 
   action = "{action_core %_$*%n} ";
-  action_core = "%_*%n $*";
+  action_core = "%_⚉%n $*";
   ownaction = "{action_core %b$*%n} ";
   ownaction_target = "{action_core $0}%G:%b$1%n ";
   pubaction = "{action $*}";
