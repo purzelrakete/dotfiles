@@ -88,6 +88,16 @@
 (setq org-agenda-files (org-files))
 (setq org-log-done t)
 
+; org - latex
+(require 'org-latex)
+(add-to-list 'org-export-latex-classes
+  '("article" "\\documentclass{article}" ("\\section{%s}" . "\\section*{%s}")))
+
+; org - babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t))) ; dot
+
 ; helm -config
 (require 'helm-files)
 (setq helm-idle-delay 0.1)

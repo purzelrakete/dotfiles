@@ -3,7 +3,7 @@ servers = (
     address = "irc.freenode.net";
     chatnet = "Freenode";
     port = "6697";
-    autoconnect = "no";
+    autoconnect = "yes";
     use_ssl = "yes";
     ssl_verify = "yes";
   },
@@ -11,9 +11,10 @@ servers = (
     address = "irc.work.com";
     chatnet = "Work";
     port = "6697";
-    autoconnect = "no";
+    autoconnect = "$WORK";
     use_ssl = "yes";
     ssl_verify = "no";
+    autosendcmd = "/quote PASS $WORKPW";
   },
   {
     address = "127.0.0.1";
@@ -22,6 +23,7 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "no";
+    autosendcmd = "/^msg -bitlbee &bitlbee identify $BITLBEE";
   }
 );
 
@@ -80,11 +82,11 @@ statusbar = {
 settings = {
   core = { real_name = "prz lrkt"; user_name = "przlrkt"; nick = "przl"; };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { theme = "light"; hilight_color = "= %R"; };
-  "perl/core/scripts" = { trackbar_style = "%k"; };
+  "fe-common/core" = { theme = "$THEME"; hilight_color = "= %R"; };
+  "perl/core/scripts" = { trackbar_style = "%$TRACKBAR"; };
 };
 
-hilights = ( 
+hilights = (
   { text = "przl"; color = "%M"; nick = "yes"; word = "yes"; }
 );
 

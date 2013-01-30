@@ -4,31 +4,23 @@ set -e
 set -u
 
 theme=${SOLARIZED_MODE:-dark}
+workpw="$(kc -a purzelrakete -s irc.work.com)"
+bitlbeepw="$(kc -a purzelrakete -s irc.playtype.net)"
 focus=${FOCUS:-b}
-work="$(kc -a purzelrakete -s irc.work.com)"
-bitlbee="$(kc -a purzelrakete -s irc.playtype.net)"
+work=no
 
 case "$theme" in
  light) trackbar=w ;;
  *) trackbar=k ;;
 esac
 
-# bitlbee
-cat <<-CFG > ~/.irssi/startup
-/set theme $theme
-/set trackbar_style %$theme
-/connect Bitlbee
-/^msg -bitlbee &bitlbee identify $bitlbee
-/connect Freenode
+sed -f /dev/stdin ~/.irssi/config.example <<-CFG > ~/.irssi/config
+s/\$THEME/$theme/g
+s/\$TRACKBAR/$trackbar/g
+s/\$BITLBEE/$bitlbeepw/g
+s/\$WORKPW/$workpw/g
+s/\$WORK/$work/g
 CFG
-
-# work
-if [[ $focus == "s" ]]; then
-cat <<-CFG >> ~/.irssi/startup
-/connect Work
-/quote PASS $work
-CFG
-fi
 
 irssi
 

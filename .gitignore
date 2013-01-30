@@ -9,7 +9,7 @@
 .irssi/away.log
 .irssi/config.autosave
 .irssi/saved_colors
-.irssi/startup
+.irssi/config
 .mail/
 .mutt/solarized*.muttrc
 .netrwhist
