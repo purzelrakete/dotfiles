@@ -1,0 +1,3 @@
+cabal install elm
+cabal install elm-server
+
