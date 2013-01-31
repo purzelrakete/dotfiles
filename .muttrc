@@ -8,7 +8,7 @@ set folder                = ~/.mail
 set header_cache          = ~/.mutt-scratch/headers
 set mailcap_path          = ~/.mutt/mailcap
 set message_cachedir      = ~/.mutt-scratch/bodies
-set signature             = ~/.mutt/sig
+set signature             = ~/.mutt/sig.$FOCUS
 set tmpdir                = ~/.mutt-scratch/temp
 
 # Basics
