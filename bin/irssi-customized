@@ -7,7 +7,11 @@ theme=${SOLARIZED_MODE:-dark}
 workpw="$(kc -a purzelrakete -s irc.work.com)"
 bitlbeepw="$(kc -a purzelrakete -s irc.playtype.net)"
 focus=${FOCUS:-b}
-work=no
+
+case "$focus" in
+ s) work=yes ;;
+ *) work=no ;;
+esac
 
 case "$theme" in
  light) trackbar=w ;;

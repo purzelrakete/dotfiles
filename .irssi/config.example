@@ -14,7 +14,7 @@ servers = (
     autoconnect = "$WORK";
     use_ssl = "yes";
     ssl_verify = "no";
-    autosendcmd = "/quote PASS $WORKPW";
+    password = "$WORKPW";
   },
   {
     address = "127.0.0.1";
@@ -22,8 +22,7 @@ servers = (
     port = "6468";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "no";
-    autosendcmd = "/^msg -bitlbee &bitlbee identify $BITLBEE";
+    autoconnect = "yes";
   }
 );
 
@@ -42,7 +41,10 @@ chatnets = {
     max_whois = "4";
     max_query_chans = "5";
   };
-  Bitlbee = { type = "IRC"; };
+  Bitlbee = {
+    type = "IRC";
+    autosendcmd = "/^msg -bitlbee &bitlbee identify $BITLBEE";
+  };
 };
 
 aliases = {
