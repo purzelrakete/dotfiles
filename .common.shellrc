@@ -89,5 +89,8 @@ source solarized --theme light --skip-if-configured
 # python
 source virtualenvwrapper.sh
 
+# cabal
+export PATH=$PATH:~/.cabal/bin
+
 welcome
 
