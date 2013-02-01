@@ -141,9 +141,7 @@ set spoolfile             = "+purzelrakete/INBOX"
 set mbox                  = "+purzelrakete/all"
 set postponed             = "+purzelrakete/drafts"
 
-mailboxes +purzelrakete/INBOX \
-          +playtype/INBOX \
-          +soundcloud/INBOX
+source ~/.mutt/inboxes.$FOCUS.muttrc
 
 # encryption
 
