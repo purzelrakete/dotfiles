@@ -1,0 +1,24 @@
+#!/usr/bin/ruby
+
+require 'date'
+require 'fileutils'
+
+focus = ENV["FOCUS"]
+glob = ["/Users/purzelrakete/Dropbox", focus + "log", "po", "*2013*"].join("/")
+
+stats = Array.new(356, 0)
+
+Dir.glob(glob).map do |log|
+  IO.readlines(log).each do |line|
+    if line !~ /aborted\!/
+      date, _ = *line.split(" ")
+      day = Date.parse(date).strftime('%j').to_i
+      stats[day] += 1
+    end
+  end
+end
+
+stats.each do |pomodoros|
+  puts pomodoros
+end
+
