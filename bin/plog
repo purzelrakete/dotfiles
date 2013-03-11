@@ -4,5 +4,5 @@ set -u
 set -e
 
 today() { echo $(date "+%Y-%m-%d"); }
-log=~/Dropbox/${FOCUS:?}log/po/$(today)
+log=~/Dropbox/${FOCUS:?}log/po/pomodoro-$(today)
 echo "$log"

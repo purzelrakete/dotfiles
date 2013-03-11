@@ -1,4 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-gecho -n -e "\e[00;34m$(load) \e[00;91m$(hrs) \e[00;34myou get the work you do\n"
+cookie[0]="you get the work you finish"
+cookie[1]="construct the environment you need. all of it"
+
+index=$(expr $RANDOM % 2)
+fortune=${cookie[$index]}
+
+gecho -n -e "\e[00;34m$(load) \e[00;91m$(hrs) \e[00;34m$fortune\n"
 

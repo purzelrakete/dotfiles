@@ -97,5 +97,11 @@ export PATH=$PATH:~/.cabal/bin
 # osx
 source ~/.osx
 
+# work
+if [[ $FOCUS -eq 's' ]]
+  then
+    export PATH=$PATH:~/.work/bin
+fi
+
 welcome
 

@@ -18,7 +18,6 @@ render() {
 
 finally() {
   local reason="$1"
-  touch "$plogfile"
   echo $started $(now) "$(printf '%-8s' $reason)" $task >> "$plogfile"
   terminal-notifier -title po -message "$reason" >/dev/null
   announce "$reason"
@@ -33,7 +32,7 @@ plogfile="$(plog)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="${1:-pomodoro}"
-next=$(cat $plogfile | grep done | wc -l | xargs expr 1 +)
+next=$(cat $plogfile 2>/dev/null | grep done | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
