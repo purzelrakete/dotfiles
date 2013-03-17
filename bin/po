@@ -10,7 +10,9 @@ announce() {
 render() {
   while read remaining
   do
-    echo "  $remaining seconds." | figlet | sed '$d'
+    minutes=$(expr $remaining / 60)
+    seconds=$(expr $remaining % 60)
+    echo "  ${minutes}m ${seconds}s" | figlet | sed '$d'
     sleep 1
     command clear
   done

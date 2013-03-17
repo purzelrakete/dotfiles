@@ -161,3 +161,7 @@
 (menu-bar-mode -1)
 (setq inhibit-splash-screen t)
 
+; golang
+(require 'go-mode-load)
+(add-hook 'before-save-hook 'gofmt-before-save)
+
