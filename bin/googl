@@ -143,6 +143,7 @@ while test $# -ne 0; do
     open) open "$@"; exit ;;
     search) search "$@"; exit ;;
     clear) clear; exit ;;
+    -) read arg; shorten $arg; exit;;
     *) shorten $arg; exit ;;
   esac
 done

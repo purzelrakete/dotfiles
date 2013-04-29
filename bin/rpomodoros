@@ -1,0 +1,10 @@
+#!/usr/bin/env Rscript
+
+library(ggplot2)
+
+stats <- as.numeric(system("po-stats", intern = TRUE))
+po <- data.frame(pomodoros = stats)
+histogram <- ggplot(po, aes(x = pomodoros)) + geom_histogram(binwidth = 0.05)
+
+plot(histogram)
+
