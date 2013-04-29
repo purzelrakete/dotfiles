@@ -18,6 +18,7 @@ set backspace=indent,eol,start
 set ignorecase              " makes / searches case insensitive
 set wildmenu                " bash-like cycling
 set wildmode=list:longest
+set wildignore=*.o,*.obj,.git,tags,*.class,*.gem,*.xsd,*.dtd,*.jarName,**/target/**
 set incsearch
 
 " safety
