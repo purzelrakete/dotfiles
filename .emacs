@@ -119,6 +119,7 @@
       (cfw:org-create-source "Green")
       (cfw:ical-create-source "Home" "~/.calendar/home.ics" "Blue")
       (cfw:ical-create-source "Both" "~/.calendar/both.ics" "Blue")
+      (cfw:ical-create-source "Learn" "~/.calendar/ml.ics" "Green")
       (cfw:ical-create-source "Work" "~/.calendar/work.ics" "Yellow"))))
 
 ; calendar - grid
