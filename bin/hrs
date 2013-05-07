@@ -1,4 +1,7 @@
 #!/bin/sh
 
-echo $(pmset -b -g ps | sed -n 2p | field 4 | grep -v no)
+if uname -a | grep "^Darwin" >/dev/null
+then
+  echo $(pmset -b -g ps | sed -n 2p | field 4 | grep -v no)
+fi
 
