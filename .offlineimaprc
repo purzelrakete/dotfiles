@@ -15,7 +15,7 @@ nametrans = trans_local_gmail
 type = Maildir
 
 [Repository purzelrakete-Remote]
-cert_fingerprint = 6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+cert_fingerprint = b0ba392bba326e6feb1add4d04fa0fb86cd173fa
 folderfilter = filter_remote_gmail
 maxconnections = 1
 nametrans = trans_remote_gmail
@@ -37,7 +37,7 @@ nametrans = trans_local_gmail
 type = Maildir
 
 [Repository playtype-Remote]
-cert_fingerprint = 6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+cert_fingerprint = b0ba392bba326e6feb1add4d04fa0fb86cd173fa
 folderfilter = filter_remote_gmail
 maxconnections = 1
 nametrans = trans_remote_gmail
@@ -58,7 +58,7 @@ nametrans = trans_local_gmail
 type = Maildir
 
 [Repository soundcloud-Remote]
-cert_fingerprint = 6d1b5b5ee0180ab493b71d3b94534b5ab937d042
+cert_fingerprint = b0ba392bba326e6feb1add4d04fa0fb86cd173fa
 folderfilter = filter_remote_gmail
 maxconnections = 1
 nametrans = trans_remote_gmail

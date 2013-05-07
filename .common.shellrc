@@ -26,21 +26,20 @@ alias ...="cd ../.."
 alias ..="cd .."
 alias b='bundle exec'
 alias clear="echo use CTRL-L instead."
-alias e='reattach-to-user-namespace emacs'
+alias e='emacs'
 alias gist='gist -p'
 alias gst='git status'
 alias gti='git'
 alias i='irssi'
-alias irssi='reattach-to-user-namespace irssi-customized'
+alias irssi='irssi-customized'
 alias l='ls --color -alFh'
 alias ll='ls --color -bF'
-alias m='reattach-to-user-namespace mutt'
+alias m='mutt'
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 alias psmem='ps -o vsz= -p'
 alias pwdc="pwd | pbcopy"
-alias s='reattach-to-user-namespace soywiki'
+alias s='soywiki'
 alias v='vim .'
-alias vim='reattach-to-user-namespace mvim -v'
 alias jw='launch-julia-webserver'
 
 # base
@@ -95,7 +94,7 @@ source virtualenvwrapper.sh
 export PATH=$PATH:~/.cabal/bin
 
 # osx
-source ~/.osx
+uname -a | grep "^Darwin" >/dev/null && source ~/.osx
 
 # work
 if [[ $FOCUS -eq 's' ]]
