@@ -1,0 +1,5 @@
+*.elc
+patch*
+*.patch
+*.diff
+Home.md
