@@ -5,6 +5,8 @@ cookie[1]="construct the environment you need. all of it"
 
 index=$(expr $RANDOM % 2)
 fortune=${cookie[$index]}
+hrs=$(hrs)
+bin=$(which gecho >/dev/null && printf gecho || printf echo)
 
-gecho -n -e "\e[00;34m$(load) \e[00;91m$(hrs) \e[00;34m$fortune\n"
+$bin -n -e  "\e[00;34m$(load) \e[00;91m$hrs \e[00;34m$fortune\n"
 
