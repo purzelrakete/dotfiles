@@ -129,6 +129,7 @@ sudo apt-get -y install rabbitmq
 sudo apt-get -y install readline
 sudo apt-get -y install redis
 sudo apt-get -y install rtmpdump
+sudo apt-get -y install ruby1.8-dev
 sudo apt-get -y install runit
 sudo apt-get -y install sbcl
 sudo apt-get -y install sbt
