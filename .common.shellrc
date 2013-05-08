@@ -66,6 +66,10 @@ export PATH=$PATH:$JULIA_PATH:$JULIA_PATH/usr/bin
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 
+# pig
+export PIG_HOME="/usr/local/pig/"
+export PATH=$PATH:$PIG_HOME/bin
+
 # python
 export PYTHONPATH=/Library/Python/2.7/site-packages
 
