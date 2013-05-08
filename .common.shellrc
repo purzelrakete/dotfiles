@@ -63,7 +63,7 @@ export JULIA_PATH=~/Projects/third-party/julia
 export PATH=$PATH:$JULIA_PATH:$JULIA_PATH/usr/bin
 
 # hadoop
-export HADOOP_HOME=/opt/hadoop
+export HADOOP_HOME=/usr/local/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 
 # python
