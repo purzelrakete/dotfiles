@@ -148,7 +148,7 @@ sudo apt-get -y install tig
 sudo apt-get -y install tmux
 sudo apt-get -y install tree
 sudo apt-get -y install unrar
-sudo apt-get -y install vim
+sudo apt-get -y install vim-nox # with +ruby
 sudo apt-get -y install w3m
 sudo apt-get -y install watch
 sudo apt-get -y install wemux
