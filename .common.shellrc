@@ -93,14 +93,17 @@ source virtualenvwrapper.sh
 # cabal
 export PATH=$PATH:~/.cabal/bin
 
-# osx
-uname -a | grep "^Darwin" >/dev/null && source ~/.osx
-
 # work
 if [[ $FOCUS -eq 's' ]]
   then
     export PATH=$PATH:~/.work/bin
 fi
+
+# osx
+uname -a | grep "^Darwin" >/dev/null && source ~/.osx
+
+# linux
+uname -a | grep "^Linux" >/dev/null && source ~/.linux
 
 welcome
 
