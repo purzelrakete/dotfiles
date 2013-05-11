@@ -1,3 +1,18 @@
+# vim-like navigation
+
+bind-key j down
+bind-key k up
+bind-key h left
+bind-key l right
+bind-key m toggle-show-read-feeds
+
+# browser
+
+browser newsbeuter-open
+text-width 76
+
+# colors
+
 color background   default   default
 color listnormal   default   default
 color listfocus    black     magenta
