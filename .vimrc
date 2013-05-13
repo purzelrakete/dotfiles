@@ -123,12 +123,6 @@ map <leader>u :!tmux send-keys -t 1 y<CR><CR>
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
-" pig
-
-augroup filetypedetect
-  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig
-augroup END
-
 " restore cursor to saved position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
