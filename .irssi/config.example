@@ -116,6 +116,7 @@ channels = (
   { name = "#emacs"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#julia"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#lisp"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#math"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#scala"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#scheme"; chatnet = "Freenode"; autojoin = "yes"; }
 );
