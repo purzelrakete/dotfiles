@@ -56,7 +56,7 @@ sudo apt-get -y install \
   iftop \
   igraph \
   imagemagick \
-  imlib2 --with-x \
+  imlib2 \
   irssi \
   jasper \
   jbig2dec \
@@ -95,7 +95,7 @@ sudo apt-get -y install \
   mit-scheme \
   msmtp \
   mtr \
-  mutt --pgp-verbose-mime-patch --with-slang \
+  mutt \
   mysql-server \
   neo4j \
   netcat \
@@ -149,8 +149,7 @@ sudo apt-get -y install \
   tmux \
   tree \
   unrar \
-  vim-nox \ # with +ruby
-  w3m \
+  vim-nox \
   watch \
   wemux \
   wget \
@@ -158,6 +157,4 @@ sudo apt-get -y install \
   xvid \
   yasm \
   zookeeper \
-  zsh \
-
-
+  zsh

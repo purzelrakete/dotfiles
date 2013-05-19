@@ -12,6 +12,9 @@ ln -sfv $(pwd)/keyringrc.cfg ~
 mkdir -p ~/.sbt/plugins
 ln -svf $(pwd)/boot.sbt ~/.sbt/plugins
 
+# vagrant
+ln -svf $(pwd)/Vagrantfile ~/Vagrantfile
+
 # link binaries
 mkdir -p ~/bin
 ln -sfv $(pwd)/bin/* ~/bin

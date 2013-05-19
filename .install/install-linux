@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+set -u
+
+# git
+apt-get -y install git
+
+# dotfiles
+if [ ! -d dotfiles ]
+then
+  git clone git@github.com:purzelrakete/dotfiles
+  (cd dotfiles; ./pin)
+fi
+
+# dot post-install
+dotfiles/.install/install-apt
+dotfiles/.install/install-command-t
