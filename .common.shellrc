@@ -32,15 +32,16 @@ alias gst='git status'
 alias gti='git'
 alias i='irssi'
 alias irssi='irssi-customized'
+alias jw='launch-julia-webserver'
 alias l='ls --color -alFh'
 alias ll='ls --color -bF'
 alias m='mutt'
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
+alias potoday='cat $(plog) | grep done\. | wc -l'
 alias psmem='ps -o vsz= -p'
 alias pwdc="pwd | pbcopy"
 alias s='soywiki'
 alias v='vim .'
-alias jw='launch-julia-webserver'
 
 # base
 export PATH=.:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
