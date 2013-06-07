@@ -113,6 +113,7 @@ keyboard = ( { key = "meta-b"; id = "command"; data = "bust_all"; } );
 
 channels = (
   { name = "#clojure"; chatnet = "Freenode"; autojoin = "yes"; },
+  { name = "#edx-code"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#emacs"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#julia"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#lisp"; chatnet = "Freenode"; autojoin = "yes"; },

@@ -1,0 +1,28 @@
+#!/bin/sh
+
+normalize() {
+  local source="$1"
+
+  echo ${source// /.} | \
+    tr '[:upper:]' '[:lower:]' | \
+    sed 's/\.-\./\./g' | \
+    sed 's/[()]/./g' | \
+    sed 's/\.\./\./g' | \
+    awk '
+    BEGIN {
+      FS = "."
+      OFS = "."
+    }
+
+    /./ {
+      printf("%02d.", $1)
+      for (i = 2; i < NF; i++) { printf $i "." }
+      print $NF
+    }'
+}
+
+for file in *.mp4
+do
+  target="$(normalize "$file")"
+  mv "$file" "$target"
+done
