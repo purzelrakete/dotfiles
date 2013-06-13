@@ -5,8 +5,7 @@ set -u
 
 # base
 apt-get update -qq
-apt-get -q -y install git zsh python-software-properties
+apt-get -q -y install git zsh python-software-properties software-properties-common
 add-apt-repository -y ppa:dotcloud/lxc-docker
 apt-get update -qq
-apt-get install -q -y lxc-docker
-
+apt-get install -q -y linux-image-extra-`uname -r` lxc-docker
