@@ -3,16 +3,10 @@
 set -e
 set -u
 
-# git
-apt-get -y install git
+# base
+apt-get update -qq
+apt-get -q -y install git zsh python-software-properties
+add-apt-repository -y ppa:dotcloud/lxc-docker
+apt-get update -qq
+apt-get install -q -y lxc-docker
 
-# dotfiles
-if [ ! -d dotfiles ]
-then
-  git clone git@github.com:purzelrakete/dotfiles
-  (cd dotfiles; ./pin)
-fi
-
-# dot post-install
-dotfiles/.install/install-apt
-dotfiles/.install/install-command-t
