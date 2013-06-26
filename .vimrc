@@ -126,6 +126,11 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 " restore cursor to saved position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
+" languages
+
+autocmd BufWritePre *.go Fmt
+filetype plugin indent on
+
 " solarized
 
 syntax enable

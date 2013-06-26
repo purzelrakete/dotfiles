@@ -93,7 +93,12 @@ gedit() { cd $(gdir $1); vim .; cd -; }
 source solarized --theme light --skip-if-configured
 
 # python
-source virtualenvwrapper.sh
+if [[ -n "$CANOPY" ]]
+then
+  echo using python canopy.
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  source ~/Library/Enthought/Canopy_32bit/User/bin/activate
+fi
 
 # cabal
 export PATH=$PATH:~/.cabal/bin

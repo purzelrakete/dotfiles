@@ -11,6 +11,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 # completion
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+for c in ~/.completions/bash/_*; do source $c; done
 
 # moob completion
 
@@ -81,3 +82,4 @@ source ~/.init
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 
 :
+
