@@ -64,7 +64,6 @@ set list listchars=tab:..,trail:.
 " indentation
 
 set wrap
-set expandtab
 set formatoptions=qrn1
 set autoindent              " always set autoindenting on
 set shiftwidth=2            " number of spaces to use for autoindenting
@@ -128,8 +127,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " languages
 
-autocmd BufWritePre *.go Fmt
 filetype plugin indent on
+autocmd FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
+autocmd BufWritePre *.go Fmt
 
 " solarized
 
