@@ -1,5 +1,5 @@
 Rany Keddo
-Tech Lead, SoundCloud
+Discovery Engineer
 
 Mail & GTalk: what you think
 Skype: rany.keddo
