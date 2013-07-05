@@ -16,6 +16,7 @@ setlocal include="^\s*load\>"
 setlocal suffixesadd=.jl
 setlocal comments=:#
 setlocal commentstring=#%s
+setlocal cinoptions+=#1
 setlocal define="^\s*macro\>"
 
 " Comment the following line if you don't want operators to be
@@ -28,9 +29,11 @@ setlocal shiftwidth=4
 setlocal expandtab
 
 if exists("loaded_matchit")
+	let b:match_ignorecase=0
+
 	" note: beginKeywords must contain all blocks in order
 	" for nested-structures-skipping to work properly
-	let s:beginKeywords = '\<\%(function\|macro\|begin\|type\|let\|module\|quote\|if\|for\|while\|try\)\>'
+	let s:beginKeywords = '\<\%(function\|macro\|begin\|type\|immutable\|let\|do\|\%(bare\)\?module\|quote\|if\|for\|while\|try\)\>'
 	let s:endKeyowrds = '\<end\>'
 
 	" note: this function relies heavily on the syntax file
@@ -44,7 +47,7 @@ if exists("loaded_matchit")
 		elseif s:attr == 'juliaBlKeyword'
 			return s:beginKeywords . ':' . s:endKeyowrds
 		elseif s:attr == 'juliaException'
-			return s:beginKeywords . ':\<catch\>:' . s:endKeyowrds
+			return s:beginKeywords . ':\<\%(catch\|finally\)\>:' . s:endKeyowrds
 		endif
 		return ''
 	endfunction
@@ -55,15 +58,16 @@ if exists("loaded_matchit")
 	" the 'end' keyword when it is used as a range rather than as
 	" the end of a block
 	let b:match_skip = 'synIDattr(synID(line("."),col("."),1),"name") =~ '
-		\ . '"\\<julia\\%(RangeEnd\\|CommentL\\|\\%(\\|[EILbf]\\|Shell\\)String\\|RegEx\\)\\>"'
+		\ . '"\\<julia\\%(ComprehensionFor\\|RangeEnd\\|QuotedBlockKeyword\\|CommentL\\|\\%(\\|[EILbB]\\|Shell\\)String\\|RegEx\\)\\>"'
 endif
 
 if has("gui_win32")
 	let b:browsefilter = "Julia Source Files (*.jl)\t*.jl\n"
 endif
 
-let b:undo_ftplugin = "setlocal include< suffixesadd< comments< commentstring< define< shiftwidth< expandtab<"
-	\ . " | unlet! b:browsefiler b:match_words b:match_skip"
+let b:undo_ftplugin = "setlocal include< suffixesadd< comments< commentstring<"
+	\ . " define< shiftwidth< expandtab< indentexpr< indentkeys< cinoptions<"
+	\ . " | unlet! b:browsefiler b:match_words b:match_skip b:match_ignorecase"
 	\ . " | delfunction JuliaGetMatchWords"
 
 let &cpo = s:save_cpo

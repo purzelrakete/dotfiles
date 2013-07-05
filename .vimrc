@@ -128,8 +128,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " languages
 
 filetype plugin indent on
-autocmd FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
-autocmd BufWritePre *.go Fmt
+au FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
+au FileType julia filetype plugin off
+au BufWritePre *.go Fmt
 
 " solarized
 
