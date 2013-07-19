@@ -129,6 +129,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 filetype plugin indent on
 au FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
+au FileType julia setlocal shiftwidth=2
 au FileType julia filetype plugin off
 au BufWritePre *.go Fmt
 

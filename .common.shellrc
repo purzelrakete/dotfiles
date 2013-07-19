@@ -37,7 +37,7 @@ alias l='ls --color -alFh'
 alias ll='ls --color -bF'
 alias m='mutt'
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
-alias potoday='cat $(plog) | grep done\. | wc -l'
+alias potoday='2>/dev/null cat $(plog) | grep done\. | wc -l'
 alias psmem='ps -o vsz= -p'
 alias pwdc="pwd | pbcopy"
 alias s='soywiki'
@@ -114,6 +114,10 @@ uname -a | grep "^Darwin" >/dev/null && source ~/.osx
 
 # linux
 uname -a | grep "^Linux" >/dev/null && source ~/.linux
+
+# go
+gvm use go1.1.1 1>/dev/null
+export GOPATH=$GOPATH:~/Dropbox/code/go
 
 welcome
 
