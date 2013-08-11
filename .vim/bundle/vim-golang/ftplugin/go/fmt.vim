@@ -20,7 +20,7 @@ command! -buffer Fmt call s:GoFormat()
 
 function! s:GoFormat()
     let view = winsaveview()
-    silent %!gofmt
+    silent %!goimports
     if v:shell_error
         let errors = []
         for line in getline(1, line('$'))
