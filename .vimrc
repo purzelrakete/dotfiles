@@ -137,15 +137,15 @@ au BufWritePre *.go Fmt
 
 syntax enable
 
-let g:Powerline_theme="skwp"
-let g:Powerline_symbols = 'fancy'
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
 
 if $VIM_THEME == "light"
   set background=light
-  let g:Powerline_colorscheme="light"
 else
   set background=dark
-  let g:Powerline_colorscheme="skwp"
 endif
 
 colorscheme solarized
