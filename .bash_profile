@@ -76,7 +76,6 @@ fi
 
 source ~/.bash_prompt
 source ~/.common.shellrc
-source ~/.init
 
 # no hn
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"

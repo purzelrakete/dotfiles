@@ -77,8 +77,8 @@ map <leader>a :Ack
 map <leader>b :b
 map <leader>d :bd<CR>
 map <leader>o :o .<CR>
-map <leader>p :CommandT<CR>
-map <leader>j :CommandTBuffer<CR>
+map <leader>p :CtrlP<CR>
+map <leader>j :CtrlPBuffer<CR>
 map <leader>q :q<CR>
 map <leader>s :w<CR>
 map <leader>vv :source ~/.vimrc<CR>
