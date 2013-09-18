@@ -1,10 +1,10 @@
 Rany Keddo
-Discovery Engineer
+Engineer
 
 Mail & GTalk: what you think
 Skype: rany.keddo
 http://soundcloud.com/rany
-Rosenthaler Strasse 13, 101 19, Berlin, DE
+Greifswalder Strasse 212, 10405 Berlin
 
 We're hiring. Check out http://soundcloud.com/jobs
 
@@ -13,4 +13,3 @@ Registered Office: London, UK.
 Company number 6343600
 Authorized Director: Alexander Ljung
 Local Branch Office Germany: AG Charlottenburg, HRB 110657B
-

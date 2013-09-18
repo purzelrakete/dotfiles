@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec godoc -http=:9000 -index=true
+
