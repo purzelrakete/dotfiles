@@ -77,7 +77,7 @@ map <leader>a :Ack
 map <leader>b :b
 map <leader>d :bd<CR>
 map <leader>o :o .<CR>
-map <leader>p :CtrlP<CR>
+map <leader>p :CtrlPCurWD<CR>
 map <leader>j :CtrlPBuffer<CR>
 map <leader>q :q<CR>
 map <leader>s :w<CR>
