@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+set -u
+
+vimsrc=~/vim/src
+vimbin=~/vim/bin
+
+# get vim
+mkdir -p $vimsrc
+hg clone https://vim.googlecode.com/hg/ $vimsrc
+cd $vimsrc
+hg update default
+
+# build and install vim
+./configure --prefix=$vimbin
+make && make install
