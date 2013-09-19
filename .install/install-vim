@@ -3,8 +3,8 @@
 set -e
 set -u
 
-vimsrc=~/vim/src
-vimbin=~/vim/bin
+prefix=~/vim
+vimsrc=$prefix/src
 
 # get vim
 mkdir -p $vimsrc
@@ -13,5 +13,5 @@ cd $vimsrc
 hg update default
 
 # build and install vim
-./configure --prefix=$vimbin
+./configure --prefix=$prefix
 make && make install
