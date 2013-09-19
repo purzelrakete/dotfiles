@@ -11,3 +11,6 @@ alias m='reattach-to-user-namespace mutt'
 alias s='reattach-to-user-namespace soywiki'
 alias vim='reattach-to-user-namespace mvim -v'
 
+export EDITOR="reattach-to-user-namespace mvim -v"
+export SOYWIKI_EDITOR="reattach-to-user-namespace mvim -v"
+

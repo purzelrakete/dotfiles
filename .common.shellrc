@@ -3,7 +3,7 @@
 # base
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export EDITOR="mvim -v"
+export EDITOR="vim"
 export SVDIR=~/service
 
 # colours
@@ -79,7 +79,7 @@ export PATH=$PATH:/Applications/Octave.app/Contents/Resources/bin
 export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
 export PATH=$PATH:/opt/samiam
 export PATH=$PATH:/usr/local/mysql/bin
-export SOYWIKI_VIM="mvim -v"
+export SOYWIKI_VIM="vim"
 
 # rubygems
 gdir() { echo $(gem which $1 | sed 's/\/lib.*//g'); }
