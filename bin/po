@@ -2,9 +2,16 @@
 
 # brew install terminal-notifier figlet
 
+email="$2"
+
 announce() {
   local msg="$1"
   say "$msg"
+
+  if [[ "$email" ]]
+  then
+    echo "$msg" | mail $email
+  fi
 }
 
 render() {
@@ -25,10 +32,15 @@ finally() {
   announce "$reason"
 }
 
-now()   { echo $(date "+%H:%M:%S"); }
-today() { echo $(date "+%Y-%m-%d"); }
+now()   {
+  echo $(date "+%H:%M:%S");
+}
 
-test "$#" -gt 1 && { echo 2>&1 terser.; exit 2; }
+today() {
+  echo $(date "+%Y-%m-%d");
+}
+
+test "$#" -gt 2 && { echo 2>&1 terser.; exit 2; }
 
 plogfile="$(plog)"
 seconds="${seconds:-1500}"
