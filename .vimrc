@@ -133,6 +133,9 @@ au FileType julia setlocal shiftwidth=2
 au FileType julia filetype plugin off
 au BufWritePre *.go Fmt
 
+" netrw. TODO can netrw be removed?
+let g:netrw_quiet = 1
+
 " solarized
 
 syntax enable
