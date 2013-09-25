@@ -18,7 +18,7 @@ vcs_info_wrapper() {
 
 RPROMPT=$'$(vcs_info_wrapper)'
 
-if [[ $(hostname) = "przl" ]]
+if [[ $(hostname) = "przl.local" ]] || [[ $(hostname) = "przl" ]]
 then
   PS1="%(?.%{$fg[blue]%}.%{$fg[red]%})● %{$reset_color%}%m:%2c "
 else
