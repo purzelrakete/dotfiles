@@ -58,6 +58,7 @@ bind index gg             first-entry
 bind index p              recall-message
 bind index \cd            next-page
 bind index \cu            previous-page
+bind index R              group-reply
 
 # Index saner copy and move dialogs
 
@@ -88,6 +89,7 @@ bind pager j              next-line
 bind pager k              previous-line
 bind pager n              next-thread
 bind pager p              previous-thread
+bind pager R              group-reply
 
 # Compose
 
