@@ -93,6 +93,10 @@ imap <c-k> <esc>
 vmap > >gv
 vmap < <gv
 
+" remove ctrlp binding. use leader instead
+
+let g:ctrlp_map = '<c-&>'
+
 " cycle through buffers
 
 map <c-n> :bnext<cr>
@@ -143,6 +147,7 @@ syntax enable
 let g:airline_left_sep = '⮀'
 let g:airline_left_alt_sep = '⮁'
 let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
 let g:airline_right_alt_sep = '⮃'
 
 if $VIM_THEME == "light"
