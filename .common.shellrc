@@ -122,8 +122,9 @@ then
 fi
 
 # extension point
-for cfg in ~/.common/{*,.*} do
-  source $cfg
+for cfg in ~/.common/*
+do
+  source "$cfg"
 done
 
 export GOPATH=$GOPATH:~/Dropbox/code/go
