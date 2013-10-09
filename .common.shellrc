@@ -121,6 +121,11 @@ then
   gvm use go1.1.1 1>/dev/null
 fi
 
+# extension point
+for cfg in ~/.common/{*,.*} do
+  source $cfg
+done
+
 export GOPATH=$GOPATH:~/Dropbox/code/go
 export PATH=$PATH:~/Dropbox/code/go/bin
 
