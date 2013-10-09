@@ -1,6 +1,7 @@
 *.pyc
 .DS_Store
 .calendar/
+.common/soundcloud.common
 .emacs.d/auto-save-list/
 .gnupg/*.asc
 .gnupg/*.gpg
