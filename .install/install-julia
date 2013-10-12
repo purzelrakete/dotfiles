@@ -1,0 +1,10 @@
+#!/bin/sh
+
+sudo add-apt-repository ppa:staticfloat/julianightlies
+sudo add-apt-repository ppa:staticfloat/julia-deps
+sudo apt-get update
+sudo apt-get install julia
+
+julia -e 'Pkg.add("Winston")'
+julia -e 'Pkg.add("Gadfly")'
+julia -e 'Pkg.add("PyPlot")'
