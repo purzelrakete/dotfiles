@@ -8,9 +8,9 @@
 .gnupg/*.gpg~
 .gnupg/random_seed
 .irssi/away.log
+.irssi/config
 .irssi/config.autosave
 .irssi/saved_colors
-.irssi/config
 .mail/
 .mutt/solarized*.muttrc
 .netrwhist
@@ -18,7 +18,8 @@
 .offlineimap/Account*
 .offlineimap/Repository*
 .offlineimap/pid
+TODO.org
 sasl.auth
 service/*/log/main/
 supervise
-TODO.org
+tags
