@@ -2,8 +2,9 @@
 
 cookie[0]="you get the work you do"
 cookie[1]="construct the environment you need. all of it"
-cookie[2]="make it work, understand it. make it beautiful. make it fast."
-cookie[3]="trigger, ability and motivation."
+cookie[2]="make it work, understand it. make it beautiful. make it fast"
+cookie[3]="trigger, ability and motivation"
+cookie[3]="art + science + thinking + doing"
 
 index=$(expr $RANDOM % 4)
 fortune=${cookie[$index]}
