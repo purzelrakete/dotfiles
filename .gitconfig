@@ -1,5 +1,5 @@
 [push]
-  default = current
+	default = simple
 [pull]
   default = current
 [user]
@@ -25,3 +25,4 @@
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [branch]
   autosetuprebase = always
+

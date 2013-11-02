@@ -1,0 +1,6 @@
+brew tap homebrew/science
+
+brew install \
+  ack \
+  gfortran \
+  r

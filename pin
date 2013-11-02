@@ -5,9 +5,6 @@ set -e
 # link dotfiles
 ln -sfv $(echo $(pwd)/.[^.]* | xargs -n1 | grep -v '\.git$' | xargs) ~
 
-# pgp
-ln -sfv $(pwd)/keyringrc.cfg ~
-
 # scala - sbt
 mkdir -p ~/.sbt/plugins
 ln -svf $(pwd)/boot.sbt ~/.sbt/plugins

@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+import logging
+logging.raiseExceptions = False
+
 import keyring
 import argparse
 

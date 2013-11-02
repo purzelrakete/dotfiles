@@ -53,11 +53,7 @@ alias work='source solarized --theme light && FOCUS=s t'
 alias play='source solarized --theme dark && FOCUS=b t'
 
 # java
-export JAVA=$JAVA_HOME/bin/java
-export JAVA_HOME=/Library/Java/Home
-export JAVA_JARS=~/.jvm/jars
 export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'
-export MYSQL_CONNECTOR_JAR=$JAVA_JARS/mysql-connector-java-5.1.14-bin.jar
 
 # julia
 export JULIA_PATH=~/Projects/third-party/julia
@@ -84,10 +80,6 @@ export SOYWIKI_VIM="vim"
 # rubygems
 gdir() { echo $(gem which $1 | sed 's/\/lib.*//g'); }
 gedit() { cd $(gdir $1); vim .; cd -; }
-
-# version managers
-[[ -f ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
-[[ -s ~/.gvm/scripts/gvm ]] && source ~/.gvm/scripts/gvm
 
 # only run once on login shell. allows tmux reconfigurations
 source solarized --theme light --skip-if-configured
@@ -116,10 +108,10 @@ uname -a | grep "^Darwin" >/dev/null && source ~/.osx
 uname -a | grep "^Linux" >/dev/null && source ~/.linux
 
 # go
-if command -v gvm 1>/dev/null
-then
-  gvm use go1.1.1 1>/dev/null
-fi
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/Dropbox/code/go
+export PATH=$PATH:$GOPATH/bin
+
 
 # extension point
 for cfg in ~/.common/*
@@ -127,8 +119,4 @@ do
   source "$cfg"
 done
 
-export GOPATH=$GOPATH:~/Dropbox/code/go
-export PATH=$PATH:~/Dropbox/code/go/bin
-
 welcome
-
