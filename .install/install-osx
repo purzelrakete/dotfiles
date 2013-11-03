@@ -14,3 +14,7 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
+
+# fix hostname
+scutil --set LocalHostName przl
+scutil --set HostName przl

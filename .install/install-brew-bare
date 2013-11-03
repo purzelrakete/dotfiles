@@ -6,6 +6,7 @@ brew install \
   gpg \
   irssi \
   msmtp \
+  offlineimap \
   runit \
   tmux \
   zsh
