@@ -29,7 +29,14 @@ eval $(dircolors ~/.dir_colors)
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # cdpath
-cdpath=(. ~/Projects ~/Dropbox ~/Dropbox/code ~/Projects/soundcloud /Users/purzelrakete/Dropbox/code/go/src/github.com/purzelrakete
+cdpath=(
+  .
+  ~/Dropbox
+  ~/Dropbox/code
+  ~/Dropbox/code/go/src/github.com/purzelrakete
+  ~/Dropbox/code/go/src/github.com/soundcloud
+  ~/Projects
+  ~/Projects/soundcloud
 )
 
 # bindings

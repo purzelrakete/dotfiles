@@ -7,7 +7,7 @@ pythonfile=~/.offlineimap/offlineimap.py
 localrepository = purzelrakete-Local
 remoterepository = purzelrakete-Remote
 status_backend = sqlite
-postsynchook = notmuch new
+postsynchook = /usr/local/bin/notmuch new
 
 [Repository purzelrakete-Local]
 localfolders = ~/.mail/purzelrakete
@@ -29,7 +29,7 @@ type = Gmail
 localrepository = playtype-Local
 remoterepository = playtype-Remote
 status_backend = sqlite
-postsynchook = notmuch new
+postsynchook = /usr/local/bin/notmuch new
 
 [Repository playtype-Local]
 localfolders = ~/.mail/playtype
