@@ -56,8 +56,8 @@ alias play='source solarized --theme dark && FOCUS=b t'
 export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'
 
 # julia
-export JULIA_PATH=~/Projects/third-party/julia
-export PATH=$PATH:$JULIA_PATH:$JULIA_PATH/usr/bin
+export JULIA_PATH=/Applications/Julia-0.2.0.app/Contents/Resources/julia
+export PATH=$PATH:$JULIA_PATH/bin
 
 # hadoop
 export HADOOP_HOME=/usr/local/hadoop
@@ -112,11 +112,13 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~/Dropbox/code/go
 export PATH=$PATH:$GOPATH/bin
 
-
 # extension point
 for cfg in ~/.common/*
 do
   source "$cfg"
 done
+
+# added by Anaconda 1.8.0 installer
+export PATH="$HOME/anaconda/bin:$PATH"
 
 welcome
