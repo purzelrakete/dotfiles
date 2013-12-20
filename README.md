@@ -26,3 +26,12 @@ You can also archive current dotfiles that would be overwritten by running
     archive
 
 which creates ~/.dotarchive with your current files.
+
+## Dark
+
+![Dark](http://dl.dropboxusercontent.com/s/eu2bw6g3rk38pem/2013-12-20%20at%2014.33.png)
+
+## Light
+
+![Light](http://dl.dropboxusercontent.com/s/eu2bw6g3rk38pem/2013-12-20%20at%2014.33.png)
+
