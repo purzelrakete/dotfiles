@@ -35,7 +35,15 @@ You can also archive current dotfiles that would be overwritten by running
 
 which creates ~/.dotarchive with your current files.
 
+### Installing packages
+
+A number of packages such as vim, mutt and emacs are required to run together
+with these dotfiles. Have a look at dot/.install for brew, deb, cpan and other
+dependencies. These lists are currently not stripped down to the minimal set.
+
 ## TODO
 
 - Extract and parameterize email account metadata
+- Update minimal list of homebrew packages to install
+- Update minimal list of debian packages to install
 
