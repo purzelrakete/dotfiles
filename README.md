@@ -10,6 +10,14 @@ everything.
 - Newsbeuter
 - Scripts & tools in bin/
 
+## Dark
+
+![Dark](http://dl.dropboxusercontent.com/s/eu2bw6g3rk38pem/2013-12-20%20at%2014.33.png)
+
+## Light
+
+![Light](http://dl.dropboxusercontent.com/s/mozg8n588eip4dh/2013-12-20%20at%2014.52.png)
+
 ## Installation
 
 Clone the repository into
@@ -27,11 +35,7 @@ You can also archive current dotfiles that would be overwritten by running
 
 which creates ~/.dotarchive with your current files.
 
-## Dark
+## TODO
 
-![Dark](http://dl.dropboxusercontent.com/s/eu2bw6g3rk38pem/2013-12-20%20at%2014.33.png)
-
-## Light
-
-![Light](http://dl.dropboxusercontent.com/s/eu2bw6g3rk38pem/2013-12-20%20at%2014.33.png)
+- Extract and parameterize email account metadata
 
