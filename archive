@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+set -u
+
+archive=~/.dotarchive
+
+if [[ ! -d $archive ]]
+then
+  mkdir $archive
+  for dotfile in $(echo $(pwd)/.[^.]* | xargs -n1 | grep -v '\.git$' | xargs)
+  do
+    name=$(basename "$dotfile")
+    src="${HOME}/$name"
+    if [[ -f "$src" ]]
+    then
+      cp "$src" "$archive"
+    fi
+  done
+fi

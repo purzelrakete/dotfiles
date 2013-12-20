@@ -21,5 +21,8 @@ Symlink dotfiles into your home directory
     cd ~/dotfiles
     ./pin
 
-Have a look at ~/dotfiles/pin before running to make sure you don't clobber
-your current environment.
+You can also archive current dotfiles that would be overwritten by running
+
+    archive
+
+which creates ~/.dotarchive with your current files.
