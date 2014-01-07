@@ -1,15 +1,18 @@
 #!/bin/bash
 
-cookie[0]="you get the work you do"
-cookie[1]="construct the environment you need. all of it"
-cookie[2]="make it work, understand it. make it beautiful. make it fast"
-cookie[3]="trigger, ability and motivation"
-cookie[3]="art + science + thinking + doing"
+cookie=(
+  "you get the work you do"
+  "construct the environment you need. *all* of it"
+  "make it work, understand it. make it beautiful. make it fast"
+  "trigger, ability and motivation"
+  "art + science + thinking + doing"
+  "do the work. build tools to improve the doing. build tools to improve the improving"
+)
 
-index=$(expr $RANDOM % 4)
+len=${#cookie[@]}
+index=$(expr $RANDOM % $len)
 fortune=${cookie[$index]}
 hrs=$(hrs)
 bin=$(which gecho >/dev/null && printf gecho || printf echo)
 
 $bin -n -e  "\e[00;34m$(load) \e[00;91m$hrs \e[00;34m$fortune\n"
-
