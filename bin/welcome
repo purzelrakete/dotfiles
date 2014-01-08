@@ -1,12 +1,14 @@
 #!/bin/bash
 
 cookie=(
-  "you get the work you do"
+  "art + science + thinking + doing"
   "construct the environment you need. *all* of it"
+  "do the work. build tools to improve the doing. build tools to improve the improving"
+  "emotional time travel"
+  "just get started, and make the threshold for getting started quite low."
   "make it work, understand it. make it beautiful. make it fast"
   "trigger, ability and motivation"
-  "art + science + thinking + doing"
-  "do the work. build tools to improve the doing. build tools to improve the improving"
+  "you get the work you do"
 )
 
 len=${#cookie[@]}
