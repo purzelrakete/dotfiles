@@ -7,7 +7,7 @@ DAYS = 365
 WEEKS = DAYS / 7
 
 focus = ENV["FOCUS"]
-glob = ["/Users/purzelrakete/Dropbox", focus + "log", "po", "*2013*"].join("/")
+glob = ["/Users/purzelrakete/Dropbox", focus + "log", "po", "*2014*"].join("/")
 
 days = Array.new(DAYS, 0)
 weeks = Array.new(WEEKS, 0)
@@ -19,7 +19,7 @@ Dir.glob(glob).map do |log|
       day = Date.parse(date).strftime('%j').to_i
 
       days[day - 1] += 1
-      weeks[[WEEKS, (day / 7.0)].min.ceil] += 1
+      weeks[[WEEKS, (day / 7.0)].min.floor] += 1
     end
   end
 end
@@ -27,4 +27,3 @@ end
 weeks.each do |pomodoros|
   puts pomodoros
 end
-

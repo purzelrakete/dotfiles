@@ -21,6 +21,9 @@ setopt extendedhistory
 setopt extendedglob
 unsetopt caseglob
 
+# comments
+setopt interactivecomments
+
 # type "..",  "/usr/include"
 setopt auto_cd
 
