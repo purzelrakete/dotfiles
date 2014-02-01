@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # brew install terminal-notifier figlet
 
@@ -40,17 +40,32 @@ today() {
   echo $(date "+%Y-%m-%d");
 }
 
+countdown() {
+  local s=$1
+  ruby -e "(1..$s).to_a.reverse.each { |i| puts i }" | render
+}
+
+brkover() {
+  afplay ~/Dropbox/media/power.mp3
+}
+
 test "$#" -gt 2 && { echo 2>&1 terser.; exit 2; }
 
 plogfile="$(plog)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
-task="${1:-pomodoro}"
+task="$1"
 next=$(cat $plogfile 2>/dev/null | grep done | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
-announce $next
-ruby -e "(1..$seconds).to_a.reverse.each { |i| puts i }" | render
-finally done.
+if [[ $task == "brk" ]]
+then
+  countdown 300
+  brkover
+  exit 0
+fi
 
+announce $next
+countdown $seconds
+finally done.
