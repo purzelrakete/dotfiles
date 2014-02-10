@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cookie=(
+  "are you building something good that people feel decent about using?"
   "art + science + thinking + doing"
   "construct *all* the environment you need."
   "do the work. build tools to improve the doing. build tools to improve the improving"
