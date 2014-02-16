@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 articles_home=~/Dropbox/articles
 topic=$1
@@ -6,7 +6,7 @@ topic=$1
 display() {
   if [[ -f $articles_home/$topic.pdf ]] || [[ -f $articles_home/$topic.html ]]
     then
-      open $articles_home/$topic.*
+      1>2 2>/dev/null sensible-browser $articles_home/$topic.*
     else
       echo 2>1 $topic not found.
       exit 1
@@ -17,20 +17,20 @@ dependencies() {
   local topic=$1
 
   grep http "$topic.html" | \
-    gsed 's/.*\"\(.*\)\".*/\1/g' | \
+    sed 's/.*\"\(.*\)\".*/\1/g' | \
     grep http | \
-    gsed -n '/jpg\|jpeg\|gif\|css\|js/ p' | \
+    sed -n '/jpg\|jpeg\|gif\|css\|js/ p' | \
     sort | \
     uniq | \
     xargs -n1 md5 -s | \
     awk '{ print $2, $NF }' | \
     cut -c 3- | \
-    gsed 's/") / /g'
+    sed 's/") / /g'
 }
 
 topics() {
   ls $articles_home/*.{html,pdf} | \
-    gsed 's/\(.*\).\(html\|pdf\)/\1/g' | \
+    sed 's/\(.*\).\(html\|pdf\)/\1/g' | \
     xargs -n1 basename | \
     sort
 }

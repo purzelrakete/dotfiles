@@ -115,7 +115,7 @@ bind compose P            pgp-menu
 
 # SMTP client
 
-set from                  = "purzelrakete@gmail.com"
+set from                  = "rany@soundcloud.com"
 set sendmail              = "/usr/local/bin/msmtp"
 set sendmail_wait         = 0
 unset record

@@ -15,15 +15,15 @@ display() {
 }
 
 scoreize() {
-  gsed 's/\([A-Z]\)/-\1/g' | \
-    gsed 's/^-//g' | \
+  sed 's/\([A-Z]\)/-\1/g' | \
+    sed 's/^-//g' | \
     tr '[:upper:]' '[:lower:]'
 }
 
 topics() {
   ls "$glossary_home" | \
     grep -v HomePage | \
-    gsed 's/\(.*\)Glossary/\1/g' | \
+    sed 's/\(.*\)Glossary/\1/g' | \
     scoreize | \
     sort
 }

@@ -14,7 +14,7 @@
 .mail/
 .mutt/solarized*.muttrc
 .netrwhist
-.offlineimap/*.lock
+.offlineimap/*lock
 .offlineimap/Account*
 .offlineimap/Repository*
 .offlineimap/pid

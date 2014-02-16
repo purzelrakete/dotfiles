@@ -1,2 +1,1 @@
-remove Mod2 = Meta_L
-add Mod1 = Meta_L
+xmodmap -e "keycode 12 = 3 numbersign"

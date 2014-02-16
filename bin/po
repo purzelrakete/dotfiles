@@ -28,7 +28,7 @@ render() {
 finally() {
   local reason="$1"
   echo $started $(now) "$(printf '%-8s' $reason)" $task >> "$plogfile"
-  terminal-notifier -title po -message "$reason" >/dev/null
+  notify-send "$reason" >/dev/null
   announce "$reason"
 }
 

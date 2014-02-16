@@ -51,3 +51,4 @@ bindkey "[B" history-beginning-search-forward
 # needs to be at the bottom, or completion will break highlighting.
 source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
