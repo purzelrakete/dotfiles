@@ -9,7 +9,6 @@ let mapleader = " "
 set encoding=utf-8
 set history=1000
 set nocompatible            " don't need vi compatibility
-set visualbell              " stop the stupid sound
 set clipboard=unnamed       " work with system clipboard
 set backspace=indent,eol,start
 

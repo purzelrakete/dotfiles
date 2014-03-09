@@ -2,159 +2,45 @@
 
 sudo apt-get -y install \
   ack \
-  atool \
-  autoconf \
-  autojump \
-  automake \
-  bash-completion \
   bitlbee \
-  camlp5 \
-  cassandra \
   cmake \
-  coq \
   coreutils \
   ctags \
-  dotwrp \
-  ec2-api-tools \
-  elinks \
   emacs \
   erlang \
-  exiftool \
-  faac \
-  feh \
-  ffmpeg \
-  fftw \
-  fltk \
-  freetype \
-  fribidi \
   gawk \
-  gd \
-  gdbm \
-  gdk-pixbuf \
-  gettext \
   gfortran \
-  ghc \
-  giblib \
-  gist \
   git \
-  glib \
-  glpk \
-  gmp \
-  gnu-sed \
   gnupg \
   gnuplot \
-  gnutls \
-  go \
-  graphicsmagick \
-  graphviz \
-  guile \
-  haproxy \
-  haskell-platform \
-  hdf5 \
-  html2text \
   ifstat \
   iftop \
-  igraph \
-  imagemagick \
-  imlib2 \
   irssi \
   jasper \
-  jbig2dec \
-  jpeg \
   lame \
   leiningen \
-  leptonica \
-  libass \
-  libdshconfig \
-  libevent \
-  libffi \
-  libgcrypt \
-  libgpg-error \
-  libidn \
-  libmemcached \
-  libogg \
-  libpng \
-  libsigsegv \
-  libtasn1 \
-  libtiff \
-  libtool \
-  libunistring \
-  libvo-aacenc \
-  libvorbis \
-  libvpx \
-  lighttpd \
   llvm \
-  lua \
-  lynx \
-  lzo \
   markdown \
-  mcrypt \
-  memcached \
-  mercurial \
-  metis \
-  mit-scheme \
   msmtp \
   mtr \
   mutt \
-  mysql-server \
-  neo4j \
-  netcat \
-  nettle \
-  nginx \
   nmap \
-  node \
   notmuch \
   ocaml \
   octave \
   openvpn \
-  p11-kit \
-  pango \
-  pcre \
-  phantomjs \
-  pidof \
-  pig \
-  pixman \
-  pkg-config \
-  plt-racket \
-  potrace \
-  protobuf \
-  pstree \
   pv \
-  python \
-  qhull \
-  qrupdate \
-  qt \
-  r \
-  rabbitmq \
-  readline \
-  redis \
-  rtmpdump \
-  ruby1.8-dev \
   runit \
   sbcl \
-  sbt \
-  skipfish \
   socat \
-  sqlite \
   ssldump \
-  swi-prolog \
-  swig \
-  szip \
-  taglib \
-  tbb \
   tcpflow \
-  texinfo \
-  theora \
-  tig \
   tmux \
   tree \
   unrar \
-  vim-nox \
   watch \
-  wemux \
   wget \
   x264 \
-  xvid \
   yasm \
   zookeeper \
   zsh

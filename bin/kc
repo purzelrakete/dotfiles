@@ -9,12 +9,18 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-s', '--service', required=True)
 parser.add_argument('-a', '--account', required=True)
+parser.add_argument('-p', '--password', required=False)
 args = parser.parse_args()
 
-secret = keyring.get_password(args.service, args.account)
 
-if secret:
-  print secret
+if args.password:
+  keyring.set_password(args.service, args.account, args.password)
+
 else:
-  exit(1)
+  secret = keyring.get_password(args.service, args.account)
+
+  if secret:
+    print secret
+  else:
+    exit(1)
 
