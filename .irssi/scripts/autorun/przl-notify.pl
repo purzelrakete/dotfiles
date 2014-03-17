@@ -8,8 +8,8 @@ $VERSION = '0.0.1';
 
 %IRSSI = (
   authors     => 'Purzel Rakete',
-  name        => 'przl-osx-notify',
-  description => 'osx notification center on mentions',
+  name        => 'przl-notify',
+  description => 'notification on mentions',
   license     => 'MIT'
 );
 
@@ -17,7 +17,7 @@ sub przl_mention {
   my ($channel, $nick, $msg) = @_;
 
   # untrusted content is escaped
-  capturex('terminal-notifier', ('-message', "\@$nick $msg", '-title', $channel));
+  capturex('notify-send', ('-u', 'critical', "\@$nick $msg"));
 }
 
 Irssi::signal_add('przl mention', 'przl_mention');

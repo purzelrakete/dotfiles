@@ -13,7 +13,5 @@ ln -svf $(pwd)/boot.sbt ~/.sbt/plugins
 mkdir -p ~/bin
 ln -sfv $(pwd)/bin/* ~/bin
 
-# link services
-mkdir -p ~/service
-ln -sfv $(pwd)/service/* ~/service
+echo now copy service from service/ manually.
 

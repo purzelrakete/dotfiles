@@ -1,13 +1,13 @@
 [general]
 accounts = soundcloud, purzelrakete, playtype
 fsync = False
-pythonfile=~/.offlineimap/offlineimap.py
+pythonfile=~/.offlineimap.py
 
 [Account purzelrakete]
 localrepository = purzelrakete-Local
 remoterepository = purzelrakete-Remote
 status_backend = sqlite
-postsynchook = /usr/local/bin/notmuch new
+postsynchook = notmuch new
 
 [Repository purzelrakete-Local]
 localfolders = ~/.mail/purzelrakete
@@ -29,7 +29,7 @@ type = Gmail
 localrepository = playtype-Local
 remoterepository = playtype-Remote
 status_backend = sqlite
-postsynchook = /usr/local/bin/notmuch new
+postsynchook = notmuch new
 
 [Repository playtype-Local]
 localfolders = ~/.mail/playtype

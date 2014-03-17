@@ -14,10 +14,6 @@
 .mail/
 .mutt/solarized*.muttrc
 .netrwhist
-.offlineimap/*lock
-.offlineimap/Account*
-.offlineimap/Repository*
-.offlineimap/pid
 TODO.org
 sasl.auth
 service/*/log/main/

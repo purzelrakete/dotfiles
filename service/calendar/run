@@ -1,8 +1,11 @@
 #!/bin/sh
 
-PATH=$PATH:~/bin 2>&1 gcalsync home purzelrakete@gmail.com
-PATH=$PATH:~/bin 2>&1 gcalsync work rany@soundcloud.com
-PATH=$PATH:~/bin 2>&1 gcalsync both both@gmail.com
+PATH=$PATH:~purzelrakete/bin
+
+exec 2>&1
+
+gcalsync home purzelrakete@gmail.com
+gcalsync work rany@soundcloud.com
+gcalsync both both@gmail.com
 
 sleep 1500
-

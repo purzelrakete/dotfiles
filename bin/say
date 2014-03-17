@@ -5,4 +5,3 @@ set -e
 text="$@"
 festival -b "(SayText \"$text\")"
 
-

@@ -15,7 +15,6 @@ cookie=(
 len=${#cookie[@]}
 index=$(expr $RANDOM % $len)
 fortune=${cookie[$index]}
-hrs=$(hrs)
 bin=$(which gecho >/dev/null && printf gecho || printf echo)
 
-$bin -n -e  "\e[00;34m$(load) \e[00;91m$hrs \e[00;34m$fortune\n"
+$bin -n -e  "\e[00;34m » $fortune\n"
