@@ -120,5 +120,6 @@ channels = (
   { name = "#math"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#scala"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#scheme"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#elementary"; chatnet = "Freenode"; autojoin = "yes"; }
 );
 

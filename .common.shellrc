@@ -5,7 +5,7 @@ export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR="vim"
 export SVDIR=~/service
-export TERM=xterm-256color
+export TERM=screen-256color # xterm-256color
 
 # colours
 blu=$(printf "\033\\[1;34m")
@@ -25,27 +25,23 @@ if which gdircolors > /dev/null; then alias dircolors=gdircolors; fi
 alias ....="cd ../../.."
 alias ...="cd ../.."
 alias ..="cd .."
-alias b='bundle exec'
 alias clear="echo use CTRL-L instead."
 alias e='emacs -nw'
 alias gist='gist -p'
 alias gst='git status'
 alias gti='git'
 alias i='irssi-customized'
-alias jw='launch-julia-webserver'
 alias l='ls --color -alFh'
 alias ll='ls --color -bF'
 alias m='mutt'
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
-alias potoday='2>/dev/null cat $(plog) | grep done\. | wc -l'
-alias psmem='ps -o vsz= -p'
+alias potoday='2>/dev/null cat $(plog) | grep completed\. | wc -l'
 alias pwdc="pwd | pbcopy"
 alias s='soywiki'
 alias v='vim .'
 
 # base
 export PATH=.:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-export PATH=$PATH:/usr/X11/bin
 
 # mode
 export FOCUS=${FOCUS:-s}
@@ -55,42 +51,14 @@ alias play='source solarized --theme dark && FOCUS=b t'
 # java
 export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'
 
-# julia
-export JULIA_PATH=/Applications/Julia-0.2.0.app/Contents/Resources/julia
-export PATH=$PATH:$JULIA_PATH/bin
-
-# hadoop
-export HADOOP_HOME=/usr/local/hadoop
-export PATH=$PATH:$HADOOP_HOME/bin
-
-# pig
-export PIG_HOME="/usr/local/pig/"
-export PATH=$PATH:$PIG_HOME/bin
-
 # python
 export PYTHONPATH=/Library/Python/2.7/site-packages
 
 # other
-export PATH=$PATH:/Applications/Octave.app/Contents/Resources/bin
-export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
-export PATH=$PATH:/opt/samiam
-export PATH=$PATH:/usr/local/mysql/bin
 export SOYWIKI_VIM="vim"
-
-# rubygems
-gdir() { echo $(gem which $1 | sed 's/\/lib.*//g'); }
-gedit() { cd $(gdir $1); vim .; cd -; }
 
 # only run once on login shell. allows tmux reconfigurations
 source solarized --theme light --skip-if-configured
-
-# python
-if [[ -n "$CANOPY" ]]
-then
-  echo using python canopy.
-  export VIRTUAL_ENV_DISABLE_PROMPT=1
-  source ~/Library/Enthought/Canopy_32bit/User/bin/activate
-fi
 
 # cabal
 export PATH=$PATH:~/.cabal/bin
@@ -117,8 +85,5 @@ for cfg in ~/.common/*
 do
   source "$cfg"
 done
-
-# added by Anaconda 1.8.0 installer
-export PATH="$HOME/anaconda/bin:$PATH"
 
 welcome

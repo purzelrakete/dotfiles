@@ -13,5 +13,11 @@ ln -svf $(pwd)/boot.sbt ~/.sbt/plugins
 mkdir -p ~/bin
 ln -sfv $(pwd)/bin/* ~/bin
 
+# configure trackpad on linux
+if uname -a | grep "^Linux" >/dev/null; then
+  mkdir -p /etc/X11/xorg.conf.d
+  cp 60-synaptics.conf /etc/X11/xorg.conf.d
+fi
+
 echo now copy service from service/ manually.
 

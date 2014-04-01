@@ -12,3 +12,34 @@ alias s='reattach-to-user-namespace soywiki'
 alias vim='reattach-to-user-namespace mvim -v'
 alias v=vim
 
+export PATH=$PATH:/usr/X11/bin
+
+# julia
+export JULIA_PATH=/Applications/Julia-0.2.0.app/Contents/Resources/julia
+export PATH=$PATH:$JULIA_PATH/bin
+
+# hadoop
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin
+
+# pig
+export PIG_HOME="/usr/local/pig/"
+export PATH=$PATH:$PIG_HOME/bin
+
+# other
+export PATH=$PATH:/Applications/Octave.app/Contents/Resources/bin
+export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
+export PATH=$PATH:/opt/samiam
+export PATH=$PATH:/usr/local/mysql/bin
+
+# python
+if [[ -n "$CANOPY" ]]
+then
+  echo using python canopy.
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  source ~/Library/Enthought/Canopy_32bit/User/bin/activate
+fi
+
+# anaconda
+export PATH="$HOME/anaconda/bin:$PATH"
+

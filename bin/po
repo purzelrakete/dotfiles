@@ -55,7 +55,7 @@ plogfile="$(plog)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="$1"
-next=$(cat $plogfile 2>/dev/null | grep done | wc -l | xargs expr 1 +)
+next=$(cat $plogfile 2>/dev/null | grep completed | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
