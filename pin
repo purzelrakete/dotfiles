@@ -15,9 +15,11 @@ ln -sfv $(pwd)/bin/* ~/bin
 
 # configure trackpad on linux
 if uname -a | grep "^Linux" >/dev/null; then
-  mkdir -p /etc/X11/xorg.conf.d
-  cp 60-synaptics.conf /etc/X11/xorg.conf.d
+  sudo mkdir -p /etc/X11/xorg.conf.d
+  sudo cp 60-synaptics.conf /etc/X11/xorg.conf.d
 fi
 
+echo
+echo YO!
 echo now copy service from service/ manually.
 
