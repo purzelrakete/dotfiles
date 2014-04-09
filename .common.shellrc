@@ -21,6 +21,9 @@ export blu clr grn gry mag red
 if which gls > /dev/null; then alias ls=gls; fi
 if which gdircolors > /dev/null; then alias dircolors=gdircolors; fi
 
+# turn off xon/xoff to avoid conflict with CTRL-s readline forward search
+stty -ixon
+
 # aliases
 alias ....="cd ../../.."
 alias ...="cd ../.."

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# brew install terminal-notifier figlet
+# apt-get install figlet
 
 email="$2"
 
@@ -10,7 +10,7 @@ announce() {
 
   if [[ "$email" ]]
   then
-    echo "$msg" | mail $email
+    echo "$msg" | msmpt $email
   fi
 }
 

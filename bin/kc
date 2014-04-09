@@ -12,7 +12,6 @@ parser.add_argument('-a', '--account', required=True)
 parser.add_argument('-p', '--password', required=False)
 args = parser.parse_args()
 
-
 if args.password:
   keyring.set_password(args.service, args.account, args.password)
 
