@@ -1,19 +1,17 @@
 #!/bin/bash
 
 set -o pipefail
-set -e
 set -u
 
 name=${name:-offlineimap}
 services=${services:-/etc/service}
 service=$services/$name
 pid=$(sudo cat $service/supervise/pid)
+sleep_pid=$(ps -ef | grep $pid | grep sleep | field 2)
 
-ps -ef | \
-  grep $pid | \
-  grep sleep | \
-  field 2 | \
-  xargs sudo kill
-
-tail -fn0 $services/$service/log/main/current
-
+if [[ $? == 0 ]]; then
+  sudo kill $sleep_pid
+  tail -fn0 $service/log/main/current
+else
+  echo offlineimap is currently running, not doing anything.
+fi
