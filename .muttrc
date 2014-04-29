@@ -139,9 +139,9 @@ set status_chars          = " *%A"
 
 # Accounts
 
-set spoolfile             = "+soundcloud/INBOX"
-set mbox                  = "+soundcloud/all"
-set postponed             = "+soundcloud/drafts"
+set spoolfile             = "+purzelrakete/INBOX"
+set mbox                  = "+purzelrakete/all"
+set postponed             = "+purzelrakete/drafts"
 
 source ~/.mutt/inboxes.$FOCUS.muttrc
 
