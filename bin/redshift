@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pw=$(kc -a rany -s redpanda)
+PGPASSWORD=$pw psql -h redpanda -U rany "$@" redpanda

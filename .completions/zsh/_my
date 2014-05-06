@@ -1,0 +1,4 @@
+#compdef my
+
+_arguments "1:List:($(my --list | xargs))"
+

@@ -1,3 +1,64 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "$*" | mysql -uroot soundcloud_development
+usage() {
+  echo connect to preconfigured mysql instances.
+  echo urns are of the from user@db:host.
+  echo
+  echo usage:
+  echo "  $0 <urn>"
+  echo "  $0 --list. show a list of configured dbs"
+  echo
+  echo example:
+  echo "  $0 <me@widgets:production.com>"
+  echo
+  echo "see kc --help for info on how to store identities."
+  echo
+}
+
+while test "$#" -gt 0
+do
+  case "$1" in
+    --help|-h)
+      usage
+      exit 0
+      ;;
+    --list|-l)
+      kc --urn db:sc
+      exit 0
+      ;;
+    *)
+      urn="$1"
+      break
+      ;;
+  esac
+done
+
+if [[ -z "$urn" ]]; then
+  echo >&2 empty urn && usage
+  exit 1
+fi
+
+credentials="$(kc --urn $urn)"
+if [[ $? > 0 ]]; then
+  echo >&2 keychain: could not get credentials for "$urn".
+  exit 1
+fi
+
+# source into env.
+# this is a trusted code block from our own keychain.
+export $credentials
+
+for var in DB_USER DB_PASSWORD DB_NAME DB_HOST; do
+  if [[ -z "$(printenv $var)" ]]; then
+    echo >&2 "$var" not configured in urn
+    exit 1
+  fi
+done
+
+prompt="$DB_HOST> "
+
+mysql --silent --prompt "$prompt" --pager=less \
+  -h"$DB_HOST" \
+  -u"$DB_USER" \
+  -p"$DB_PASSWORD" "$DB_NAME"
+

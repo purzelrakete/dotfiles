@@ -5,21 +5,38 @@ logging.raiseExceptions = False
 
 import keyring
 import argparse
+import sys
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-s', '--service', required=True)
-parser.add_argument('-a', '--account', required=True)
-parser.add_argument('-p', '--password', required=False)
+parser.add_argument('-s', '--service')
+parser.add_argument('-a', '--account')
+parser.add_argument('-p', '--secret')
+parser.add_argument('-u', '--urn')
 args = parser.parse_args()
 
-if args.password:
-  keyring.set_password(args.service, args.account, args.password)
+service = args.service
+account = args.account
+secret = args.secret
+urn = args.urn
+
+if secret:
+  # read from stdin
+  if secret == "-":
+    secret = ''.join(sys.stdin.readlines())
+
+  keyring.set_password(service, account, secret)
 
 else:
-  secret = keyring.get_password(args.service, args.account)
+  # urn: `account:service` as single string
+  if urn:
+    (account, service) = urn.split(":")
+  else:
+    if not (service and account):
+      parser.error("use both -s service and -a account, OR -u urn.")
+
+  secret = keyring.get_password(service, account)
 
   if secret:
     print secret
   else:
     exit(1)
-

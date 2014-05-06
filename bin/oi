@@ -10,8 +10,11 @@ pid=$(sudo cat $service/supervise/pid)
 sleep_pid=$(ps -ef | grep $pid | grep sleep | field 2)
 
 if [[ $? == 0 ]]; then
+  command clear
   sudo kill $sleep_pid
   tail -fn0 $service/log/main/current
 else
-  echo offlineimap is currently running, not doing anything.
+  command clear
+  echo offlineimap is currently running, not doing anything. press enter
+  read -n1
 fi
