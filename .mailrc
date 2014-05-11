@@ -1,2 +1,2 @@
-set sendmail="/usr/local/bin/msmtp"
+set sendmail="/usr/bin/msmtp"
 

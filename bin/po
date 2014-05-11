@@ -10,7 +10,7 @@ announce() {
 
   if [[ "$email" ]]
   then
-    echo "$msg" | msmtp $email
+    echo "$msg" | mail -s "po" $email
   fi
 }
 

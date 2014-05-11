@@ -57,7 +57,7 @@ done
 
 prompt="$DB_HOST> "
 
-mysql --silent --prompt "$prompt" --pager=less \
+mysql --silent --prompt "$prompt" --pager="less" \
   -h"$DB_HOST" \
   -u"$DB_USER" \
   -p"$DB_PASSWORD" "$DB_NAME"
