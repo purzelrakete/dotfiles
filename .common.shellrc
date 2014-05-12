@@ -35,12 +35,14 @@ alias gst='git status'
 alias gti='git'
 alias i='irssi-customized'
 alias l='ls --color -alFh'
+alias less='less -r' # interpret color
 alias ll='ls --color -bF'
 alias m='mutt'
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 alias potoday='2>/dev/null cat $(plog) | grep completed\. | wc -l'
 alias pwdc="pwd | pbcopy"
 alias s='soywiki'
+alias tree='tree -C' # color
 alias v='vim .'
 
 # base
@@ -70,6 +72,7 @@ export PATH=$PATH:~/.cabal/bin
 if [[ $FOCUS -eq 's' ]]
   then
     export PATH=$PATH:~/.work/bin
+    git config user.email "rany@soundcloud.com"
 fi
 
 # osx
