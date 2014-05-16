@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -e
+
+usage() {
+  echo compatibility layer for desktop notifications. usage:
+  echo "$0 --message 'hello world'"
+  echo
+}
+
+while test "$#" -gt 0
+do
+  case "$1" in
+    --help|-h)
+      usage
+      exit 0
+      ;;
+    --message|-m)
+      shift; message="$1"
+      shift;
+      ;;
+  esac
+done
+
+if [[ -z "$message" ]]; then
+  echo >&2 message required. && usage & exit 1
+fi
+
+if >/dev/null which notify-send; then
+  notify-send -u critical "$message"
+else
+  if >/dev/null which terminal-notifier; then
+    terminal-notifier -message "$message"
+  else
+    echo >&2 desktop notification cli not found. aborting && exit 2
+  fi
+fi

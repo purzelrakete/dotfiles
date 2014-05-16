@@ -17,7 +17,7 @@ sub przl_mention {
   my ($channel, $nick, $msg) = @_;
 
   # untrusted content is escaped
-  capturex('notify-send', ('-u', 'critical', "\@$nick $msg"));
+  capturex('notify-desktop', ('--message', "\@$nick $msg"));
 }
 
 Irssi::signal_add('przl mention', 'przl_mention');
