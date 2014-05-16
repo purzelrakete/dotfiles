@@ -6,7 +6,7 @@ email="$2"
 
 announce() {
   local msg="$1"
-  say "$msg"
+  speak --message "$msg"
 
   if [[ "$email" ]]
   then
@@ -28,7 +28,7 @@ render() {
 finally() {
   local reason="$1"
   echo $started $(now) "$(printf '%-8s' $reason)" $task >> "$plogfile"
-  notify-send "$reason" >/dev/null
+  notify-desktop --message "$reason"
   announce "$reason"
 }
 

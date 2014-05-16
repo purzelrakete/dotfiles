@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -e
+
+usage() {
+  echo compatibility layer for speech. usage:
+  echo "$0 --message 'hello world'"
+  echo
+}
+
+while test "$#" -gt 0
+do
+  case "$1" in
+    --help|-h)
+      usage
+      exit 0
+      ;;
+    --message|-m)
+      shift; message="$1"
+      shift;
+      ;;
+    *)
+      break;
+  esac
+done
+
+if [[ -z "$message" ]]; then
+  echo >&2 message required. && usage & exit 1
+fi
+
+if >/dev/null which say; then
+  say "$message"
+else
+  if >/dev/null which festival; then
+    festival -b "(SayText \"$message\")"
+  else
+    echo >&2 speech cli not found. aborting && exit 2
+  fi
+fi
