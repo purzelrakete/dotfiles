@@ -20,7 +20,7 @@ RPROMPT=$'$(vcs_info_wrapper)'
 
 if [[ $(hostname) = "przl.local" ]] || [[ $(hostname) = "purzelcave" ]] || [[ $(hostname) = "przl" ]]
 then
-  PS1="%(?.%{$fg[blue]%}.%{$fg[red]%}) ⚫ %{$reset_color%}%m:%2c "
+  PS1="%(?.%{$fg[blue]%}.%{$fg[red]%}) ο %{$reset_color%}%m:%2c "
 else
-  PS1="%(?.%{$fg[blue]%}.%{$fg[red]%})☎  %{$reset_color%}%m:%2c "
+  PS1="%(?.%{$fg[blue]%}.%{$fg[red]%})φ  %{$reset_color%}%m:%2c "
 fi

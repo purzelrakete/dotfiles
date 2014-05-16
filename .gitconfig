@@ -4,7 +4,7 @@
   default = current
 [user]
   name = Rany Keddo
-  email = purzelrakete@gmail.com
+	email = purzelrakete@gmail.com
 [core]
   excludesfile = /Users/purzelrakete/.gitignore
   quotepath = false

@@ -28,7 +28,7 @@ stty -ixon
 alias ....="cd ../../.."
 alias ...="cd ../.."
 alias ..="cd .."
-alias clear="echo use CTRL-L instead."
+alias clear="echo use CTRL-L instead. && false"
 alias e='emacs -nw'
 alias gist='gist -p'
 alias gst='git status'
@@ -72,7 +72,7 @@ export PATH=$PATH:~/.cabal/bin
 if [[ $FOCUS -eq 's' ]]
   then
     export PATH=$PATH:~/.work/bin
-    git config user.email "rany@soundcloud.com"
+    git config user.email --global "rany@soundcloud.com"
 fi
 
 # osx
