@@ -9,8 +9,15 @@ let mapleader = " "
 set encoding=utf-8
 set history=1000
 set nocompatible            " don't need vi compatibility
-set clipboard=unnamedplus   " work with system clipboard
 set backspace=indent,eol,start
+
+" work with system clipboard
+
+if has('mac')
+  set clipboard=unnamed
+elseif has('unix')
+  set clipboard=unnamedplus
+endif
 
 " search and navigation
 

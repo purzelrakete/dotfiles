@@ -69,10 +69,14 @@ source solarized --theme light --skip-if-configured
 export PATH=$PATH:~/.cabal/bin
 
 # work
-if [[ $FOCUS -eq 's' ]]
-  then
-    export PATH=$PATH:~/.work/bin
-    git config --global user.email "rany@soundcloud.com"
+if [[ $FOCUS -eq 's' ]]; then
+  export PATH=$PATH:~/.work/bin
+  git config --global user.email "rany@soundcloud.com"
+fi
+
+# play
+if [[ $FOCUS -eq 'b' ]]; then
+  git config --global user.email "purzelrakete@gmail.com"
 fi
 
 # osx
