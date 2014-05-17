@@ -5,11 +5,11 @@ usage() {
   echo urns are of the from user@db:host.
   echo
   echo usage:
-  echo "  $0 <urn>"
-  echo "  $0 --list. show a list of configured dbs"
+  echo "  my <urn>"
+  echo "  my --list. show a list of configured dbs"
   echo
   echo example:
-  echo "  $0 <me@widgets:production.com>"
+  echo "  my <me@widgets:production.com>"
   echo
   echo "see kc --help for info on how to store identities."
   echo
