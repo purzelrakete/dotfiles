@@ -1,16 +1,20 @@
 #!/bin/bash
 
+# FIXME(rk): this is pretty weird code.
+#
 # apt-get install figlet
 
 email="$2"
 
-announce() {
-  local msg="$1"
-  speak --message "$msg"
+# summary, reason
+speak_and_mail() {
+  local summary="$1"
+  local comment="$2"
+  speak --message "$summary"
 
   if [[ "$email" ]]
   then
-    echo "$msg" | mail -s "po" $email
+    echo "$comment" | mail -s "po $summary" $email
   fi
 }
 
@@ -29,7 +33,7 @@ finally() {
   local reason="$1"
   echo $started $(now) "$(printf '%-8s' $reason)" $task >> "$plogfile"
   notify-desktop --message "$reason"
-  announce "$reason"
+  speak_and_mail "$reason"
 }
 
 now()   {
@@ -55,7 +59,7 @@ plogfile="$(plog)"
 seconds="${seconds:-1500}"
 started="$(today) $(now)"
 task="$1"
-next=$(cat $plogfile 2>/dev/null | grep completed | wc -l | xargs expr 1 +)
+nnext=$(cat $plogfile 2>/dev/null | grep completed | wc -l | xargs expr 1 +)
 
 trap "finally aborted!; exit 1" SIGINT SIGTERM
 
@@ -66,6 +70,6 @@ then
   exit 0
 fi
 
-announce $next
+speak_and_mail $nnext "$task"
 countdown $seconds
 finally completed.

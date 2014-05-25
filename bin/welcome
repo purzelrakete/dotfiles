@@ -8,13 +8,13 @@ cookie=(
   "emotional time travel"
   "just get started, and make the threshold for getting started quite low."
   "make it work, understand it. make it beautiful. make it fast"
+  "the daily discipline of neatly writing down your thoughts and what you do"
   "trigger, ability and motivation"
   "you get the work you do"
 )
 
-len=${#cookie[@]}
-index=$(expr $RANDOM % $len)
-fortune=${cookie[$index]}
-bin=$(which gecho >/dev/null && printf gecho || printf echo)
+ncookies=${#cookie[@]}
+selected=$(expr $RANDOM % $ncookies)
+fortune=${cookie[$selected]}
 
-$bin -n -e  "\e[00;34m » $fortune\n"
+/bin/echo -n -e "\e[00;34m » $fortune\n"
