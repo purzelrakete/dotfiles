@@ -125,5 +125,6 @@ channels = (
   { name = "#discovery"; chatnet = "Work"; autojoin = "yes"; }
   { name = "#ingestion"; chatnet = "Work"; autojoin = "yes"; }
   { name = "#ops"; chatnet = "Work"; autojoin = "yes"; }
+  { name = "#recommendations"; chatnet = "Work"; autojoin = "yes"; }
 );
 

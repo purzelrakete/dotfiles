@@ -91,9 +91,8 @@ export GOPATH=~/Dropbox/code/go
 export PATH=$PATH:$GOPATH/bin
 
 # extension point
-for cfg in ~/.common/*
-do
-  source "$cfg"
+for ext in ~/.common/*; do
+  source "$ext"
 done
 
 welcome
