@@ -44,4 +44,4 @@ fi
 export PATH="$HOME/anaconda/bin:$PATH"
 
 # docker
-export DOCKER_HOST=tcp://127.0.0.1:4243
+export DOCKER_HOST=tcp://192.168.59.103:2375

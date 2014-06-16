@@ -21,4 +21,3 @@ sub przl_mention {
 }
 
 Irssi::signal_add('przl mention', 'przl_mention');
-
