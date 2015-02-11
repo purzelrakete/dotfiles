@@ -16,6 +16,5 @@
 .netrwhist
 TODO.org
 sasl.auth
-service/*/log/main/
 supervise
 tags
