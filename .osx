@@ -11,12 +11,13 @@ alias m='reattach-to-user-namespace mutt'
 alias s='reattach-to-user-namespace soywiki'
 alias vim='reattach-to-user-namespace mvim -v'
 alias v=vim
+alias macdown='open -a macdown'
 
 export PATH=$PATH:/usr/X11/bin
 
 # julia
-export JULIA_PATH=/Applications/Julia-0.2.0.app/Contents/Resources/julia
-export PATH=$PATH:$JULIA_PATH/bin
+export JULIA_PATH=~/Projects/third-party/julia
+export PATH=$PATH:$JULIA_PATH
 
 # hadoop
 export HADOOP_HOME=/usr/local/hadoop
@@ -45,3 +46,7 @@ export PATH="$HOME/anaconda/bin:$PATH"
 
 # docker
 export DOCKER_HOST=tcp://192.168.59.103:2375
+
+# java
+export JAVA_HOME=$(/usr/libexec/java_home)
+

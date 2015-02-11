@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# sends an empty email with the message as subject ending in EOM.
+
+set -e
+set -u
+
+echo | mail -s "$2 EOM" "$1"

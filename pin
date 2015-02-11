@@ -18,7 +18,9 @@ if uname -a | grep "^Linux" >/dev/null; then
   sudo cp 60-synaptics.conf /usr/share/X11/xorg.conf.d
 fi
 
+# services
+rm -rf ~/service
+cp -r service ~
+
 echo
 echo YO!
-echo now copy service from service/ manually.
-
