@@ -7,5 +7,5 @@ PATH=$PATH:/usr/sbin:/usr/local/bin
 HOME=~purzelrakete
 
 exec 2>&1
-sleep 1500
-exec chpst -u purzelrakete offlineimap
+sleep 15
+exec offlineimap

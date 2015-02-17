@@ -6,4 +6,4 @@ set -u
 PATH=$PATH:/usr/sbin:/usr/local/bin
 
 exec 2>&1
-exec chpst -u purzelrakete godoc -http=:9000 -index=true
+exec godoc -http=:9000 -index=true
