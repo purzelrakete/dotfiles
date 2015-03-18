@@ -37,7 +37,7 @@ cdpath=(
   ~/Dropbox
   ~/Dropbox/code
   ~/Dropbox/code/go/src/github.com/purzelrakete
-  ~/Dropbox/code/go/src/github.com/soundcloud
+  ~/Projects/soundcloud/go/src/github.com/soundcloud
   ~/Projects
   ~/Projects/soundcloud
 )

@@ -46,7 +46,7 @@ alias tree='tree -C' # color
 alias v='vim .'
 
 # base
-export PATH=.:~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 # mode
 export FOCUS=${FOCUS:-s}

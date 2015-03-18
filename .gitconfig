@@ -25,3 +25,5 @@
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [branch]
   autosetuprebase = always
+[url "git@github.com:"]
+	insteadOf = https://github.com/
