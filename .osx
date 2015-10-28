@@ -9,7 +9,7 @@ alias e='reattach-to-user-namespace emacs'
 alias irssi='reattach-to-user-namespace irssi-customized'
 alias m='reattach-to-user-namespace mutt'
 alias s='reattach-to-user-namespace soywiki'
-alias vim='reattach-to-user-namespace mvim -v'
+alias vim='reattach-to-user-namespace /usr/local/bin/vim'
 alias v=vim
 alias macdown='open -a macdown'
 

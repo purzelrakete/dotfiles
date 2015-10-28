@@ -34,12 +34,10 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # cdpath
 cdpath=(
   .
-  ~/Dropbox
-  ~/Dropbox/code
-  ~/Dropbox/code/go/src/github.com/purzelrakete
-  ~/Projects/soundcloud/go/src/github.com/soundcloud
-  ~/Projects
-  ~/Projects/soundcloud
+  ~/src
+  ~/src/github.com
+  ~/src/github.com/soundcloud
+  ~/src/github.com/purzelrakete
 )
 
 # bindings
@@ -50,5 +48,3 @@ bindkey "[B" history-beginning-search-forward
 
 # needs to be at the bottom, or completion will break highlighting.
 source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
-
-

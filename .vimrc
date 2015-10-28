@@ -133,17 +133,32 @@ map <leader>u :!tmux send-keys -t 2 y<CR><CR>
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " restore cursor to saved position
+"
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " languages
 
 filetype plugin indent on
-au FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
+
+" julia
+
 au FileType julia setlocal shiftwidth=2
 au FileType julia filetype plugin off
-au BufWritePre *.go Fmt
+
+" go
+
+au FileType go nmap <C-]> <Plug>(go-def-split)
+au FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 " netrw. TODO can netrw be removed?
+
 let g:netrw_quiet = 1
 
 " solarized
@@ -164,3 +179,15 @@ endif
 
 colorscheme solarized
 
+" completion
+
+set completeopt-=preview
+
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" highlight   Pmenu         ctermfg=0 ctermbg=2
+" highlight   PmenuSel      ctermfg=0 ctermbg=7
+" highlight   PmenuSbar     ctermfg=7 ctermbg=0
+" highlight   PmenuThumb    ctermfg=1 ctermbg=7

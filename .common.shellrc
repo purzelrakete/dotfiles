@@ -87,7 +87,7 @@ uname -a | grep "^Linux" >/dev/null && source ~/.linux
 
 # go
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=~/Dropbox/code/go
+export GOPATH=~
 export PATH=$PATH:$GOPATH/bin
 
 # extension point
