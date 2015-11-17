@@ -48,5 +48,4 @@ export PATH="$HOME/anaconda/bin:$PATH"
 export DOCKER_HOST=tcp://192.168.59.103:2375
 
 # java
-export JAVA_HOME=$(/usr/libexec/java_home)
-
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)

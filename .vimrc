@@ -79,7 +79,7 @@ set expandtab
 
 " global remappings
 
-map <leader>a :Ack
+map <leader>a :Ag 
 map <leader>b :b
 map <leader>d :bd<CR>
 map <leader>o :o .<CR>
@@ -186,6 +186,10 @@ set completeopt-=preview
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" search
+
+let g:ag_working_path_mode="r"
 
 " highlight   Pmenu         ctermfg=0 ctermbg=2
 " highlight   PmenuSel      ctermfg=0 ctermbg=7
