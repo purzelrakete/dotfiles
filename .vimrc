@@ -82,13 +82,13 @@ set expandtab
 map <leader>a :Ag 
 map <leader>b :b
 map <leader>d :bd<CR>
-map <leader>o :o .<CR>
 map <leader>p :CtrlPCurWD<CR>
 map <leader>j :CtrlPBuffer<CR>
 map <leader>q :q<CR>
 map <leader>s :w<CR>
 map <leader>vv :source ~/.vimrc<CR>
 map <leader>e  :Sex<CR>
+map <leader>m  :!mou %<CR>
 
 " interactive mode
 
