@@ -90,6 +90,9 @@ map <leader>vv :source ~/.vimrc<CR>
 map <leader>e  :Sex<CR>
 map <leader>m  :!mou %<CR>
 
+" search replace
+highlight IncSearch ctermfg=White ctermbg=Black
+
 " interactive mode
 
 imap <c-k> <esc>
@@ -139,6 +142,10 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " languages
 
 filetype plugin indent on
+
+" tags
+
+set tags=tags,.tags
 
 " julia
 
@@ -190,8 +197,3 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 " search
 
 let g:ag_working_path_mode="r"
-
-" highlight   Pmenu         ctermfg=0 ctermbg=2
-" highlight   PmenuSel      ctermfg=0 ctermbg=7
-" highlight   PmenuSbar     ctermfg=7 ctermbg=0
-" highlight   PmenuThumb    ctermfg=1 ctermbg=7
