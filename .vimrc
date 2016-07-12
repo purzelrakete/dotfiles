@@ -24,7 +24,7 @@ endif
 set ignorecase              " makes / searches case insensitive
 set wildmenu                " bash-like cycling
 set wildmode=list:longest
-set wildignore=*.o,*.obj,.git,tags,*.class,*.gem,*.xsd,*.dtd,*.jarName,**/target/**
+set wildignore=*.o,*.obj,.git,tags,*.class,*.gem,*.xsd,*.dtd,*.jarName,**/target/**,node_modules
 set incsearch
 
 " safety
@@ -136,12 +136,8 @@ map <leader>u :!tmux send-keys -t 2 y<CR><CR>
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " restore cursor to saved position
-"
+
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-" languages
-
-filetype plugin indent on
 
 " tags
 
@@ -164,9 +160,34 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
-" netrw. TODO can netrw be removed?
+" netrw
 
 let g:netrw_quiet = 1
+
+" all languages
+
+filetype plugin indent on
+au BufWritePre *.go Fmt
+au FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
+au FileType julia filetype plugin off
+au FileType julia setlocal shiftwidth=2
+nnoremap <leader>t :EnTypeCheck<CR>
+
+" python
+
+autocmd FileType python setlocal completeopt-=preview
+
+let g:jedi#goto_command = "<leader>g"
+let g:jedi#goto_assignments_command = "<leader>h"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+
+" tags
+
+set tags=.tags,tags
 
 " solarized
 

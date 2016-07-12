@@ -1,0 +1,8 @@
+/doc/tags
+*.pyc
+.coverage
+/.cache
+/.venv*
+htmlcov
+.ropeproject*
+__pycache__

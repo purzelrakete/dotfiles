@@ -81,3 +81,6 @@ source ~/.common.shellrc
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 
 :
+
+# added by Anaconda 2.1.0 installer
+export PATH="/Users/purzelrakete/anaconda/bin:$PATH"

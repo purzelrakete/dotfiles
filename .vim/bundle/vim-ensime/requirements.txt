@@ -1,0 +1,2 @@
+websocket-client==0.35.0
+sexpdata==0.0.3

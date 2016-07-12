@@ -8,6 +8,7 @@
 [core]
   excludesfile = /Users/purzelrakete/.gitignore
   quotepath = false
+	compression = 0
 [color]
   diff = auto
   status = auto

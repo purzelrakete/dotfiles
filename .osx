@@ -23,10 +23,6 @@ export PATH=$PATH:$JULIA_PATH
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 
-# pig
-export PIG_HOME="/usr/local/pig/"
-export PATH=$PATH:$PIG_HOME/bin
-
 # other
 export PATH=$PATH:/Applications/Octave.app/Contents/Resources/bin
 export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
@@ -43,9 +39,6 @@ fi
 
 # anaconda
 export PATH="$HOME/anaconda/bin:$PATH"
-
-# docker
-export DOCKER_HOST=tcp://192.168.59.103:2375
 
 # java
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)

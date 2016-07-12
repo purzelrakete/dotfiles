@@ -1,0 +1,6 @@
+build:
+  image: ensime/ensime:v1.x-cache
+  pull: true
+  commands:
+    - pip install virtualenv python-coveralls
+    - make test

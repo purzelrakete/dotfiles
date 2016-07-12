@@ -54,9 +54,6 @@ export FOCUS=${FOCUS:-s}
 alias work='source solarized --theme light && FOCUS=s t'
 alias play='source solarized --theme dark && FOCUS=b t'
 
-# java
-export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8'
-
 # python
 export PYTHONPATH=/Library/Python/2.7/site-packages
 

@@ -1,0 +1,15 @@
+{
+  "name" : "ensime-vim",
+  "version" : "0.2",
+  "author" : "Olivier 'yazgoo' Abdesselam, Jorge Vicente Cantero (jvican)",
+  "maintainer" : "Olivier 'yazgoo' Abdesselam, Jorge Vicente Cantero (jvican)",
+  "repository" : {"type": "git", "url":
+      "git://github.com/ensime/ensime-vim", "branch" : "master"},
+  "dependencies" : {
+    "self": {},
+    "forms": {},
+    "vimproc": {},
+    "vimshell": {}
+  },
+  "description" : "ensime for vim"
+}

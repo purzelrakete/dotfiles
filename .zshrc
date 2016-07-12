@@ -34,10 +34,12 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # cdpath
 cdpath=(
   .
-  ~/src
-  ~/src/github.com
+  ~/Dropbox
+  ~/src/gitlab.com/purzelrakete
   ~/src/github.com/soundcloud
-  ~/src/github.com/purzelrakete
+  ~/src/git.hckhck.com/purzelrakete
+  ~/Projects
+  ~/Projects/soundcloud
 )
 
 # bindings
