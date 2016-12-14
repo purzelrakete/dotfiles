@@ -35,4 +35,5 @@ brew cask install \
   java7 \
   java \
   dash \
-  skype
+  skype \
+  tunnelblick
