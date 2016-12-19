@@ -8,9 +8,9 @@ vimsrc=$prefix/src
 
 # get vim
 mkdir -p $vimsrc
-hg clone https://vim.googlecode.com/hg/ $vimsrc
+git clone https://github.com/vim/vim.git $vimsrc
 cd $vimsrc
-hg update default
+git pull
 
 # build and install vim
 ./configure --prefix=$prefix

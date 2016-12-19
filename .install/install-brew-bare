@@ -4,6 +4,7 @@ brew install \
   bitlbee \
   contacts \
   coreutils \
+  figlet \
   gpg \
   irssi \
   msmtp \
