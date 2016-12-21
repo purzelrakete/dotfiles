@@ -13,5 +13,15 @@ cd $vimsrc
 git pull
 
 # build and install vim
-./configure --prefix=$prefix
+./configure --prefix=$prefix \
+            --with-features=huge \
+            --enable-multibyte \
+            --enable-rubyinterp=yes \
+            --enable-pythoninterp=yes \
+            --with-python-config-dir=/usr/lib/python2.7/config \
+            --enable-luainterp=yes
+
 make && make install
+
+# for ensime vim
+pip install websocket-client sexpdata
