@@ -26,14 +26,15 @@ defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 # apps
 brew tap caskroom/versions
 brew cask install \
-  dropbox \
   1password \
+  anaconda \
   atom \
+  dash \
+  dropbox \
+  java \
+  java7 \
   julia \
   rstudio \
-  anaconda \
-  java7 \
-  java \
-  dash \
   skype \
+  spotify \
   tunnelblick

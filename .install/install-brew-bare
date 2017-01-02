@@ -8,6 +8,7 @@ brew install \
   figlet \
   gpg \
   irssi \
+  imagemagick \
   lua \
   msmtp \
   notmuch \
