@@ -30,6 +30,7 @@ brew cask install \
   anaconda \
   atom \
   dash \
+  docker \
   dropbox \
   java \
   java7 \
