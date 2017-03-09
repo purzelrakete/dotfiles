@@ -1,3 +1,11 @@
+brew tap homebrew/science
+
+brew install \
+  ack \
+  gfortran \
+  octave \
+  r
+
 brew install mutt --pgp-verbose-mime-patch --with-slang
 brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
 brew install \
@@ -6,12 +14,15 @@ brew install \
   contacts \
   coreutils \
   figlet \
+  golang \
   gpg \
   irssi \
   imagemagick \
   lua \
   msmtp \
+  mtr \
   notmuch \
   offlineimap \
   runit \
+  rust \
   scala

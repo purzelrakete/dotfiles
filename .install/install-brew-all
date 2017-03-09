@@ -1,7 +1,0 @@
-brew tap homebrew/science
-
-brew install \
-  ack \
-  gfortran \
-  octave \
-  r
