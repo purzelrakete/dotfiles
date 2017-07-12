@@ -32,6 +32,7 @@ brew cask install \
   dash \
   docker \
   dropbox \
+  intellij-idea \
   java \
   java7 \
   julia \

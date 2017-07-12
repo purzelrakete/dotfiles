@@ -66,6 +66,9 @@ source solarized --theme light --skip-if-configured
 # cabal
 export PATH=$PATH:~/.cabal/bin
 
+# conscript
+export PATH=$PATH:~/.conscript/bin
+
 # work
 if [[ $FOCUS -eq 's' ]]; then
   export PATH=$PATH:~/.work/bin
@@ -88,9 +91,15 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~
 export PATH=$PATH:$GOPATH/bin
 
+# anaconda
+if [[ -z "$NO_CONDA" ]]; then
+  export PATH="/Users/purzelrakete/anaconda3/bin:$PATH"
+fi
+
 # extension point
 for ext in ~/.common/*; do
   source "$ext"
 done
 
 welcome
+
