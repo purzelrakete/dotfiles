@@ -72,7 +72,7 @@ export PATH=$PATH:~/.conscript/bin
 # work
 if [[ $FOCUS -eq 's' ]]; then
   export PATH=$PATH:~/.work/bin
-  git config --global user.email "rany@soundcloud.com"
+  git config --global user.email "rany@playtype.net"
 fi
 
 # play
