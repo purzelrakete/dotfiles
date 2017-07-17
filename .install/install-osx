@@ -33,6 +33,7 @@ brew cask install \
   docker \
   dropbox \
   intellij-idea \
+  iterm2 \ 
   java \
   java7 \
   julia \
