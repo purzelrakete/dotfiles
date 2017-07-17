@@ -26,4 +26,5 @@ brew install \
   offlineimap \
   runit \
   rust \
-  scala
+  scala \
+  tmux
