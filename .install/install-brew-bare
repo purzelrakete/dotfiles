@@ -16,8 +16,9 @@ brew install \
   figlet \
   golang \
   gpg \
-  irssi \
+  haskell-stack \
   imagemagick \
+  irssi \
   lua \
   msmtp \
   mtr \
