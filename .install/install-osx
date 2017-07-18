@@ -47,3 +47,4 @@ brew cask install \
 # spacemacs
 brew tap d12frosted/emacs-plus
 brew install emacs-plus --HEAD --with-natural-title-barsr
+brew linkapps emacs-plus
