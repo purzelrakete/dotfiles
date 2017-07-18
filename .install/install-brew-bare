@@ -7,7 +7,6 @@ brew install \
   r
 
 brew install mutt --pgp-verbose-mime-patch --with-slang
-brew install reattach-to-user-namespace --wrap-pbcopy-and-pbpaste
 brew install \
   ag \
   bitlbee \

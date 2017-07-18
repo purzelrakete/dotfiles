@@ -5,11 +5,11 @@ daemons="/System/Library/LaunchDaemons"
 alias mds_disable="sudo launchctl unload -w $daemons/com.apple.metadata.mds.plist"
 alias mds_enable="sudo launchctl load -w $daemons/com.apple.metadata.mds.plist"
 
-alias e='reattach-to-user-namespace emacs'
-alias irssi='reattach-to-user-namespace irssi-customized'
-alias m='reattach-to-user-namespace mutt'
-alias s='reattach-to-user-namespace soywiki'
-alias vim='reattach-to-user-namespace /Users/purzelrakete/vim/bin/vim'
+alias e='emacs'
+alias irssi='irssi-customized'
+alias m='mutt'
+alias s='soywiki'
+alias vim='/usr/local/bin/mvim -v'
 alias v=vim
 alias macdown='open -a macdown'
 

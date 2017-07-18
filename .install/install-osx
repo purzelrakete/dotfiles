@@ -32,13 +32,18 @@ brew cask install \
   dash \
   docker \
   dropbox \
+  figlet \
   googe-chrome \
   intellij-idea \
-  iterm2 \ 
+  iterm2 \
   java \
   java7 \
   julia \
+  macvim \
   rstudio \
   skype \
-  spotify \
-  tunnelblick
+  spotify
+
+# spacemacs
+brew tap d12frosted/emacs-plus
+brew install emacs-plus --HEAD --with-natural-title-barsr
