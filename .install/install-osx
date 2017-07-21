@@ -41,6 +41,7 @@ brew cask install \
   julia \
   macvim \
   rstudio \
+  slack \
   skype \
   spotify
 

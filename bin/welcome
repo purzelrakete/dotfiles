@@ -19,4 +19,4 @@ ncookies=${#cookie[@]}
 selected=$(expr $RANDOM % $ncookies)
 fortune=${cookie[$selected]}
 
-/bin/echo -n -e "\e[00;34m » $fortune\n"
+gecho -n -e "\e[00;34m » $fortune\n"
