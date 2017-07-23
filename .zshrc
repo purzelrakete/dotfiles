@@ -36,10 +36,7 @@ cdpath=(
   .
   ~/Dropbox
   ~/src/gitlab.com/purzelrakete
-  ~/src/github.com/soundcloud
   ~/src/github.com/purzelrakete
-  ~/Projects
-  ~/Projects/soundcloud
 )
 
 # bindings

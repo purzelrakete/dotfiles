@@ -5,7 +5,6 @@ PATH=$PATH:~purzelrakete/bin
 exec 2>&1
 
 gcalsync home purzelrakete@gmail.com
-gcalsync work rany@soundcloud.com
 gcalsync both both@gmail.com
 
 sleep 1500
