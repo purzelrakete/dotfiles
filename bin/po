@@ -10,7 +10,7 @@ email="$2"
 speak_and_mail() {
   local summary="$1"
   local comment="$2"
-  #speak --message "$summary"
+  speak --message "$summary"
 
   if [[ "$email" ]]
   then
