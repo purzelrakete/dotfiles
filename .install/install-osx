@@ -29,6 +29,7 @@ brew cask install \
   1password \
   anaconda \
   atom \
+  caffeine \
   dash \
   docker \
   dropbox \
