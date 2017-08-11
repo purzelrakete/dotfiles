@@ -18,6 +18,7 @@ brew install \
   haskell-stack \
   imagemagick \
   irssi \
+  jq \
   lua \
   msmtp \
   mtr \
