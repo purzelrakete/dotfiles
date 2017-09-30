@@ -41,10 +41,15 @@ brew cask install \
   java7 \
   julia \
   macvim \
+  pycharm \
+  r \
   rstudio \
   slack \
   skype \
   spotify
+
+brew tap MTG/essentia
+brew install essentia
 
 # spacemacs
 brew tap d12frosted/emacs-plus
