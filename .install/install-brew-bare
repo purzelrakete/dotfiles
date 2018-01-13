@@ -27,4 +27,6 @@ brew install \
   runit \
   rust \
   scala \
+  tectonic \
   tmux
+
