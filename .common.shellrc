@@ -54,9 +54,6 @@ export FOCUS=${FOCUS:-s}
 alias work='source solarized --theme light && FOCUS=s t'
 alias play='source solarized --theme dark && FOCUS=b t'
 
-# python
-export PYTHONPATH=/Library/Python/2.7/site-packages
-
 # other
 export SOYWIKI_VIM="vim"
 
@@ -68,6 +65,9 @@ export PATH=$PATH:~/.cabal/bin
 
 # conscript
 export PATH=$PATH:~/.conscript/bin
+
+# flutter
+export PATH=~/src/github.com/flutter/flutter/bin:$PATH
 
 # work
 if [[ $FOCUS -eq 's' ]]; then
@@ -91,15 +91,16 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~
 export PATH=$PATH:$GOPATH/bin
 
-# anaconda
-if [[ -z "$NO_CONDA" ]]; then
-  export PATH="/Users/purzelrakete/anaconda3/bin:$PATH"
-fi
-
 # extension point
 for ext in ~/.common/*; do
   source "$ext"
 done
+
+# python
+export PATH=~/.local/bin:$PATH
+
+# pyenv
+eval "$(pyenv init -)"
 
 welcome
 

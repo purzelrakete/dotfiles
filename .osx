@@ -29,17 +29,6 @@ export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
 export PATH=$PATH:/opt/samiam
 export PATH=$PATH:/usr/local/mysql/bin
 
-# python
-if [[ -n "$CANOPY" ]]
-then
-  echo using python canopy.
-  export VIRTUAL_ENV_DISABLE_PROMPT=1
-  source ~/Library/Enthought/Canopy_32bit/User/bin/activate
-fi
-
-# anaconda
-export PATH="$HOME/anaconda/bin:$PATH"
-
 # java
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
 

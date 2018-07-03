@@ -12,7 +12,6 @@ cookie=(
   "setup. background. explanation. implications"
   "the daily discipline of neatly writing down your thoughts and what you do"
   "trigger, ability and motivation"
-  "you get the work you do"
 )
 
 ncookies=${#cookie[@]}
