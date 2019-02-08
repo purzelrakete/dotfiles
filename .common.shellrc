@@ -72,7 +72,7 @@ export PATH=~/src/github.com/flutter/flutter/bin:$PATH
 # work
 if [[ $FOCUS -eq 's' ]]; then
   export PATH=$PATH:~/.work/bin
-  git config --global user.email "rany@playtype.net"
+  git config --global user.email "rany@reflectionlabs.com"
 fi
 
 # play
@@ -91,6 +91,9 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=~
 export PATH=$PATH:$GOPATH/bin
 
+# openssl
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
 # extension point
 for ext in ~/.common/*; do
   source "$ext"
@@ -101,6 +104,15 @@ export PATH=~/.local/bin:$PATH
 
 # pyenv
 eval "$(pyenv init -)"
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
+
+# flutter
+export PATH=/usr/local/flutter/bin:$PATH
 
 welcome
 

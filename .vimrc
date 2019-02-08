@@ -131,6 +131,10 @@ noremap  <Right> ""
 
 map <leader>u :!tmux send-keys -t 2 y<CR><CR>
 
+" reload flutter
+
+map <leader>i :!tmux send-keys -t 1 r<CR><CR>
+
 " persist marks, registers history and buffer list across restarts
 
 set viminfo='10,\"100,:20,%,n~/.viminfo

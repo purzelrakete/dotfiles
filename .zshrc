@@ -42,6 +42,7 @@ cdpath=(
   ~/src/gitlab.com/cvertex
   ~/src/github.com/
   ~/src/gitlab.com/
+  ~/src
 )
 
 # bindings
@@ -53,11 +54,9 @@ bindkey "[B" history-beginning-search-forward
 # needs to be at the bottom, or completion will break highlighting.
 source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# added by travis gem
-[ -f /Users/purzelrakete/.travis/travis.sh ] && source /Users/purzelrakete/.travis/travis.sh
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc'; fi
+
