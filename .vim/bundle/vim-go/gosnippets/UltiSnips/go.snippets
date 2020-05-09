@@ -110,7 +110,7 @@ snippet gpl
 * You should have received a copy of the GNU General Public License
 * along with this program; if not, see <http://www.gnu.org/licenses/>.
 *
-* Copyright (C) ${1:Author}, `strftime("%Y")`
+* Copyright (C) ${1:Author}, `!v strftime("%Y")`
 */
 ${0}
 endsnippet
@@ -143,6 +143,13 @@ else {
 }
 endsnippet
 
+# if inline error
+snippet ife "If with inline erro"
+if err := ${1:condition}; err != nil {
+	${0:${VISUAL}}
+}
+endsnippet
+
 # error snippet
 snippet errn "Error return " !b
 if err != nil {
@@ -151,7 +158,31 @@ if err != nil {
 ${0}
 endsnippet
 
-# error snippet
+# error log snippet
+snippet errl "Error with log.Fatal(err)" !b
+if err != nil {
+	log.Fatal(err)
+}
+${0}
+endsnippet
+
+# error multiple return
+snippet errn, "Error return with two return values" !b
+if err != nil {
+	return ${1:nil}, ${2:err}
+}
+${0}
+endsnippet
+
+# error panic
+snippet errp "Error panic" !b
+if err != nil {
+	panic(${1})
+}
+${0}
+endsnippet
+
+# error test
 snippet errt "Error test fatal " !b
 if err != nil {
 	t.Fatal(err)
@@ -159,13 +190,7 @@ if err != nil {
 ${0}
 endsnippet
 
-snippet errn, "Error return with two return values" !b
-if err != nil {
-	return ${1:nil}, err
-}
-${0}
-endsnippet
-
+# error handle
 snippet errh "Error handle and return" !b
 if err != nil {
 	${1}
@@ -174,8 +199,14 @@ if err != nil {
 ${0}
 endsnippet
 
+# json field tag
 snippet json "\`json:key\`"
-\`json:"${1:keyName}"\`
+\`json:"${1:`!v  go#util#snippetcase(matchstr(getline("."), '\w\+'))`}"\`
+endsnippet
+
+# yaml field tag
+snippet yaml "\`yaml:key\`"
+\`yaml:"${1:`!v  go#util#snippetcase(matchstr(getline("."), '\w\+'))`}"\`
 endsnippet
 
 # fallthrough
@@ -219,6 +250,11 @@ endsnippet
 # Fmt Println debug
 snippet fn "fmt.Println(...)"
 fmt.Println("${1:${VISUAL}}")
+endsnippet
+
+# Fmt Errorf debug
+snippet fe "fmt.Errorf(...)"
+fmt.Errorf("${1:${VISUAL}}")
 endsnippet
 
 # log printf
@@ -327,6 +363,40 @@ func Test${1:Function}(t *testing.T) {
 }
 endsnippet
 
+# test table snippet
+snippet tt
+var tests = []struct {
+	name string
+	expected string
+	given string
+}{
+	{"${1}", "${2}", "${3}",},
+}
+for _, tt := range tests {
+	tt := tt
+	t.Run(tt.name, func(t *testing.T){
+		actual := ${0:${VISUAL}}(tt.given)
+		if actual != tt.expected {
+				t.Errorf("$0(%s): expected %s, actual %s", tt.given, tt.expected, actual)
+		}
+
+	})
+}
+endsnippet
+
+
+snippet hf "http.HandlerFunc" !b
+func ${1:handler}(w http.ResponseWriter, r *http.Request) {
+	${0:fmt.Fprintf(w, "hello world")}
+}
+endsnippet
+
+snippet hhf "mux.HandleFunc" !b
+${1:http}.HandleFunc("${2:/}", func(w http.ResponseWriter, r *http.Request) {
+	${0:fmt.Fprintf(w, "hello world")}
+})
+endsnippet
+
 # quick test server
 snippet tsrv "httptest.NewServer"
 ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -351,6 +421,21 @@ if err != nil {
 }
 endsnippet
 
+snippet example "func ExampleXYZ() { ... }"
+func Example${1:Method}() {
+	${0:${VISUAL}}
+	// Output:
+}
+endsnippet
+
+snippet benchmark "func BenchmarkXYZ(b *testing.B) { ... }"
+func Benchmark${1:Method}(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		${0:${VISUAL}}
+	}
+}
+endsnippet
+
 # variable declaration
 snippet var "var x Type [= ...]"
 var ${1:x} ${2:Type}${3: = ${0:value}}
@@ -371,7 +456,6 @@ if !reflect.DeepEqual(${1:expected}, ${2:actual}) {
 	t.FailNow()
 }
 endsnippet
-
 
 global !p
 

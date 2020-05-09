@@ -89,9 +89,9 @@
 (setq org-log-done t)
 
 ; org - latex
-(require 'org-latex)
-(add-to-list 'org-export-latex-classes
-  '("article" "\\documentclass{article}" ("\\section{%s}" . "\\section*{%s}")))
+; (require 'org-latex)
+; (add-to-list 'org-export-latex-classes
+;  '("article" "\\documentclass{article}" ("\\section{%s}" . "\\section*{%s}")))
 
 ; org - babel
 (org-babel-do-load-languages

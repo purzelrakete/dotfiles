@@ -129,11 +129,7 @@ noremap  <Right> ""
 
 " reload testing screen
 
-map <leader>u :!tmux send-keys -t 2 y<CR><CR>
-
-" reload flutter
-
-map <leader>i :!tmux send-keys -t 1 r<CR><CR>
+map <leader>u :!tmux send-keys -t 2 y Enter<CR><CR>
 
 " persist marks, registers history and buffer list across restarts
 
@@ -171,7 +167,7 @@ let g:netrw_quiet = 1
 " all languages
 
 filetype plugin indent on
-au BufWritePre *.go Fmt
+au BufWritePre *.go GoFmt
 au FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
 au FileType julia filetype plugin off
 au FileType julia setlocal shiftwidth=2

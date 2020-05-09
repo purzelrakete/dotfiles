@@ -19,15 +19,12 @@ export PATH=$PATH:/usr/X11/bin
 export JULIA_PATH=~/Projects/third-party/julia
 export PATH=$PATH:$JULIA_PATH
 
-# hadoop
-export HADOOP_HOME=/usr/local/hadoop
-export PATH=$PATH:$HADOOP_HOME/bin
-
 # other
 export PATH=$PATH:/Applications/Octave.app/Contents/Resources/bin
 export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
 export PATH=$PATH:/opt/samiam
 export PATH=$PATH:/usr/local/mysql/bin
+export PATH=$PATH:/Library/TeX/texbin
 
 # java
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)

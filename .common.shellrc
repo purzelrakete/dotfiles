@@ -115,4 +115,3 @@ fi
 export PATH=/usr/local/flutter/bin:$PATH
 
 welcome
-

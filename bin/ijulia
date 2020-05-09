@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-julia -e 'using IJulia; notebook()'
+# julia -e 'using IJulia; IJulia.installkernel("Julia nodeps", "--depwarn=no"); notebook(dir=pwd())'
+julia --project=. -e 'using IJulia; notebook(dir=pwd())'

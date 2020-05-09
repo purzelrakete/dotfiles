@@ -3,12 +3,12 @@
 [pull]
   default = current
 [user]
-  name = Rany Keddo
+	name = Rany Keddo
 	email = purzelrakete@gmail.com
 [core]
   excludesfile = /Users/purzelrakete/.gitignore
   quotepath = false
-	compression = 0
+  compression = 0
 [color]
   diff = auto
   status = auto
@@ -27,9 +27,17 @@
 [branch]
   autosetuprebase = always
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+[diff "jupyternotebook"]
+  command = git-nbdiffdriver diff
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+[url "git@gitlab.bsdevops.io:"]
+	insteadOf = https://gitlab.bsdevops.io/
+[url "ssh://git@gitlab.bsdevops.io/"]
+	insteadOf = https://gitlab.bsdevops.io/
