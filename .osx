@@ -12,6 +12,7 @@ alias s='soywiki'
 alias vim='/usr/local/bin/mvim -v'
 alias v=vim
 alias macdown='open -a macdown'
+alias echo=gecho
 
 export PATH=$PATH:/usr/X11/bin
 

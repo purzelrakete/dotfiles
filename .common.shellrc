@@ -102,9 +102,6 @@ done
 # python
 export PATH=~/.local/bin:$PATH
 
-# pyenv
-eval "$(pyenv init -)"
-
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then
