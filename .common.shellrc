@@ -102,6 +102,9 @@ done
 # python
 export PATH=~/.local/bin:$PATH
 
+# conda
+export PATH=$PATH:~/anaconda3/bin
+
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then
