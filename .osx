@@ -12,7 +12,6 @@ alias s='soywiki'
 alias vim='/usr/local/bin/mvim -v'
 alias v=vim
 alias macdown='open -a macdown'
-alias echo=gecho
 
 export PATH=$PATH:/usr/X11/bin
 
@@ -34,3 +33,6 @@ alias java8='export JAVA_HOME=$JAVA_8_HOME'
 
 #default java8
 export JAVA_HOME=$JAVA_8_HOME
+
+# pyenv
+eval "$(pyenv init -)"
