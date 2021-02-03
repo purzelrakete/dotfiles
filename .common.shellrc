@@ -46,6 +46,7 @@ alias tree='tree -C' # color
 alias v='vim .'
 alias ag="ag --pager='less -R'"
 alias ytop="ytop -c monokai"
+alias k="kubectl"
 
 # base
 export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin

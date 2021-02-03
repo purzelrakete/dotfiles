@@ -35,14 +35,18 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 cdpath=(
   .
   ~/Dropbox
-  ~/src/gitlab.com/purzelrakete
+  ~/src
+
+  # github
+  ~/src/github.com/
+  ~/src/github.com/feldberlin
   ~/src/github.com/purzelrakete
   ~/src/github.com/reflectionlabs
-  ~/src/gitlab.com/reflectionlabs
-  ~/src/gitlab.bsdevops.io
-  ~/src/github.com/
+
+  # gitlab
   ~/src/gitlab.com/
-  ~/src
+  ~/src/gitlab.com/purzelrakete
+  ~/src/gitlab.com/reflectionlabs
 )
 
 # bindings
