@@ -17,6 +17,7 @@ brew install \
   imagemagick \
   jq \
   pyenv \
+  tree \
   rust \
   terminal-notifier \
   tmux
