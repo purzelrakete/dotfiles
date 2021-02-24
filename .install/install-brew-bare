@@ -3,13 +3,11 @@ brew tap homebrew/science
 brew install \
   ack \
   gfortran \
-  octave \
   r
 
 brew install mutt --pgp-verbose-mime-patch --with-slang
 brew install \
   ag \
-  bitlbee \
   contacts \
   coreutils \
   figlet \
@@ -17,16 +15,9 @@ brew install \
   gpg \
   haskell-stack \
   imagemagick \
-  irssi \
   jq \
-  lua \
-  msmtp \
-  mtr \
-  notmuch \
-  offlineimap \
-  runit \
+  pyenv \
   rust \
-  scala \
-  tectonic \
+  terminal-notifier \
   tmux
 
