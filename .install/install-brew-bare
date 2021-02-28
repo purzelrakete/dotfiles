@@ -13,12 +13,13 @@ brew install \
   figlet \
   golang \
   gpg \
+  graphviz \
   haskell-stack \
   imagemagick \
   jq \
   pyenv \
-  tree \
   rust \
   terminal-notifier \
-  tmux
+  tmux \
+  tree \
 
