@@ -24,17 +24,16 @@ defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 
 # apps
-brew tap caskroom/versions
-brew cask install \
+brew tap homebrew/cask-versions
+brew install --cask \
   1password \
   anaconda \
-  atom \
   caffeine \
   dash \
   docker \
   dropbox \
   figlet \
-  googe-chrome \
+  google-chrome \
   intellij-idea \
   iterm2 \
   java \
