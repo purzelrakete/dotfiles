@@ -20,3 +20,10 @@ supervise
 tags
 .gnupg/
 __pycache__/
+
+todo.txt
+todo.md
+backlog.txt
+backlog.md
+
+scratch.ipynb

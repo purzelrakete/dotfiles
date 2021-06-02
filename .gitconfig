@@ -6,7 +6,7 @@
 	name = Rany Keddo
 	email = purzelrakete@gmail.com
 [core]
-  excludesfile = /Users/purzelrakete/.gitignore
+	excludesFile = ~/.gitignore
   quotepath = false
   compression = 0
 [color]
