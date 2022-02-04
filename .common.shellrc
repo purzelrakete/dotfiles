@@ -35,7 +35,7 @@ alias gst='git status'
 alias gti='git'
 alias i='irssi-customized'
 alias l='ls --color -alFh'
-alias less='less -r' # interpret color
+alias less='less -R' # interpret color
 alias ll='ls --color -bF'
 alias m='mutt'
 alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
@@ -44,7 +44,6 @@ alias pwdc="pwd | pbcopy"
 alias s='soywiki'
 alias tree='tree -C' # color
 alias v='vim .'
-alias ag="ag --pager='less -R'"
 alias ytop="ytop -c monokai"
 alias k="kubectl"
 
@@ -116,7 +115,13 @@ fi
 # flutter
 export PATH=/usr/local/flutter/bin:$PATH
 
-# fzf and rg
+# ripgrep
+
+function rg() {
+  /usr/local/bin/rg -p "$@" | less -R
+}
+
+# fzf
 export FZF_DEFAULT_COMMAND='rg --files'
 
 if [[ $SOLARIZED_MODE == 'dark' ]]; then
