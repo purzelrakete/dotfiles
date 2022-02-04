@@ -54,7 +54,7 @@ export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 # mode
 export FOCUS=${FOCUS:-s}
 alias work='source solarized --theme light && FOCUS=s t'
-alias play='source solarized --theme dark && FOCUS=b t'
+alias fun='source solarized --theme dark && FOCUS=b t'
 
 # other
 export SOYWIKI_VIM="vim"
@@ -115,5 +115,24 @@ fi
 
 # flutter
 export PATH=/usr/local/flutter/bin:$PATH
+
+# fzf and rg
+export FZF_DEFAULT_COMMAND='rg --files'
+
+if [[ $SOLARIZED_MODE == 'dark' ]]; then
+  export FZF_COLORS="
+    --color fg:-1,bg:-1,hl:33,fg+:254,bg+:-1,hl+:33
+    --color info:136,prompt:136,pointer:230,marker:230,spinner:136
+  "
+fi
+
+if [[ $SOLARIZED_MODE == 'light' ]]; then
+  export FZF_COLORS="
+    --color fg:-1,bg:-1,hl:33,fg+:254,bg+:-1,hl+:33
+    --color info:136,prompt:136,pointer:230,marker:230,spinner:136
+  "
+fi
+
+export FZF_DEFAULT_OPTS="$FZF_COLORS -m --height 50% --border none"
 
 welcome

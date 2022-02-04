@@ -14,16 +14,17 @@
 .mail/
 .mutt/solarized*.muttrc
 .netrwhist
-TODO.org
+.vim/spell
 sasl.auth
 supervise
 tags
 .gnupg/
 __pycache__/
 
-todo.txt
-todo.md
-backlog.txt
+TODO.org
 backlog.md
+backlog.txt
+todo.md
+todo.txt
 
 scratch.ipynb

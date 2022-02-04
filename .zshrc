@@ -42,6 +42,7 @@ cdpath=(
   ~/src/github.com/feldberlin
   ~/src/github.com/purzelrakete
   ~/src/github.com/reflectionlabs
+  ~/src/github.com/mono-pitch
 
   # gitlab
   ~/src/gitlab.com/
@@ -59,7 +60,36 @@ bindkey "[B" history-beginning-search-forward
 source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc' ]; then
+  . '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc';
+fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc' ]; then
+  . '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc';
+fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/purzelrakete/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/purzelrakete/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+#         . "/Users/purzelrakete/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/purzelrakete/.pyenv/versions/miniconda3-latest/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

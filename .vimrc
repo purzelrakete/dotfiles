@@ -82,8 +82,8 @@ set expandtab
 map <leader>a :Ag 
 map <leader>b :b
 map <leader>d :bd<CR>
-map <leader>p :CtrlPCurWD<CR>
-map <leader>j :CtrlPBuffer<CR>
+map <leader>p :Files<CR>
+map <leader>f :Rg<CR>
 map <leader>q :q<CR>
 map <leader>s :w<CR>
 map <leader>vv :source ~/.vimrc<CR>
@@ -101,10 +101,6 @@ imap <c-k> <esc>
 
 vmap > >gv
 vmap < <gv
-
-" remove ctrlp binding. use leader instead
-
-let g:ctrlp_map = '<c-&>'
 
 " cycle through buffers
 
@@ -207,14 +203,20 @@ endif
 
 colorscheme solarized
 
+" spelling
+
+autocmd BufRead,BufNewFile *.md setlocal spell
+highlight SpellBad ctermfg=Red ctermbg=120 cterm=bold cterm=underline
+
 " completion
 
 set completeopt-=preview
 
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
 " search
 
 let g:ag_working_path_mode="r"
+
+" remove annoying bottom bar in fzf
+"
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2
