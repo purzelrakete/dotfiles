@@ -3,7 +3,11 @@
 set -e
 
 # link dotfiles
-ln -sfv $(echo $(pwd)/.[^.]* | xargs -n1 | grep -v '\.git$' | xargs) ~
+ln -sfv $(echo $(pwd)/.[^.]* | xargs -n1 | grep -v '\.git$' | grep -v '\.config' | xargs) ~
+
+# link config
+mkdir -p ~/.config
+find .config -type d -d 1 | xargs -I{} echo ln -sf $(realpath {}) ~/.config
 
 # scala - sbt
 mkdir -p ~/.sbt/plugins

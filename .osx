@@ -9,7 +9,7 @@ alias e='emacs'
 alias irssi='irssi-customized'
 alias m='mutt'
 alias s='soywiki'
-alias vim='/usr/local/bin/mvim -v'
+alias vim='nvim'
 alias v=vim
 alias macdown='open -a macdown'
 

@@ -43,7 +43,6 @@ set number                  " numbers on the left
 set relativenumber
 set scrolloff=1             " breathing room for zt
 set laststatus=2
-set term=screen-256color
 
 " folds
 
