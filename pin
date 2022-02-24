@@ -7,7 +7,7 @@ ln -sfv $(echo $(pwd)/.[^.]* | xargs -n1 | grep -v '\.git$' | grep -v '\.config'
 
 # link config
 mkdir -p ~/.config
-find .config -type d -d 1 | xargs -I{} echo ln -sf $(realpath {}) ~/.config
+find .config -maxdepth 1  -mindepth 1 -type d | xargs -I{} echo ln -sf $(realpath {}) ~/.config
 
 # scala - sbt
 mkdir -p ~/.sbt/plugins
