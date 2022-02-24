@@ -118,7 +118,7 @@ export PATH=/usr/local/flutter/bin:$PATH
 # ripgrep
 
 function rg() {
-  /usr/local/bin/rg -p "$@" | less -R
+  command rg -p "$@" | less -R
 }
 
 # fzf
