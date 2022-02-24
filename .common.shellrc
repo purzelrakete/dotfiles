@@ -138,6 +138,6 @@ if [[ $SOLARIZED_MODE == 'light' ]]; then
   "
 fi
 
-export FZF_DEFAULT_OPTS="$FZF_COLORS -m --height 50% --border none"
+export FZF_DEFAULT_OPTS="$FZF_COLORS -m --height 50%"
 
 welcome
