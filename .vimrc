@@ -56,6 +56,9 @@ highlight Folded ctermbg=NONE
 
 map <Leader>f za<CR>
 
+" sign column to the left
+set signcolumn=number
+
 " column width
 
 set textwidth=78
@@ -78,7 +81,6 @@ set expandtab
 
 " global remappings
 
-map <leader>a :Ag 
 map <leader>b :b
 map <leader>d :bd<CR>
 map <leader>p :Files<CR>
@@ -138,6 +140,14 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 set tags=tags,.tags
 
+" lsp
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+
 " julia
 
 au FileType julia setlocal shiftwidth=2
@@ -171,14 +181,6 @@ nnoremap <leader>t :EnTypeCheck<CR>
 " python
 
 autocmd FileType python setlocal completeopt-=preview
-
-let g:jedi#goto_command = "<leader>g"
-let g:jedi#goto_assignments_command = "<leader>h"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
 
 " tags
 
