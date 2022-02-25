@@ -1,0 +1,292 @@
+*vim-vsnip* *vsnip*
+
+V(SCode) Snip(pet) like plugin.
+
+
+==============================================================================
+CONTENTS                                                      *vsnip-contents*
+
+INSTALL                                                        |vsnip-install|
+VARIABLE                                                      |vsnip-variable|
+FUNCTION                                                      |vsnip-function|
+MAPPING                                                        |vsnip-mapping|
+COMMAND                                                        |vsnip-command|
+BUILT-IN VARIABLE                                    |vsnip-built-in-variable|
+LIMITATION                                                  |vsnip-limitation|
+CHANGELOG                                                    |vsnip-changelog|
+
+
+
+==============================================================================
+INSTALL                                                        *vsnip-install*
+
+You can use your favorite plugin manager.
+
+>
+  " dein.vim
+  call dein#add('hrsh7th/vim-vsnip')
+
+  " vim-plug
+  Plug 'hrsh7th/vim-vsnip'
+
+  " neobundle
+  NeoBundle 'hrsh7th/vim-vsnip'
+<
+
+If you use `deoplete.nvim` or other supported integration, you can use `vim-vsnip-integ`.
+
+>
+  " dein.vim
+  call dein#add('hrsh7th/vim-vsnip-integ')
+
+  " vim-plug
+  Plug 'hrsh7th/vim-vsnip-integ'
+
+  " neobundle
+  NeoBundle 'hrsh7th/vim-vsnip-integ'
+<
+
+If you want to know supported plugins, you can see https://github.com/hrsh7th/vim-vsnip-integ
+
+
+
+==============================================================================
+VARIABLE                                                      *vsnip-variable*
+
+>
+  let g:vsnip_extra_mapping = v:true
+<
+    Enable or disable extra mappings.
+
+
+>
+  let g:vsnip_snippet_dir = expand('~/.vsnip')
+<
+    Specify user snippet directory.
+    Also as buffer-local variable:    `b:vsnip_snippet_dir`
+
+
+>
+  let g:vsnip_snippet_dirs = []
+<
+    List of user snippet directories.
+    Also as buffer-local variable:    `b:vsnip_snippet_dirs`
+
+
+>
+  let g:vsnip_filetypes = {}
+<
+    Specify extended filetypes.
+    For example, you can extend `javascript` filetype with `javascriptreact` filetype.
+>
+      let g:vsnip_filetypes = {}
+      let g:vsnip_filetypes.javascriptreact = ['javascript']
+<
+
+>
+  let g:vsnip_sync_delay = 0
+<
+    Specify delay time to sync same tabstop placeholder.
+
+    -1: No sync
+     0: Always sync
+     N: Debounce N milliseconds
+
+
+>
+  let g:vsnip_choice_delay = 500
+<
+    Specify delay time to show choice candidates.
+    Sometimes choice completion menu is closed by auto-completion engine.
+    You can use this variable to solve this conflict.
+
+
+>
+  let g:vsnip_namespace = ''
+<
+    Specify all snippet prefix's prefix.
+    It useful when you use auto-completion.
+
+
+
+==============================================================================
+FUNCTION                                                      *vsnip-function*
+
+  vsnip#variable#register({VAR_NAME}, {FUNCREF}, [{OPTION}}])
+
+    Register your own custom variable resolver.
+
+
+
+==============================================================================
+MAPPING                                                        *vsnip-mapping*
+
+You can use your favorite key to expand or jump snippet.
+The below example uses '<Tab>' key.
+
+>
+    " Expand
+    imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+    smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+    " Expand or jump
+    imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+    smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+    " Jump forward or backward
+    imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+    smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+    imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+    smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+    " Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+    " See https://github.com/hrsh7th/vim-vsnip/pull/50
+    nmap        s   <Plug>(vsnip-select-text)
+    xmap        s   <Plug>(vsnip-select-text)
+    nmap        S   <Plug>(vsnip-cut-text)
+    xmap        S   <Plug>(vsnip-cut-text)
+<
+
+
+
+==============================================================================
+COMMAND                                                        *vsnip-command*
+
+VsnipOpen~
+
+>
+  :VsnipOpen
+  :VsnipOpenEdit
+  :VsnipOpenSplit
+  :VsnipOpenVsplit
+<
+
+Open snippet source file under `g:vsnip_snippet_dir`.
+
+
+VsnipYank~
+
+Copy the given range formatted as json into the clipboard.
+Use this command to yank the current line as a snippet with the keyword 'key'
+and open the snippets file.
+>
+  :VsnipYank key | VsnipOpen
+<
+
+
+
+==============================================================================
+BULT-IN VARIABLE                                     *vsnip-built-in-variable*
+
+Basically, vsnip provides some of built-in variables that defined in VSCode or LSP spec.
+
+The following variables can be used in the same way they are in VSCode:
+
+  `TM_SELECTED_TEXT`         The currently selected text or the empty string
+  `TM_CURRENT_LINE`          The contents of the current line
+  `TM_CURRENT_WORD`          The contents of the word under cursor or the empty string
+  `TM_LINE_INDEX`            The zero-index based line number
+  `TM_LINE_NUMBER`           The one-index based line number
+  `TM_FILENAME`              The filename of the current document
+  `TM_FILENAME_BASE`         The filename of the current document without its extensions
+  `TM_DIRECTORY`             The directory of the current document
+  `TM_FILEPATH`              The full file path of the current document
+  `CLIPBOARD`                The contents of your clipboard
+  `WORKSPACE_NAME`           The name of the opened workspace or folder
+
+For inserting the current date and time:
+
+  `CURRENT_YEAR`             The current year
+  `CURRENT_YEAR_SHORT`       The current year's last two digits
+  `CURRENT_MONTH`            The month as two digits (example '02')
+  `CURRENT_MONTH_NAME`       The full name of the month (example 'July')
+  `CURRENT_MONTH_NAME_SHORT` The short name of the month (example 'Jul')
+  `CURRENT_DATE`             The day of the month
+  `CURRENT_DAY_NAME`         The name of day (example 'Monday')
+  `CURRENT_DAY_NAME_SHORT`   The short name of the day (example 'Mon')
+  `CURRENT_HOUR`             The current hour in 24-hour clock format
+  `CURRENT_MINUTE`           The current minute
+  `CURRENT_SECOND`           The current second
+  `CURRENT_SECONDS_UNIX`     The number of seconds since the Unix epoch
+
+For inserting line or block comments, honoring the current language:
+
+  `BLOCK_COMMENT_START`      Example output: in PHP /* or in HTML <!--
+  `BLOCK_COMMENT_END`        Example output: in PHP */ or in HTML -->
+  `LINE_COMMENT`             Example output: in PHP //
+
+
+In addition, vsnip provides the below custom variables too.
+
+  `VSNIP_CAMELCASE_FILENAME`   The filename of the current document without its extensions in CamelCase format
+
+${VIM:...Vim script expression...}~
+
+    You can use this variable for `Vim script interpolation`.
+    For example, the below snippet will be current filetype.
+
+>
+        {
+          "filetype": {
+            "prefix": "filetype",
+            "body": "${VIM:&filetype}"
+          }
+        }
+<
+
+    You can also using any Vim script expression.
+
+>
+        {
+          "sum": {
+            "prefix": "sum",
+            "body": "${VIM:1 + 2}"
+          }
+        }
+<
+
+    Currently, vsnip only once resolves variable at the snippet initialization.
+
+
+
+
+==============================================================================
+LIMITATION                                                  *vsnip-limitation*
+
+Currently vsnip has below limitations.
+
+1. placeholder transform feature is not supported.~
+I plan to support it later.
+
+
+2. if text diff has multiple candidates, always use last one.~
+
+below snippet is not work for expected.
+>
+  class $1${2: extends ${3:SuperClass}} {
+    $0
+  }
+<
+
+below one is work as expected.
+>
+  class $1 ${2:extends ${3:SuperClass} }{
+    $0
+  }
+<
+
+3. if edit the placeholder that does not the current_tabstop, vsnip try to follow correctly but sometimes it makes unexpected result.~
+
+For example, you expand `console.log(${1:foo}${2:bar}, ${2})`, remove `foo` and change `bar` without jump.
+In this case, vsnip will detects `$1 is edited.` so vsnip does not sync $2 placeholder.
+
+
+==============================================================================
+CHANGELOG                                                     *vsnip-changelog*
+
+2019/12/01~
+- publish v2.
+
+
+==============================================================================
+ vim:tw=78:ts=4:et:ft=help:norl:

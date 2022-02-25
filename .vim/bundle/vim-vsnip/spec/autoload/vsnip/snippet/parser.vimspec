@@ -1,0 +1,231 @@
+let s:expect = themis#helper('expect')
+
+Describe vsnip#snippet#parser
+
+  Describe #parse
+
+    It should parse text
+      let l:parsed = vsnip#snippet#parser#parse('console.log()')
+      call s:expect(len(l:parsed)).to_equal(1)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'text',
+      \   'raw': 'console.log()',
+      \   'escaped': 'console.log()'
+      \ })
+    End
+
+    It should parse tabstop
+      let l:parsed = vsnip#snippet#parser#parse('console.log($0$1${1/(.*)/${1:/capitalize}/})')
+      call s:expect(len(l:parsed)).to_equal(5)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'text',
+      \   'raw': 'console.log(',
+      \   'escaped': 'console.log('
+      \ })
+      call s:expect(l:parsed[1]).to_equal({
+      \   'type': 'placeholder',
+      \   'id': 0,
+      \   'children': []
+      \ })
+      call s:expect(l:parsed[2]).to_equal({
+      \   'type': 'placeholder',
+      \   'id': 1,
+      \   'children': []
+      \ })
+      call s:expect(l:parsed[3]).to_equal({
+      \   'type': 'placeholder',
+      \   'id': 1,
+      \   'children': [],
+      \   'transform': {
+      \     'type': 'transform',
+      \     'regex': {
+      \       'type': 'regex',
+      \       'pattern': '(.*)',
+      \     },
+      \     'format': [{
+      \       'type': 'format',
+      \       'id': 1,
+      \       'modifier': '/capitalize'
+      \     }],
+      \     'option': v:null
+      \   }
+      \ })
+      call s:expect(l:parsed[4]).to_equal({
+      \   'type': 'text',
+      \   'raw': ')',
+      \   'escaped': ')'
+      \ })
+    End
+
+    It should parse choice
+      let l:parsed = vsnip#snippet#parser#parse("${1|log,warn,error|}")
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'placeholder',
+      \   'id': 1,
+      \   'choice': [{
+      \     'type': 'text',
+      \     'raw': 'log',
+      \     'escaped': 'log'
+      \   }, {
+      \     'type': 'text',
+      \     'raw': 'warn',
+      \     'escaped': 'warn'
+      \   }, {
+      \     'type': 'text',
+      \     'raw': 'error',
+      \     'escaped': 'error'
+      \   }],
+      \   'children': [{
+      \     'type': 'text',
+      \     'raw': 'log',
+      \     'escaped': 'log'
+      \   }]
+      \ })
+    End
+
+    It should parse complex escaped chars
+      let l:parsed = vsnip#snippet#parser#parse('\\\$variable\}')
+      call s:expect(len(l:parsed)).to_equal(1)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'text',
+      \   'raw': '\\\$variable\}',
+      \   'escaped': '\$variable}'
+      \ })
+    End
+
+    It should parse escapable char
+      let l:parsed = vsnip#snippet#parser#parse('{\}')
+      call s:expect(len(l:parsed)).to_equal(1)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'text',
+      \   'raw': '{\}',
+      \   'escaped': '{}'
+      \ })
+    End
+
+    It should not remove unmeaningful escape
+      let l:parsed = vsnip#snippet#parser#parse('\{}')
+      call s:expect(len(l:parsed)).to_equal(1)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'text',
+      \   'raw': '\{}',
+      \   'escaped': '\{}'
+      \ })
+    End
+
+    It should parse omitted backslash for the escapable non-stop char
+      let l:parsed = vsnip#snippet#parser#parse('{}')
+      call s:expect(len(l:parsed)).to_equal(1)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'text',
+      \   'raw': '{}',
+      \   'escaped': '{}'
+      \ })
+    End
+
+    It should parse nested placeholder
+      let l:parsed = vsnip#snippet#parser#parse('class $1${2: extends ${3:SuperClass}} { $0 }')
+      call s:expect(len(l:parsed)).to_equal(6)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'text',
+      \   'raw': 'class ',
+      \   'escaped': 'class '
+      \ })
+      call s:expect(l:parsed[1]).to_equal({
+      \   'type': 'placeholder',
+      \   'id': 1,
+      \   'children': []
+      \ })
+      call s:expect(l:parsed[2]).to_equal({
+      \   'type': 'placeholder',
+      \   'id': 2,
+      \   'children': [{
+      \     'type': 'text',
+      \     'raw': ' extends ',
+      \     'escaped': ' extends '
+      \   }, {
+      \     'type': 'placeholder',
+      \     'id': 3,
+      \     'children': [{
+      \       'type': 'text',
+      \       'raw': 'SuperClass',
+      \       'escaped': 'SuperClass'
+      \     }]
+      \   }]
+      \ })
+      call s:expect(l:parsed[3]).to_equal({
+      \   'type': 'text',
+      \   'raw': ' { ',
+      \   'escaped': ' { '
+      \ })
+      call s:expect(l:parsed[4]).to_equal({
+      \   'type': 'placeholder',
+      \   'id': 0,
+      \   'children': []
+      \ })
+      call s:expect(l:parsed[5]).to_equal({
+      \   'type': 'text',
+      \   'raw': ' }',
+      \   'escaped': ' }'
+      \ })
+    End
+
+    It should parse simple variable
+      let l:parsed = vsnip#snippet#parser#parse('${variable:default}')
+      call s:expect(len(l:parsed)).to_equal(1)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'variable',
+      \   'name': 'variable',
+      \   'children': [{
+      \     'type': 'text',
+      \     'raw': 'default',
+      \     'escaped': 'default',
+      \   }]
+      \ })
+    End
+
+    It should parse variable with multiple children
+      let l:parsed = vsnip#snippet#parser#parse('${variable: $1}')
+      call s:expect(len(l:parsed)).to_equal(1)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'variable',
+      \   'name': 'variable',
+      \   'children': [{
+      \     'type': 'text',
+      \     'raw': ' ',
+      \     'escaped': ' ',
+      \   }, {
+      \     'type': 'placeholder',
+      \     'id': 1,
+      \     'children': []
+      \   }],
+      \ })
+    End
+
+    It should parse variable with regex
+      let l:parsed = vsnip#snippet#parser#parse('${variable/(.*)/${1:/capitalize}/}')
+      call s:expect(len(l:parsed)).to_equal(1)
+      call s:expect(l:parsed[0]).to_equal({
+      \   'type': 'variable',
+      \   'name': 'variable',
+      \   'children': [],
+      \   'transform': {
+      \     'type': 'transform',
+      \     'regex': {
+      \       'type': 'regex',
+      \       'pattern': '(.*)',
+      \     },
+      \     'format': [{
+      \       'type': 'format',
+      \       'id': 1,
+      \       'modifier': '/capitalize'
+      \     }],
+      \     'option': v:null
+      \   }
+      \ })
+    End
+
+  End
+
+End
+

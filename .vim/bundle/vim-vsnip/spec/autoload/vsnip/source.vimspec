@@ -1,0 +1,61 @@
+let s:expect = themis#helper('expect')
+
+Describe vsnip#source
+
+  Describe #filetypes
+
+    It should return all filetype
+      enew!
+      set filetype=javascript.jsx
+      call s:expect(vsnip#source#filetypes(bufnr('%'))).to_equal([
+      \   'javascript',
+      \   'jsx',
+      \   'global'
+      \ ])
+    End
+
+  End
+
+  Describe #find
+
+    It should load snippet for extended filetypes
+      enew!
+      set filetype=source_spec_enhanced
+      let l:snippets = vsnip#source#find(bufnr('%'))
+      call s:expect(l:snippets[0]).to_have_length(2)
+    End
+
+    It should load snippet from vscode extension
+      enew!
+      set filetype=source_spec_vscode
+      let l:snippets = vsnip#source#find(bufnr('%'))
+      call s:expect(l:snippets[0]).to_have_length(1)
+    End
+
+    It should format snippets
+      enew!
+      set filetype=source_spec
+      let l:snippets = vsnip#source#find(bufnr('%'))
+      call s:expect(sort(l:snippets[0])).to_equal(sort([{
+      \   'label': 'no-prefix-alias',
+      \   'description': '',
+      \   'prefix': ['---'],
+      \   'prefix_alias': [],
+      \   'body': [
+      \     "${VIM:repeat('-', &tw)}"
+      \   ]
+      \ }, {
+      \   'label': 'prefix-alias',
+      \   'description': '',
+      \   'prefix': ['arrow-function'],
+      \   'prefix_alias': ['af'],
+      \   'body': [
+      \     "() => "
+      \   ]
+      \ }]))
+    End
+
+  End
+
+End
+

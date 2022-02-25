@@ -1,0 +1,149 @@
+let s:expect = themis#helper('expect')
+
+Describe vsnip
+
+  Describe #get_context
+
+    It should return context information in insert-mode
+      enew!
+      set filetype=basic_spec
+      call setline(1, 'if')
+      call cursor([1, 2])
+
+      let g:vsnip_assert = {}
+      function g:vsnip_assert.step1()
+        call s:expect(mode(1)).to_equal('i')
+        call s:expect(vsnip#get_context()).to_equal({
+        \   'range': {
+        \     'start': {
+        \       'line': 0,
+        \       'character': 0,
+        \     },
+        \     'end': {
+        \       'line': 0,
+        \       'character': 2,
+        \     },
+        \   },
+        \   'snippet': {
+        \     'label': 'if',
+        \     'description': '',
+        \     'prefix': ['if'],
+        \     'prefix_alias': [],
+        \     'body': [
+        \       "if ${1:condition}",
+        \       "\t$0",
+        \       "endif",
+        \     ],
+        \   }
+        \ })
+      endfunction
+      call feedkeys("a\<Plug>(vsnip-assert)", 'x')
+    End
+
+    It should return context information in normal-mode
+      enew!
+      set filetype=basic_spec
+      call setline(1, 'if')
+      call cursor([1, 2])
+
+      call s:expect(mode(1)).to_equal('n')
+      call s:expect(vsnip#get_context()).to_equal({
+      \   'range': {
+      \     'start': {
+      \       'line': 0,
+      \       'character': 0,
+      \     },
+      \     'end': {
+      \       'line': 0,
+      \       'character': 2,
+      \     },
+      \   },
+      \   'snippet': {
+      \     'label': 'if',
+      \     'description': '',
+      \     'prefix': ['if'],
+      \     'prefix_alias': [],
+      \     'body': [
+      \       "if ${1:condition}",
+      \       "\t$0",
+      \       "endif",
+      \     ],
+      \   }
+      \ })
+    End
+
+    It should return context information in select-mode
+      enew!
+      set filetype=basic_spec
+      call setline(1, 'if')
+      call feedkeys("v\<C-g>", 'x')
+      call cursor([1, 2])
+
+      call s:expect(mode(1)).to_equal('s')
+      call s:expect(vsnip#get_context()).to_equal({
+      \   'range': {
+      \     'start': {
+      \       'line': 0,
+      \       'character': 0,
+      \     },
+      \     'end': {
+      \       'line': 0,
+      \       'character': 2,
+      \     },
+      \   },
+      \   'snippet': {
+      \     'label': 'if',
+      \     'description': '',
+      \     'prefix': ['if'],
+      \     'prefix_alias': [],
+      \     'body': [
+      \       "if ${1:condition}",
+      \       "\t$0",
+      \       "endif",
+      \     ],
+      \   }
+      \ })
+    End
+
+  End
+
+  Describe #get_complete_items
+
+    It should return complete items
+      enew!
+      set filetype=basic_spec
+      call s:expect(vsnip#get_complete_items(bufnr('%'))[-1]).to_equal({
+      \   'word': 'if',
+      \   'abbr': 'if',
+      \   'kind': 'Snippet',
+      \   'menu': '[v] if',
+      \   'dup': 1,
+      \   'user_data': json_encode({
+      \     'vsnip': {
+      \       'snippet': [
+      \         "if ${1:condition}",
+      \         "\t$0",
+      \         "endif",
+      \       ]
+      \     }
+      \   })
+      \ }, {
+      \   'word': 'inline-fn',
+      \   'abbr': 'inline-fn',
+      \   'kind': 'Snippet',
+      \   'menu': '[v] inline-fn',
+      \   'dup': 1,
+      \   'user_data': json_encode({
+      \     'vsnip': {
+      \       'snippet': [
+      \         "{ -> $1 }$0"
+      \       ]
+      \     }
+      \   })
+      \ })
+    End
+
+  End
+
+End
+

@@ -1,0 +1,173 @@
+{
+  "spec1": {
+    "description": "simple snippet",
+    "prefix": ["spec1"],
+    "body": [
+      "snippet"
+    ]
+  },
+  "spec2": {
+    "description": "jump at first of snippet",
+    "prefix": ["spec2"],
+    "body": [
+      "$1$2snippet"
+    ]
+  },
+  "spec3": {
+    "description": "jump at middle of snippet",
+    "prefix": ["spec3"],
+    "body": [
+      "$1sni$2ppet"
+    ]
+  },
+  "spec4": {
+    "description": "jump at last of snippet",
+    "prefix": ["spec4"],
+    "body": [
+      "$1snippet"
+    ]
+  },
+  "spec5": {
+    "description": "select 1 length first of snippet text",
+    "prefix": ["spec5"],
+    "body": [
+      "$1${2:s}nippet"
+    ]
+  },
+  "spec6": {
+    "description": "select 1 length middle of snippet text",
+    "prefix": ["spec6"],
+    "body": [
+      "$1sn${2:i}ppet"
+    ]
+  },
+  "spec7": {
+    "description": "select 1 length last of snippet text",
+    "prefix": ["spec7"],
+    "body": [
+      "$1snippe${2:t}"
+    ]
+  },
+  "spec8": {
+    "description": "select 3 length first of snippet text",
+    "prefix": ["spec8"],
+    "body": [
+      "$1${2:sni}ppet"
+    ]
+  },
+  "spec9": {
+    "description": "select 3 length middle of snippet text",
+    "prefix": ["spec9"],
+    "body": [
+      "$1sn${2:ipp}et"
+    ]
+  },
+  "spec10": {
+    "description": "select 3 length last of snippet text",
+    "prefix": ["spec10"],
+    "body": [
+      "$1snip${2:pet}"
+    ]
+  },
+  "multi1": {
+    "description": "jump at middle of snippet",
+    "prefix": ["マルチ1"],
+    "body": [
+      "あ$1い$2う"
+    ]
+  },
+  "multi2": {
+    "description": "select 4 length middle of snippet text",
+    "prefix": ["マルチ2"],
+    "body": [
+      "あ$1い${2:かkaか}う"
+    ]
+  },
+  "realworld1": {
+    "description": "Complex example",
+    "prefix": ["realworld1"],
+    "body": [
+      "/** @class ${1:ClassName} */",
+      "class ${1} ${2:extends ${3:ParentClassName} }{",
+      "\tpublic constructor() {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ]
+  },
+  "realworld2": {
+    "description": "$VIM variable",
+    "prefix": ["realworld2"],
+    "body": [
+      "${VIM:\\$USER}"
+    ]
+  },
+  "realworld3": {
+    "description": "indented $TM_SELECTED_TEXT",
+    "prefix": ["realworld3"],
+    "body": [
+      "<div>",
+      "\t$TM_SELECTED_TEXT",
+      "</div>"
+    ]
+  },
+  "realworld4": {
+    "description": "no indented $TM_SELECTED_TEXT",
+    "prefix": ["realworld4"],
+    "body": [
+      "<div>$TM_SELECTED_TEXT</div>"
+    ]
+  },
+  "realworld5": {
+    "description": "modify follower placeholder manually",
+    "prefix": ["realworld5"],
+    "body": [
+      "$1, ${2:_${3:___$1___}_}"
+    ]
+  },
+  "issue82": {
+    "description": "issue82",
+    "prefix": ["'"],
+    "body": [
+      "'$0'"
+    ]
+  },
+  "issue85": {
+    "description": "issue85",
+    "prefix": ["issue85"],
+    "body": [
+      "for ${1:i}=${2:1},${3:10}",
+      "\t${0:print(i)}"
+    ]
+  },
+  "issue106": {
+    "description": "issue106",
+    "prefix": ["issue106"],
+    "body": [
+      "$1"
+    ]
+  },
+  "issue122": {
+    "description": "issue122",
+    "prefix": ["issue122>"],
+    "body": [
+      "$1"
+    ]
+  },
+  "issue129": {
+    "description": "issue129",
+    "prefix": ["issue129"],
+    "body": [
+      "console.log('$1', $2);"
+    ]
+  },
+  "issue139": {
+    "description": "issue139",
+    "prefix": "issue139",
+    "body": [
+      "for (${1:size_t }${2:i}=0; ${2} < ${3:count}; ${4:${2}++}) {",
+      "\t$TM_SELECTED_TEXT$5",
+      "}$0"
+    ]
+  }
+}

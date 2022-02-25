@@ -1,0 +1,13 @@
+{
+  "no-prefix-alias": {
+    "prefix": ["---"],
+    "body": ["${VIM:repeat('-', &tw)}"]
+  },
+  "prefix-alias": {
+    "prefix": ["arrow-function"],
+    "body": "() => "
+  },
+  "has-no-prefix": {
+    "body": "() => "
+  }
+}
