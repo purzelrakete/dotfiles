@@ -3,7 +3,7 @@
 # base
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export EDITOR="vim"
+export EDITOR="nvim"
 export SVDIR=~/service
 export TERM=screen-256color # xterm-256color
 
@@ -56,7 +56,7 @@ alias work='source solarized --theme light && FOCUS=s t'
 alias fun='source solarized --theme dark && FOCUS=b t'
 
 # other
-export SOYWIKI_VIM="vim"
+export SOYWIKI_VIM="nvim"
 
 # only run once on login shell. allows tmux reconfigurations
 source solarized --theme light --skip-if-configured
