@@ -44,6 +44,7 @@ alias pwdc="pwd | pbcopy"
 alias s='soywiki'
 alias tree='tree -C' # color
 alias v='vim .'
+alias vi='vim'
 alias ytop="ytop -c monokai"
 alias k="kubectl"
 
