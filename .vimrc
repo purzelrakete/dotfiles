@@ -221,3 +221,9 @@ let g:ag_working_path_mode="r"
 "
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2
+
+" soywiki
+
+let g:soywiki_mapping_next_link = ''
+let g:soywiki_mapping_previous_link = ''
+let g:soywiki_mapping_follow_link_under_cursor_vertical = ''
