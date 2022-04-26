@@ -123,17 +123,12 @@ function rg() {
 }
 
 # fix ssh agent
-function fix-ssh-agent() {
-  sockets=$(
-    ps e | \
-      sed -n  's/.*SSH_AUTH_SOCK=\([^ ]* \).*/\1/p' | \
-      sort | \
-      uniq
-  )
-
-  for socket in $sockets; do
-    if stat $socket 2>/dev/null 1>/dev/null; then
-      export SSH_AUTH_SOCK=$socket
+function fixsshagent() {
+  for s in $(ps e | sed -n  's/.*SSH_AUTH_SOCK=\([^ ]*\) .*/\1/p' | sort -u)
+  do
+    if [ -S $s ]
+    then
+      export SSH_AUTH_SOCK=$s
     fi
   done
 }
