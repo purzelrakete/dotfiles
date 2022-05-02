@@ -1,16 +1,18 @@
-*.pyc
+# mac
 .DS_Store
-.calendar/
-.emacs.d/auto-save-list/
+
+# python
+*.pyc
+
+# notebooks
+scratch.ipynb
+.ipynb_checkpoints
+
+# local
 .gnupg/*.asc
 .gnupg/*.gpg
 .gnupg/*.gpg~
 .gnupg/random_seed
-.idea/
-.irssi/away.log
-.irssi/config
-.irssi/config.autosave
-.irssi/saved_colors
 .mail/
 .mutt/solarized*.muttrc
 .netrwhist
@@ -21,10 +23,9 @@ tags
 .gnupg/
 __pycache__/
 
+# org
 TODO.org
 backlog.md
 backlog.txt
 todo.md
 todo.txt
-
-scratch.ipynb
