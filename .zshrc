@@ -102,6 +102,6 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # asdf
-. /usr/local/opt/asdf/libexec/asdf.sh
-. ~/.asdf/plugins/java/set-java-home.zsh
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/plugins/java/set-java-home.zsh
 
