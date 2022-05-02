@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while read; do
+  command clear
+  echo
+  "$@"
+done
