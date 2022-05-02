@@ -46,7 +46,7 @@ today() {
 
 countdown() {
   local s=$1
-  ruby -e "(1..$s).to_a.reverse.each { |i| puts i }" | render
+  seq $1 -1 1 | render
 }
 
 brkover() {
