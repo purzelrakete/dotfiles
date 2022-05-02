@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# open an ssh session to $1 and drop into tmux
+
+ssh $1 -t '~/bin/t'

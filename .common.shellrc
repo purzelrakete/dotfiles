@@ -3,7 +3,7 @@
 # base
 export LC_CTYPE=en_US.UTF-8
 export LANG=en_US.UTF-8
-export EDITOR="vim"
+export EDITOR="nvim"
 export SVDIR=~/service
 export TERM=screen-256color # xterm-256color
 
@@ -44,6 +44,8 @@ alias pwdc="pwd | pbcopy"
 alias s='soywiki'
 alias tree='tree -C' # color
 alias v='vim .'
+alias vi='vim'
+alias vim='nvim'
 alias ytop="ytop -c monokai"
 alias k="kubectl"
 
@@ -56,7 +58,7 @@ alias work='source solarized --theme light && FOCUS=s t'
 alias fun='source solarized --theme dark && FOCUS=b t'
 
 # other
-export SOYWIKI_VIM="vim"
+export SOYWIKI_VIM="nvim"
 
 # only run once on login shell. allows tmux reconfigurations
 source solarized --theme light --skip-if-configured
@@ -116,9 +118,19 @@ fi
 export PATH=/usr/local/flutter/bin:$PATH
 
 # ripgrep
-
 function rg() {
   command rg -p "$@" | less -R
+}
+
+# fix ssh agent
+function fixsshagent() {
+  for s in $(ps e | sed -n  's/.*SSH_AUTH_SOCK=\([^ ]*\) .*/\1/p' | sort -u)
+  do
+    if [ -S $s ]
+    then
+      export SSH_AUTH_SOCK=$s
+    fi
+  done
 }
 
 # fzf
