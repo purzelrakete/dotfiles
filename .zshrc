@@ -80,26 +80,15 @@ which pyenv >/dev/null && {
   eval "$(pyenv virtualenv-init -)"
 }
 
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/Caskroom/miniforge/base/bin:$PATH"
-    fi
+# conda
+if [ -d ~/.conda ]; then
+  source ~/.conda/env
 fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # asdf
 . $HOME/.asdf/asdf.sh
