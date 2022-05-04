@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# pretty print banners
+
+set -eou pipefail
+
+figlet $1 | lolcat

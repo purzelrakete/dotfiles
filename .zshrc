@@ -71,26 +71,14 @@ if [ -f '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc' ]; then
   . '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc';
 fi
 
-# pyenv
-which pyenv >/dev/null && {
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-}
+# asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/plugins/java/set-java-home.zsh
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# direnv
+eval "$(direnv hook zsh)"
 
 # conda
 if [ -d ~/.conda ]; then
   source ~/.conda/env
 fi
-
-# asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/plugins/java/set-java-home.zsh
-
