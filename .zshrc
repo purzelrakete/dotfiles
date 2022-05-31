@@ -71,14 +71,14 @@ if [ -f '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc' ]; then
   . '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc';
 fi
 
+# conda
+if [ -d ~/.conda ]; then
+  source ~/.conda/env
+fi
+
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/plugins/java/set-java-home.zsh
 
 # direnv
 eval "$(direnv hook zsh)"
-
-# conda
-if [ -d ~/.conda ]; then
-  source ~/.conda/env
-fi
