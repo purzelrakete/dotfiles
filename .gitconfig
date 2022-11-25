@@ -41,3 +41,5 @@
 	insteadOf = https://gitlab.bsdevops.io/
 [url "ssh://git@gitlab.bsdevops.io/"]
 	insteadOf = https://gitlab.bsdevops.io/
+[init]
+	defaultBranch = main
