@@ -1,6 +1,9 @@
 source ~/.zsh/.prompt
 source ~/.common.shellrc
 
+# brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # completions
 fpath=(~/.completions/zsh $fpath)
 autoload -U ~/.completions/zsh(:t)
@@ -61,24 +64,16 @@ source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 # fuzzy finder in readline
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc' ]; then
-  . '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc';
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc' ]; then
-  . '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc';
-fi
+# direnv
+eval "$(direnv hook zsh)"
 
 # conda
 if [ -d ~/.conda ]; then
   source ~/.conda/env
 fi
 
-# asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/plugins/java/set-java-home.zsh
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-# direnv
-eval "$(direnv hook zsh)"

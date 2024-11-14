@@ -15,21 +15,7 @@ alias macdown='open -a macdown'
 
 export PATH=$PATH:/usr/X11/bin
 
-# julia
-export JULIA_PATH=~/Projects/third-party/julia
-export PATH=$PATH:$JULIA_PATH
-
-# other
-export PATH=$PATH:/Applications/Octave.app/Contents/Resources/bin
-export PATH=$PATH:/opt/local/lib/erlang/lib/rabbitmq_server-1.4.0/sbin
-export PATH=$PATH:/opt/samiam
-export PATH=$PATH:/usr/local/mysql/bin
-export PATH=$PATH:/Library/TeX/texbin
-
 # java
 export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-
 alias java8='export JAVA_HOME=$JAVA_8_HOME'
-
-# default java8
 export JAVA_HOME=$JAVA_8_HOME
