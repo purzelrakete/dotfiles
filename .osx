@@ -15,7 +15,21 @@ alias macdown='open -a macdown'
 
 export PATH=$PATH:/usr/X11/bin
 
-# java
-export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+# java.
+#
+# java_home is a 9ms fork on every shell for an answer that only changes when a
+# jdk is installed or removed, so cache it against the jvm directory.
+java_home_cache="${XDG_CACHE_HOME:-$HOME/.cache}/java-8-home"
+if [ ! -s "$java_home_cache" ] ||
+   [ /Library/Java/JavaVirtualMachines -nt "$java_home_cache" ]; then
+  mkdir -p "${java_home_cache%/*}"
+  /usr/libexec/java_home -v1.8 > "$java_home_cache" 2>/dev/null
+fi
+
+# empty when no jdk is installed, in which case JAVA_HOME stays unset as before.
+[ -s "$java_home_cache" ] && IFS= read -r JAVA_8_HOME < "$java_home_cache"
+unset java_home_cache
+
+export JAVA_8_HOME
 alias java8='export JAVA_HOME=$JAVA_8_HOME'
 export JAVA_HOME=$JAVA_8_HOME

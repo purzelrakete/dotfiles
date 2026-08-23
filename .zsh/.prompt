@@ -18,9 +18,10 @@ vcs_info_wrapper() {
 
 RPROMPT=$'$(vcs_info_wrapper)'
 
-if [[ $(hostname) = "przl.local" ]] || [[ $(hostname) = "purzelcave" ]] || [[ $(hostname) = "przl" ]]
-then
-  PS1="%(?.%{$fg[blue]%}.%{$fg[red]%}) ο %{$reset_color%}%m:%2c "
-else
-  PS1="%(?.%{$fg[blue]%}.%{$fg[red]%})φ  %{$reset_color%}%m:%2c "
-fi
+# $HOST is zsh's own copy of the hostname, so this costs no forks.
+case $HOST in
+  przl.local|purzelcave|przl)
+    PS1="%(?.%{$fg[blue]%}.%{$fg[red]%}) ο %{$reset_color%}%m:%2c " ;;
+  *)
+    PS1="%(?.%{$fg[blue]%}.%{$fg[red]%})φ  %{$reset_color%}%m:%2c " ;;
+esac
