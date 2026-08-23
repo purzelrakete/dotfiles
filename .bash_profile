@@ -83,6 +83,16 @@ alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 :
 
 
+# pyenv
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# rust
+
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -97,6 +107,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-. "$HOME/.cargo/env"
-
-source /Users/purzelrakete/.config/broot/launcher/bash/br

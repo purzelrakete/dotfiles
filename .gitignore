@@ -29,3 +29,7 @@ backlog.md
 backlog.txt
 todo.md
 todo.txt
+
+# vim: copilot ships prebuilt blobs (tokenizer json, tree-sitter wasm, bundled
+# agent.js). the plugin re-fetches them, no need to vendor ~9MB.
+.vim/bundle/vim-copilot/copilot/dist/

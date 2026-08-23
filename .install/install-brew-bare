@@ -5,19 +5,19 @@ brew install \
   gfortran \
   r
 
-brew install mutt --pgp-verbose-mime-patch --with-slang
 brew install \
-  ag \
-  contacts \
   coreutils \
   figlet \
+  fzf \
   golang \
   gpg \
   graphviz \
   haskell-stack \
   imagemagick \
   jq \
+  neovim \
   pyenv \
+  ripgrep \
   rust \
   terminal-notifier \
   tmux \
