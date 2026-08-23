@@ -1,11 +1,19 @@
-source ~/.zsh/.prompt
-source ~/.common.shellrc
-
-# completions
+# completions.
+#
+# must run BEFORE .common.shellrc: that sources ~/.nvm/bash_completion, which
+# fires a bare `compinit` if none is loaded yet. running ours first makes nvm's
+# `command -v compinit` guard skip it.
+#
+# -i ignores fpath dirs not owned by us instead of prompting. .zprofile's
+# `brew shellenv` prepends /opt/homebrew/share/zsh/site-functions, and
+# /opt/homebrew belongs to the other account on this machine (uid 503).
 fpath=(~/.completions/zsh $fpath)
 autoload -U ~/.completions/zsh(:t)
 autoload -U compinit
-compinit
+compinit -i
+
+source ~/.zsh/.prompt
+source ~/.common.shellrc
 
 # case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -89,17 +97,6 @@ eval "$(pyenv init -)"
 
 # direnv
 eval "$(direnv hook zsh)"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ranykeddo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ranykeddo/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/ranykeddo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ranykeddo/google-cloud-sdk/completion.zsh.inc'; fi
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/ranykeddo/.rd/bin:$PATH"
