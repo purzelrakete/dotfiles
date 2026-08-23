@@ -37,12 +37,10 @@ brew install --cask \
   datagrip \
   docker \
   dropbox \
-  fzf \
   google-chrome \
   iterm2 \
   julia \
   r \
-  ripgrep \
   rstudio \
   slack \
   skype \

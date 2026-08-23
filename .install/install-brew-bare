@@ -8,6 +8,7 @@ brew install \
 brew install \
   coreutils \
   figlet \
+  fzf \
   golang \
   gpg \
   graphviz \
@@ -16,6 +17,7 @@ brew install \
   jq \
   neovim \
   pyenv \
+  ripgrep \
   rust \
   terminal-notifier \
   tmux \
