@@ -83,6 +83,7 @@ alias nhn="sudo ipfw add 70000 deny tcp from any to news.ycombinator.com"
 :
 
 
-/Users/ranykeddo/.bash_profile
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
