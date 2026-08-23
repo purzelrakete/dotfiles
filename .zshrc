@@ -62,19 +62,26 @@ source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc' ]; then
-  . '/Users/purzelrakete/google-cloud-sdk/path.zsh.inc';
+if [ -f $HOME/google-cloud-sdk/path.zsh.inc ]; then
+  . $HOME/google-cloud-sdk/path.zsh.inc;
 fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc' ]; then
-  . '/Users/purzelrakete/google-cloud-sdk/completion.zsh.inc';
+if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then
+  . $HOME/google-cloud-sdk/completion.zsh.inc;
 fi
 
 # conda
-if [ -d ~/.conda ]; then
-  source ~/.conda/env
-fi
+# if [ -d ~/.conda ]; then
+#   source ~/.conda/env
+# fi
+
+# # pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+eval "$(pyenv init -)"
 
 # asdf
 . $HOME/.asdf/asdf.sh
@@ -82,3 +89,19 @@ fi
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ranykeddo/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ranykeddo/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ranykeddo/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ranykeddo/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/ranykeddo/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
