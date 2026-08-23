@@ -8,7 +8,6 @@
 # `brew shellenv` prepends /opt/homebrew/share/zsh/site-functions, and
 # /opt/homebrew belongs to the other account on this machine (uid 503).
 fpath=(~/.completions/zsh $fpath)
-autoload -U ~/.completions/zsh(:t)
 autoload -U compinit
 compinit -i
 
