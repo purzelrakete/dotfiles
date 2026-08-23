@@ -126,9 +126,42 @@ function rg() {
 }
 
 # nvm
+#
+# sourcing nvm.sh costs ~460ms per shell, nearly all of it nvm_auto running
+# `nvm use default` and re-verifying the version. that answer only changes when
+# a version is installed or the default alias moves, so resolve it once, cache
+# it, and put the bin dir on PATH directly. nvm itself loads on first use.
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  nvm_bin_cache="${XDG_CACHE_HOME:-$HOME/.cache}/nvm-default-bin"
+
+  # stale when the default alias moved or a version was added or removed.
+  if [ ! -s "$nvm_bin_cache" ] ||
+     [ "$NVM_DIR/alias/default" -nt "$nvm_bin_cache" ] ||
+     [ "$NVM_DIR/versions/node" -nt "$nvm_bin_cache" ]; then
+    mkdir -p "$(dirname "$nvm_bin_cache")"
+    # --no-use skips the nvm_auto that makes plain sourcing so expensive.
+    \. "$NVM_DIR/nvm.sh" --no-use
+    # guarded: `dirname ""` is ".", which would put the cwd on PATH.
+    nvm_default_node="$(nvm which default 2>/dev/null)"
+    [ -n "$nvm_default_node" ] && dirname "$nvm_default_node" > "$nvm_bin_cache"
+    unset nvm_default_node
+  fi
+
+  [ -s "$nvm_bin_cache" ] && export PATH="$(cat "$nvm_bin_cache"):$PATH"
+  unset nvm_bin_cache
+
+  # first `nvm ...` replaces this shim with the real thing.
+  if ! command -v nvm > /dev/null; then
+    nvm() {
+      unset -f nvm
+      \. "$NVM_DIR/nvm.sh" --no-use
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+      nvm "$@"
+    }
+  fi
+fi
 
 # fix ssh agent
 function fixsshagent() {
@@ -160,7 +193,20 @@ fi
 
 export FZF_DEFAULT_OPTS="$FZF_COLORS -m --height 50%"
 
-# homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# homebrew.
+#
+# the PATH reset above drops homebrew's prefix; this puts it back. same caching
+# as in .zshrc -- `brew shellenv` prints a constant script for a given shell,
+# so keep one cache per shell and source that instead of forking brew.
+brew_shell="${ZSH_NAME:-${BASH##*/}}"
+brew_env="${XDG_CACHE_HOME:-$HOME/.cache}/brew-shellenv.${brew_shell:-sh}"
+
+if [ ! -s "$brew_env" ] || [ /opt/homebrew/bin/brew -nt "$brew_env" ]; then
+  mkdir -p "${brew_env%/*}"
+  /opt/homebrew/bin/brew shellenv "${brew_shell:-sh}" > "$brew_env"
+fi
+
+. "$brew_env"
+unset brew_env brew_shell
 
 welcome
