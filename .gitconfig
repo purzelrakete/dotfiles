@@ -26,8 +26,6 @@
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [branch]
   autosetuprebase = always
-[url "git@github.com:"]
-  insteadOf = https://github.com/
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
@@ -35,11 +33,5 @@
   process = git-lfs filter-process
 [diff "jupyternotebook"]
   command = git-nbdiffdriver diff
-[url "git@gitlab.com:"]
-	insteadOf = https://gitlab.com/
-[url "git@gitlab.bsdevops.io:"]
-	insteadOf = https://gitlab.bsdevops.io/
-[url "ssh://git@gitlab.bsdevops.io/"]
-	insteadOf = https://gitlab.bsdevops.io/
 [init]
 	defaultBranch = main

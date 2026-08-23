@@ -1,4 +1,4 @@
 channels:
   - defaults
 ssl_verify: true
-changeps1: False
+changeps1: false

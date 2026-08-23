@@ -126,7 +126,7 @@ noremap  <Right> ""
 
 " reload testing screen
 
-map <leader>u :!tmux send-keys -t 3 y Enter<CR><CR>
+map <leader>u :!tmux send-keys -t 2 y Enter<CR><CR>
 
 " persist marks, registers history and buffer list across restarts
 
