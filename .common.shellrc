@@ -75,16 +75,22 @@ export PATH=~/src/github.com/flutter/flutter/bin:$PATH
 # pg
 export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
+# identity per focus. exported rather than written with `git config --global`,
+# which would rewrite ~/.gitconfig -- a symlink into the dotfiles repo -- on
+# every shell start and leave the working tree permanently dirty.
+
 # work
-if [[ $FOCUS -eq 's' ]]; then
+if [[ $FOCUS == 's' ]]; then
   export PATH=$PATH:~/.work/bin
-  git config --global user.email "rany@reflectionlabs.com"
+  export GIT_AUTHOR_EMAIL="rany@reflectionlabs.com"
 fi
 
 # play
-if [[ $FOCUS -eq 'b' ]]; then
-  git config --global user.email "purzelrakete@gmail.com"
+if [[ $FOCUS == 'b' ]]; then
+  export GIT_AUTHOR_EMAIL="purzelrakete@gmail.com"
 fi
+
+export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 
 # osx
 uname -a | grep "^Darwin" >/dev/null && source ~/.osx
