@@ -1,3 +1,12 @@
+" plugins
+"
+" bundles live in ~/.vim/bundle and are loaded by pathogen. without this nvim
+" starts bare: no airline, fugitive, solarized, copilot.
+
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
+call pathogen#infect()
+
 " basics
 
 let mapleader = " "
