@@ -1,19 +1,24 @@
+# brew.
+#
+# must run before compinit so homebrew's site-functions are on fpath in
+# non-login shells, where .zprofile does not run.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # completions.
 #
 # must run BEFORE .common.shellrc: that sources ~/.nvm/bash_completion, which
 # fires a bare `compinit` if none is loaded yet. running ours first makes nvm's
 # `command -v compinit` guard skip it.
 #
-# -i ignores fpath dirs not owned by us instead of prompting. .zprofile's
-# `brew shellenv` prepends /opt/homebrew/share/zsh/site-functions, and
-# /opt/homebrew belongs to the other account on this machine (uid 503).
+# -i ignores fpath dirs not owned by us instead of prompting: brew shellenv
+# prepends /opt/homebrew/share/zsh/site-functions, and /opt/homebrew belongs to
+# the other account on this machine (uid 503).
 fpath=(~/.completions/zsh $fpath)
 autoload -U compinit
 compinit -i
 
 source ~/.zsh/.prompt
 source ~/.common.shellrc
-
 # case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
@@ -68,12 +73,11 @@ source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 # fuzzy finder in readline
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
+# google cloud sdk
 if [ -f $HOME/google-cloud-sdk/path.zsh.inc ]; then
   . $HOME/google-cloud-sdk/path.zsh.inc;
 fi
 
-# The next line enables shell command completion for gcloud.
 if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then
   . $HOME/google-cloud-sdk/completion.zsh.inc;
 fi
@@ -83,16 +87,14 @@ fi
 #   source ~/.conda/env
 # fi
 
-# # pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
-
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/plugins/java/set-java-home.zsh
+# asdf. guarded so machines without it still start cleanly.
+[ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
+[ -f $HOME/.asdf/plugins/java/set-java-home.zsh ] && . $HOME/.asdf/plugins/java/set-java-home.zsh
 
 # direnv
 eval "$(direnv hook zsh)"
@@ -100,4 +102,3 @@ eval "$(direnv hook zsh)"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/ranykeddo/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-

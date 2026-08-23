@@ -24,8 +24,10 @@ scutil --set LocalHostName przl
 scutil --set HostName przl
 
 # repeat rate
+CURSOR_ID=$(osascript -e 'id of app "Cursor"')
 defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+defaults write $CURSOR_ID ApplePressAndHoldEnabled -bool false
 
 # apps
 brew tap homebrew/cask-versions
@@ -52,4 +54,3 @@ brew install essentia
 brew tap d12frosted/emacs-plus
 brew install emacs-plus --HEAD --with-natural-title-barsr
 brew linkapps emacs-plus
-

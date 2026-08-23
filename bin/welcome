@@ -19,7 +19,7 @@ selected=$(expr $RANDOM % $ncookies)
 fortune=${cookie[$selected]}
 
 if uname -a | grep "^Darwin" >/dev/null; then
-  gecho -n -e "\e[00;34m » $fortune\n"
+  /opt/homebrew/bin/gecho -n -e "\e[00;34m » $fortune\n"
 else
   echo -n -e "\e[00;34m » $fortune\n"
 fi
