@@ -6,6 +6,7 @@ set -e
 ln -sfnv $(echo $(pwd)/.[^.]* | \
   xargs -n1 | \
   grep -v '\.config' |\
+  grep -v '\.claude$' | \
   grep -v '\.git$' | \
   grep -v '\.gnupg' |\
   xargs) ~
