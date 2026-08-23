@@ -1,7 +1,11 @@
 #!/bin/sh
+#
+#
+
+set -eou pipefail
 
 # paths
-echo setenv PATH /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin > /etc/launchd.conf
+# echo setenv PATH /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin > /etc/launchd.conf
 
 # default shell is zsh
 chsh -s /bin/zsh
@@ -30,18 +34,15 @@ brew install --cask \
   anaconda \
   caffeine \
   dash \
+  datagrip \
   docker \
   dropbox \
-  figlet \
+  fzf \
   google-chrome \
-  intellij-idea \
   iterm2 \
-  java \
-  java7 \
   julia \
-  macvim \
-  pycharm \
   r \
+  ripgrep \
   rstudio \
   slack \
   skype \
