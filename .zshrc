@@ -86,6 +86,7 @@ cdpath=(
   ~/src/github.com/feldberlin
   ~/src/github.com/purzelrakete
   ~/src/github.com/reflectionlabs
+  ~/src/github.com/voicelayerai
 
   # gitlab
   ~/src/gitlab.com/
@@ -167,3 +168,27 @@ cache_eval direnv-hook.zsh direnv hook zsh
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/ranykeddo/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# nvm is set up lazily in .common.shellrc -- do not source nvm.sh here.
+
+# postgres
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+
+# antigravity
+export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+
+# tex
+export PATH="/Library/TeX/texbin:$PATH"

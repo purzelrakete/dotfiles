@@ -19,7 +19,6 @@ scratch.ipynb
 .vim/spell
 sasl.auth
 supervise
-tags
 .gnupg/
 __pycache__/
 
@@ -33,3 +32,5 @@ todo.txt
 # vim: copilot ships prebuilt blobs (tokenizer json, tree-sitter wasm, bundled
 # agent.js). the plugin re-fetches them, no need to vendor ~9MB.
 .vim/bundle/vim-copilot/copilot/dist/
+
+**/.claude/settings.local.json
