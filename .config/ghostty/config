@@ -1,0 +1,3 @@
+# ghostty. linked to ~/.config/ghostty by ./pin.
+# themes live in ./themes; follows the macOS light/dark appearance.
+theme = light:solarized-light,dark:solarized-dark
