@@ -18,8 +18,8 @@ red=$(printf "\033\\[31m")
 export blu clr grn gry mag red
 
 # gnu tools
-if which gls > /dev/null; then alias ls=gls; fi
-if which gdircolors > /dev/null; then alias dircolors=gdircolors; fi
+command -v gls > /dev/null && alias ls=gls
+command -v gdircolors > /dev/null && alias dircolors=gdircolors
 
 # turn off xon/xoff to avoid conflict with CTRL-s readline forward search
 stty -ixon
@@ -195,15 +195,23 @@ export FZF_DEFAULT_OPTS="$FZF_COLORS -m --height 50%"
 # the PATH reset above drops homebrew's prefix; this puts it back. same caching
 # as in .zshrc -- `brew shellenv` prints a constant script for a given shell,
 # so keep one cache per shell and source that instead of forking brew.
-brew_shell="${ZSH_NAME:-${BASH##*/}}"
-brew_env="${XDG_CACHE_HOME:-$HOME/.cache}/brew-shellenv.${brew_shell:-sh}"
+# skipped entirely on machines without homebrew (e.g. linux hosts).
+for brew_bin in /opt/homebrew/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+  [ -x "$brew_bin" ] && break
+done
 
-if [ ! -s "$brew_env" ] || [ /opt/homebrew/bin/brew -nt "$brew_env" ]; then
-  mkdir -p "${brew_env%/*}"
-  /opt/homebrew/bin/brew shellenv "${brew_shell:-sh}" > "$brew_env"
+if [ -x "$brew_bin" ]; then
+  brew_shell="${ZSH_NAME:-${BASH##*/}}"
+  brew_env="${XDG_CACHE_HOME:-$HOME/.cache}/brew-shellenv.${brew_shell:-sh}"
+
+  if [ ! -s "$brew_env" ] || [ "$brew_bin" -nt "$brew_env" ]; then
+    mkdir -p "${brew_env%/*}"
+    "$brew_bin" shellenv "${brew_shell:-sh}" > "$brew_env"
+  fi
+
+  . "$brew_env"
+  unset brew_env brew_shell
 fi
-
-. "$brew_env"
-unset brew_env brew_shell
+unset brew_bin
 
 welcome
