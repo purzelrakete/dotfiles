@@ -1,4 +1,12 @@
 local misc = require('cmp.utils.misc')
+
+local function add_reverse_lookup(t)
+  for k, v in pairs(vim.deepcopy(t)) do
+    t[v] = k
+  end
+  return t
+end
+
 ---@see https://microsoft.github.io/language-server-protocol/specifications/specification-current/
 ---@class lsp
 local lsp = {}
@@ -85,25 +93,25 @@ lsp.CompletionTriggerKind.TriggerForIncompleteCompletions = 3
 lsp.InsertTextFormat = {}
 lsp.InsertTextFormat.PlainText = 1
 lsp.InsertTextFormat.Snippet = 2
-lsp.InsertTextFormat = vim.tbl_add_reverse_lookup(lsp.InsertTextFormat)
+lsp.InsertTextFormat = add_reverse_lookup(lsp.InsertTextFormat)
 
 ---@alias lsp.InsertTextMode "1" | "2"
 lsp.InsertTextMode = {}
 lsp.InsertTextMode.AsIs = 0
 lsp.InsertTextMode.AdjustIndentation = 1
-lsp.InsertTextMode = vim.tbl_add_reverse_lookup(lsp.InsertTextMode)
+lsp.InsertTextMode = add_reverse_lookup(lsp.InsertTextMode)
 
 ---@alias lsp.MarkupKind "'plaintext'" | "'markdown'"
 lsp.MarkupKind = {}
 lsp.MarkupKind.PlainText = 'plaintext'
 lsp.MarkupKind.Markdown = 'markdown'
 lsp.MarkupKind.Markdown = 'markdown'
-lsp.MarkupKind = vim.tbl_add_reverse_lookup(lsp.MarkupKind)
+lsp.MarkupKind = add_reverse_lookup(lsp.MarkupKind)
 
 ---@alias lsp.CompletionItemTag "1"
 lsp.CompletionItemTag = {}
 lsp.CompletionItemTag.Deprecated = 1
-lsp.CompletionItemTag = vim.tbl_add_reverse_lookup(lsp.CompletionItemTag)
+lsp.CompletionItemTag = add_reverse_lookup(lsp.CompletionItemTag)
 
 ---@alias lsp.CompletionItemKind "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | "21" | "22" | "23" | "24" | "25"
 lsp.CompletionItemKind = {}
@@ -132,7 +140,7 @@ lsp.CompletionItemKind.Struct = 22
 lsp.CompletionItemKind.Event = 23
 lsp.CompletionItemKind.Operator = 24
 lsp.CompletionItemKind.TypeParameter = 25
-lsp.CompletionItemKind = vim.tbl_add_reverse_lookup(lsp.CompletionItemKind)
+lsp.CompletionItemKind = add_reverse_lookup(lsp.CompletionItemKind)
 
 ---@class lsp.CompletionList
 ---@field public isIncomplete boolean

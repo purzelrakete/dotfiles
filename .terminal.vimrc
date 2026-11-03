@@ -130,7 +130,7 @@ map <leader>u :!tmux send-keys -t 1 y Enter<CR><CR>
 
 " persist marks, registers history and buffer list across restarts
 
-set viminfo='10,\"100,:20,%,n~/.viminfo
+if !has('nvim') | set viminfo='10,\"100,:20,%,n~/.viminfo | endif
 
 " restore cursor to saved position
 
@@ -155,7 +155,9 @@ au FileType julia filetype plugin off
 
 " go
 
-au FileType go nmap <C-]> <Plug>(go-def-split)
+" vim-go's gd and <C-]> need guru, which no longer exists; gopls does it
+let g:go_def_mapping_enabled = 0
+au FileType go nnoremap <buffer> <C-]> <cmd>split \| lua vim.lsp.buf.definition()<CR>
 au FileType go setlocal shiftwidth=2 tabstop=2 nolist noexpandtab
 
 let g:go_highlight_functions = 1
@@ -190,17 +192,30 @@ set tags=.tags,tags
 
 syntax enable
 
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_right_alt_sep = '⮃'
+" powerline arrows (U+E0B0-E0B3); iTerm draws them without a patched font
+" when Profiles > Text > "Use built-in Powerline glyphs" is on
+let g:airline_theme = 'solarized'
+let g:airline_left_sep = "\ue0b0"
+let g:airline_left_alt_sep = "\ue0b1"
+let g:airline_right_sep = "\ue0b2"
+let g:airline_right_alt_sep = "\ue0b3"
 
 if $VIM_THEME == "light"
   set background=light
 else
   set background=dark
 endif
+
+" vim-colors-solarized only sets cterm colors outside the GUI; nvim 0.10+
+" turns on termguicolors in truecolor terminals, which would ignore them
+if has('nvim') | set notermguicolors | endif
+
+" nvim combines airline's highlights with StatusLine, inheriting solarized's
+" reverse and swapping every section's fg/bg; re-applied on each reload
+augroup solarized_statusline
+  autocmd!
+  autocmd ColorScheme solarized hi StatusLine cterm=NONE gui=NONE | hi StatusLineNC cterm=NONE gui=NONE
+augroup END
 
 colorscheme solarized
 

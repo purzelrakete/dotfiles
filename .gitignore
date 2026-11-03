@@ -34,3 +34,4 @@ todo.txt
 .vim/bundle/vim-copilot/copilot/dist/
 
 **/.claude/settings.local.json
+.impeccable

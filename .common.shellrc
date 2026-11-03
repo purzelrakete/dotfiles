@@ -117,9 +117,6 @@ export PATH=~/.local/bin:$PATH
 # conda
 # export PATH=$PATH:~/anaconda3/bin
 
-# flutter
-export PATH=/usr/local/flutter/bin:$PATH
-
 # ripgrep
 function rg() {
   command rg -p "$@" | less -R

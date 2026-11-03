@@ -192,3 +192,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # tex
 export PATH="/Library/TeX/texbin:$PATH"
+
+# >>> beamy task mining >>>
+# Added by Beamy Agent — remove via 'sudo /Library/Application Support/Beamy/uninstall.sh'
+[ -f ~/.beamy_shell_hooks.zsh ] && source ~/.beamy_shell_hooks.zsh
+# <<< beamy task mining <<<

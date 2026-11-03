@@ -1,13 +1,20 @@
 local util = require 'lspconfig.util'
 
-local texlab_build_status = vim.tbl_add_reverse_lookup {
+local function add_reverse_lookup(t)
+  for k, v in pairs(vim.deepcopy(t)) do
+    t[v] = k
+  end
+  return t
+end
+
+local texlab_build_status = add_reverse_lookup {
   Success = 0,
   Error = 1,
   Failure = 2,
   Cancelled = 3,
 }
 
-local texlab_forward_status = vim.tbl_add_reverse_lookup {
+local texlab_forward_status = add_reverse_lookup {
   Success = 0,
   Error = 1,
   Failure = 2,

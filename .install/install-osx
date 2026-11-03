@@ -41,7 +41,6 @@ brew install --cask \
   dropbox \
   google-chrome \
   iterm2 \
-  julia \
   r \
   rstudio \
   slack \
