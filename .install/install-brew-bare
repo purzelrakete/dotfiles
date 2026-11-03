@@ -12,8 +12,6 @@ brew install \
   golang \
   gpg \
   graphviz \
-  haskell-stack \
-  imagemagick \
   jq \
   neovim \
   pyenv \
@@ -22,4 +20,3 @@ brew install \
   terminal-notifier \
   tmux \
   tree \
-

@@ -1,0 +1,73 @@
+#!/bin/sh
+
+# amazon linux 2023 counterpart of install-brew-bare.
+#
+# most packages come from dnf. the exceptions:
+#
+# - neovim: dnf ships 0.8, but lua/lsp.lua needs vim.lsp.config (0.11+), so
+#   install the official release into ~/.local.
+# - pyenv: not packaged; clone it into ~/.pyenv, where the shell rc expects it.
+# - terminal-notifier: macos only, skipped.
+#
+# safe to re-run.
+
+set -e
+set -u
+
+# packages
+
+sudo dnf -y install \
+  ack \
+  gcc-gfortran \
+  R
+
+sudo dnf -y install \
+  coreutils \
+  figlet \
+  fzf \
+  gnupg2 \
+  golang \
+  graphviz \
+  jq \
+  ripgrep \
+  rust cargo \
+  tmux \
+  tree
+
+# pyenv build dependencies, so `pyenv install` can compile python.
+sudo dnf -y install \
+  bzip2-devel \
+  gcc \
+  libffi-devel \
+  make \
+  openssl-devel \
+  patch \
+  readline-devel \
+  sqlite-devel \
+  tk-devel \
+  xz-devel \
+  zlib-devel
+
+mkdir -p ~/.local/bin
+
+# neovim
+
+case "$(uname -m)" in
+  x86_64)  nvim_arch=x86_64 ;;
+  aarch64) nvim_arch=arm64 ;;
+  *)       echo >&2 "no neovim release for $(uname -m)"; exit 1 ;;
+esac
+
+nvim_dir=~/.local/nvim-linux-$nvim_arch
+rm -rf "$nvim_dir"
+curl -fsSL "https://github.com/neovim/neovim/releases/latest/download/nvim-linux-$nvim_arch.tar.gz" |
+  tar -xz -C ~/.local
+ln -sf "$nvim_dir/bin/nvim" ~/.local/bin/nvim
+
+# pyenv
+
+if [ -d ~/.pyenv/.git ]; then
+  git -C ~/.pyenv pull -q
+else
+  git clone -q https://github.com/pyenv/pyenv.git ~/.pyenv
+fi

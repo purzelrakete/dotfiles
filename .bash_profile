@@ -1,7 +1,7 @@
 # global
 
 export CDPATH=.:~/Projects:~/Dropbox:~/Dropbox/code:~/Projects/s*
-shopt -s globstar # bash 4.0 globs
+shopt -s globstar 2>/dev/null # bash 4.0 globs; macOS ships bash 3.2
 
 # colors
 
