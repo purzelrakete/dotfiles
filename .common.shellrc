@@ -160,6 +160,20 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
   fi
 fi
 
+# stable ssh agent socket: each ssh login gets a fresh forwarded socket, but
+# shells inside a long-lived tmux keep the one from when they started. point
+# ~/.ssh/ssh_auth_sock at the newest live socket on login, and have tmux
+# shells use the link, so they follow reattaches.
+ssh_auth_link="$HOME/.ssh/ssh_auth_sock"
+if [ -z "$TMUX" ] && [ -n "$SSH_CONNECTION" ] && [ -S "$SSH_AUTH_SOCK" ] \
+   && [ "$SSH_AUTH_SOCK" != "$ssh_auth_link" ]; then
+  mkdir -p "$HOME/.ssh" && ln -sf "$SSH_AUTH_SOCK" "$ssh_auth_link"
+fi
+if [ -n "$TMUX" ] && [ -S "$ssh_auth_link" ]; then
+  export SSH_AUTH_SOCK="$ssh_auth_link"
+fi
+unset ssh_auth_link
+
 # fix ssh agent
 function fixsshagent() {
   for s in $(ps e | sed -n  's/.*SSH_AUTH_SOCK=\([^ ]*\) .*/\1/p' | sort -u)
