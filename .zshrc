@@ -3,10 +3,13 @@
 # tools like brew and direnv print the same shell snippet every time but cost a
 # fork each to ask, which adds up to a third of startup. keep their output in a
 # cache file and source that, re-running the tool only when it is newer than
-# the cache.
+# the cache. tools that are not installed are skipped, so machines without them
+# still start cleanly.
 cache_eval() {
-  local cache=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/$1 bin=$2
+  local cache=${XDG_CACHE_HOME:-$HOME/.cache}/zsh/$1 bin=${commands[$2]:-$2}
   shift 2
+
+  [[ -x $bin ]] || return 0
 
   if [[ ! -s $cache || $bin -nt $cache ]]; then
     mkdir -p ${cache:h}
